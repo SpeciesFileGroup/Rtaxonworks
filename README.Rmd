@@ -18,7 +18,8 @@ knitr::opts_chunk$set(
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/RTaxonWorks)](https://github.com/r-hub/cranlogs.app)
 [![cran version](https://www.r-pkg.org/badges/version/RTaxonWorks)](https://cran.r-project.org/package=RTaxonWorks)
 
-`RTaxonWorks` is a R client for the TaxonWorks API
+`RTaxonWorks` is an R client for the [TaxonWorks](https://taxonworks.org) API. Code follow the spirit/approach of the Gem [rcol](https://github.com/sckott/rcol), and indeed much of the wrapping utility is copied 1:1 from that repo, thanks [@sckott](https://github.com/sckott).
+
 
 Package documentation: https://docs.taxonworks.org/r
 
@@ -26,6 +27,7 @@ Package documentation: https://docs.taxonworks.org/r
 * TaxonWorks GitHub repository: https://github.com/SpeciesFileGroup/taxonworks
 * TaxonWorks API docs: https://api.taxonworks.org
 * TaxonWorks documentation: https://docs.taxonworks.org
+
 ## Installation
 
 ```{r eval=FALSE}
@@ -39,13 +41,18 @@ library("RTaxonWorks")
 
 Dev version
 
-Read the [CONTRIBUTING guide](CONTRIBUTING.md) to install the development version.
+## Contributing
 
+Bug reports and pull requests are welcome on GitHub at https://github.com/SpeciesFileGroup/RTaxonWorks. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/SpeciesFileGroup/RTaxonWorks/blob/main/CODE_OF_CONDUCT.md).
 
+## Development
 
-## Meta
+Please read the [CONTRIBUTING guide](CONTRIBUTING.md) for instructions on how to install the development version.
 
-* Please [report any issues or bugs](https://github.com/SpeciesFileGroup/RTaxonWorks/issues).
-* License: NCSA
-* Get citation information for `RTaxonWorks` in R doing `citation(package = 'RTaxonWorks')`
-* Please note that this package is released with a [Contributor Code of Conduct](https://ropensci.org/code-of-conduct/). By contributing to this project, you agree to abide by its terms.
+## License
+
+The gem is available as open source under the terms of the [NCSA/Illinois](https://github.com/SpeciesFileGroup/RTaxonWorks/blob/main/LICENSE.txt) license. You can learn more about the NCSA license on [Wikipedia](https://en.wikipedia.org/wiki/University_of_Illinois/NCSA_Open_Source_License) and compare it with other open source licenses at the [Open Source Initiative](https://opensource.org/license/uoi-ncsa-php/).
+
+## Code of Conduct
+
+Everyone interacting in the RTaxonWorks project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/SpeciesFileGroup/RTaxonWorks/blob/main/CODE_OF_CONDUCT.md).
