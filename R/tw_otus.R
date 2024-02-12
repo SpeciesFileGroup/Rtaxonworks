@@ -52,7 +52,7 @@ tw_otus <- function(asserted_distribution_ids = NULL, biological_association_ids
     taxon_name_id = taxon_name_id, taxon_name_ids = taxon_name_ids,
     taxon_name_relationship_ids = taxon_name_relationship_ids, page = page, per = per))
 
-  tmp <- tw_GET(api_base_url(), "api/v1/otus", query = args, ...)
+  tmp <- tw_GET(api_base_url(), "/otus", query = args, ...)
   tmp <- tibble::as_tibble(tmp)
   return(tmp)
 }

@@ -97,7 +97,7 @@ tw_biological_associations <- function(biological_association_id = NULL,
     keyword_id_and = keyword_id_and, keyword_id_or = keyword_id_or, 
     tags = tags, page = page, per = per))
 
-  tmp <- tw_GET(api_base_url(), "api/v1/biological_associations", query = args, ...)
+  tmp <- tw_GET(api_base_url(), "/biological_associations", query = args, ...)
   tmp <- tibble::as_tibble(tmp)
   return(tmp)
 }
