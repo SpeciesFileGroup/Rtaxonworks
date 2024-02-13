@@ -1,15 +1,12 @@
 #' Projects
 #'
 #' @export
-#' @return list with two slots
-#' - `result` (data.frame/tibble): results, a zero row data.frame
-#' if no results found
-#' - `meta` (data.frame/tibble): number of results found
+#' @importFrom tibble as_tibble
+#' @return a list of open projects
 #' @examples
 #' tw_projects()
 tw_projects <- function() {
-  tmp <- tw_GET(api_base_url())
-  tmp$result <- tibble::as_tibble(tmp$result)
-  tmp <- tw_meta(tmp)
-  return(tmp)
+  res <- tw_GET(api_base_url())
+  df <- as_tibble(tw_list_to_df(res$open_projects))
+  return(df)
 }

@@ -7,4 +7,3 @@ test_that("tw_up", {
 
   expect_true(x)
 })
-

@@ -1,5 +1,3 @@
-"%>%" <- function(x, f) do.call(f, list(x))
-
 api_base_url <- function() {
   if (!exists("TW_API_URL", envir = globalenv())) {
     assign("TW_API_URL", "https://sfg.taxonworks.org/api/v1", envir = globalenv())
@@ -29,9 +27,9 @@ add_token_params <- function(query) {
 serialize <- function(params) {
   url_params <- c()
   for (name in names(params)) {
-    if (is.vector(params[[name]])) {
+    if (length(params[[name]]) > 1) {
       for (value in params[[name]]) {
-        url_params <- c(url_params, paste0(name, "=", URLencode(as.character(value))))
+        url_params <- c(url_params, paste0(name, "[]=", URLencode(as.character(value))))
       }
     } else {
       url_params <- c(url_params, paste0(name, "=", URLencode(as.character(params[[name]]))))
@@ -52,16 +50,24 @@ tw_ua <- function(on_gh_actions = FALSE) {
 ongha <- as.logical(Sys.getenv('ON_GH_ACTIONS', FALSE))
 tw_ual <- list(`User-Agent` = tw_ua(ongha), `X-USER-AGENT` = tw_ua(ongha))
 
-tw_GET <- function(url, path = NULL, query = list(), headers = list(),
-  opts = list(), parse=TRUE, ...) {
+#' Perform a GET request to the TaxonWorks API
+#'
+#' @importFrom httr2 request req_perform resp_body_json %>%
+#' @param url the base URL
+#' @param path the endpoint path
+#' @param query a list of query parameters
+#' @param headers a list of headers
+#' @keywords internal
+#' @return a list of JSON results
+tw_GET <- function(url, path = NULL, query = list(), headers = list(), ...) {
 
   query <- add_token_params(query)
   url_params_string <- serialize(query)
   url <- paste0(api_base_url(), path, url_params_string)
 
-  req <- httr2::request(url)
-  resp <- httr2::req_perform(req)
-  result <- resp |> httr2::resp_body_json()
+  req <- request(url)
+  resp <- req_perform(req)
+  result <- resp %>% resp_body_json()
   return(result)
 }  # TODO: need to add error handling
 

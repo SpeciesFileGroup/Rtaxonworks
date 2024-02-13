@@ -94,7 +94,7 @@ tw_taxon_names <- function(ancestors = NULL, author = NULL,
     taxon_name_type = taxon_name_type, type_metadata = type_metadata, validity = validity, 
     year = year, year_end = year_end, year_start = year_start, page = page, per = per))
 
-  tmp <- tw_GET(api_base_url(), "/taxon_names", body = args, ...)
-  tmp <- tibble::as_tibble(tmp)
-  return(tmp)
+  res <- tw_GET(api_base_url(), "/taxon_names", body = args, ...)
+  df <- tibble::as_tibble(tw_list_to_df(res))
+  return(df)
 }

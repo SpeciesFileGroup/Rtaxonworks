@@ -19,7 +19,6 @@ Encoding: UTF-8
 Language: en-US
 Imports:
     httr2,
-    magrittr,
     tibble,
     jsonlite,
     data.table,

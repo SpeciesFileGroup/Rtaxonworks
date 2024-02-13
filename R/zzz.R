@@ -26,6 +26,15 @@ tw_meta <- function(x) {
   return(x)
 }
 
+tw_list_to_df <- function(my_list) {
+  df <- data.frame()
+  for(i in seq_along(my_list)) {
+    row_df <- as.data.frame(t(sapply(my_list[[i]], function(x) if(is.null(x)) NA else x)), stringsAsFactors = FALSE)
+    df <- rbind(df, row_df)
+  }
+  return(df)
+}
+
 move_cols <- function(x, cols) {
   colz <- c(cols, names(x)[!names(x) %in% cols])
   x[colz[colz %in% names(x)]]
