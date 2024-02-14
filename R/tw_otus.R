@@ -1,6 +1,7 @@
 #' Otus
 #'
 #' @export
+#' @importFrom tibble as_tibble
 #' @param asserted_distribution_ids (string) filter by asserted distribution ids
 #' @param biological_association_ids (string) filter by biological association ids
 #' @param citations (boolean) filter by otus with citations
@@ -27,7 +28,9 @@
 #' @template args
 #' @return list
 #' @examples
+#' \dontrun{
 #' tw_otus()
+#' }
 tw_otus <- function(asserted_distribution_ids = NULL, biological_association_ids = NULL,
   citations = NULL, citations_documents = NULL, data_attribute_exact_value = NULL,
   data_attribute_predicate_id = NULL, data_attribute_value = NULL, data_attributes = NULL,
@@ -53,6 +56,6 @@ tw_otus <- function(asserted_distribution_ids = NULL, biological_association_ids
     taxon_name_relationship_ids = taxon_name_relationship_ids, page = page, per = per))
 
   res <- tw_GET(api_base_url(), "/otus", query = args, ...)
-  df <- tibble::as_tibble(tw_list_to_df(res))
+  df <- as_tibble(tw_list_to_df(res))
   return(df)
 }

@@ -166,5 +166,7 @@ list
 Taxon Names
 }
 \examples{
+\dontrun{
 tw_taxon_names(name="Lycorma delicatula", valid=TRUE)
+}
 }

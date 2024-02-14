@@ -13,5 +13,7 @@ a list of open projects
 Projects
 }
 \examples{
+\dontrun{
 tw_projects()
+}
 }

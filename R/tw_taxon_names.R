@@ -1,6 +1,7 @@
 #' Taxon Names
 #'
 #' @export
+#' @importFrom tibble as_tibble
 #' @param ancestors (boolean) include ancestors
 #' @param author (string) filter by cached_author_year
 #' @param author_exact (boolean) filter by exact match on cached_author_year
@@ -50,7 +51,9 @@
 #' @template args
 #' @return list
 #' @examples
+#' \dontrun{
 #' tw_taxon_names(name="Lycorma delicatula", valid=TRUE)
+#' }
 tw_taxon_names <- function(ancestors = NULL, author = NULL, 
   author_exact = NULL, authors = NULL, citations = NULL,
   citation_documents = NULL, collecting_event_id = NULL,
@@ -95,6 +98,6 @@ tw_taxon_names <- function(ancestors = NULL, author = NULL,
     year = year, year_end = year_end, year_start = year_start, page = page, per = per))
 
   res <- tw_GET(api_base_url(), "/taxon_names", body = args, ...)
-  df <- tibble::as_tibble(tw_list_to_df(res))
+  df <- as_tibble(tw_list_to_df(res))
   return(df)
 }

@@ -1,6 +1,7 @@
 #' Biological Associations
 #'
 #' @export
+#' @importFrom tibble as_tibble
 #' @param biological_association_id (integer) filter by biological association id
 #' @param biological_associations_graph_id (integer) filter by biological associations graph id
 #' @param biological_relationship_id (integer) filter by biological relationship id
@@ -45,7 +46,9 @@
 #' @template args
 #' @return list
 #' @examples
+#' \dontrun{
 #' tw_biological_associations()
+#' }
 tw_biological_associations <- function(biological_association_id = NULL, 
   biological_associations_graph_id = NULL, biological_relationship_id = NULL, 
   collecting_event_id = NULL, collection_object_id = NULL, descendants = NULL, 
@@ -98,6 +101,6 @@ tw_biological_associations <- function(biological_association_id = NULL,
     tags = tags, page = page, per = per))
 
   res <- tw_GET(api_base_url(), "/biological_associations", query = args, ...)
-  df <- tibble::as_tibble(tw_list_to_df(res))
+  df <- as_tibble(tw_list_to_df(res))
   return(df)
 }

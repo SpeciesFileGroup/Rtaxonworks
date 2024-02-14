@@ -151,5 +151,7 @@ list
 Biological Associations
 }
 \examples{
+\dontrun{
 tw_biological_associations()
+}
 }

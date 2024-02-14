@@ -99,5 +99,7 @@ list
 Otus
 }
 \examples{
+\dontrun{
 tw_otus()
+}
 }
