@@ -2,6 +2,7 @@
 % Please edit documentation in R/tw_biological_associations.R
 \name{tw_biological_associations}
 \alias{tw_biological_associations}
+\alias{tw_ba}
 \title{Biological Associations}
 \usage{
 tw_biological_associations(
@@ -46,6 +47,57 @@ tw_biological_associations(
   keyword_id_and = NULL,
   keyword_id_or = NULL,
   tags = NULL,
+  token = NULL,
+  project_token = NULL,
+  page = 0,
+  per = 50,
+  ...
+)
+
+tw_ba(
+  biological_association_id = NULL,
+  biological_associations_graph_id = NULL,
+  biological_relationship_id = NULL,
+  collecting_event_id = NULL,
+  collection_object_id = NULL,
+  descendants = NULL,
+  exclude_taxon_name_relationship = NULL,
+  geo_json = NULL,
+  geographic_area_id = NULL,
+  geographic_area_mode = NULL,
+  object_biological_property_id = NULL,
+  object_object_global_id = NULL,
+  object_taxon_name_id = NULL,
+  object_type = NULL,
+  otu_id = NULL,
+  subject_biological_property_id = NULL,
+  subject_object_global_id = NULL,
+  subject_taxon_name_id = NULL,
+  subject_type = NULL,
+  taxon_name_id = NULL,
+  taxon_name_id_mode = NULL,
+  wkt = NULL,
+  citations = NULL,
+  citation_documents = NULL,
+  origin_citation = NULL,
+  identifier = NULL,
+  identifier_end = NULL,
+  identifier_exact = NULL,
+  identifier_start = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  local_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  namespace_id = NULL,
+  note_exact = NULL,
+  note_text = NULL,
+  notes = NULL,
+  keyword_id_and = NULL,
+  keyword_id_or = NULL,
+  tags = NULL,
+  token = NULL,
+  project_token = NULL,
   page = 0,
   per = 50,
   ...
@@ -116,9 +168,9 @@ tw_biological_associations(
 
 \item{local_identifiers}{(boolean) filter by biological associations with local identifiers}
 
-\item{match_identifiers_delimiter}{(string) A list delimiter, defaults to ','. Is applied to match_identifiers to build an Array. Any reference is possible. '\t' is translated to "\t" '\n' is translated to "\n"}
+\item{match_identifiers_delimiter}{(string) A list delimiter}
 
-\item{match_identifiers_type}{(string) one of 'internal' or 'identifier' if 'internal' then references the internal id of the object}
+\item{match_identifiers_type}{(string) one of 'internal' or 'identifier', if 'internal' then references the internal id of the object}
 
 \item{namespace_id}{(integer) filter by namespace id}
 
@@ -134,20 +186,22 @@ tw_biological_associations(
 
 \item{tags}{(boolean) filter by biological associations with tags}
 
+\item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
+
+\item{project_token}{(string) a project token (set with the TW_PROJECT_TOKEN environment variable)}
+
 \item{page}{(integer) requested number of offset records (Default: 0)}
 
 \item{per}{(integer) requested number of maximum records to be returned (Default: 50, Maximum: 10000)}
 
 \item{...}{curl options passed on to \code{\link[httr2]{verb-GET}}}
-
-\item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
-
-\item{project_token}{(string) a project token (set with the TW_PROJECT_TOKEN environment variable)}
 }
 \value{
 list
 }
 \description{
+Biological Associations
+
 Biological Associations
 }
 \examples{

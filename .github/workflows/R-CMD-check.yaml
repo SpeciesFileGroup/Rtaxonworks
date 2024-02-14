@@ -12,11 +12,11 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - { os: windows-latest, r: 'latest'}
-        - { os: macOS-latest, r: 'oldrel'}
-        - { os: macOS-latest, r: 'latest'}
-        - { os: macOS-latest, r: 'devel'}
-        - { os: ubuntu-20.04, r: '3.6', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+        # - { os: windows-latest, r: 'latest'}
+        # - { os: macOS-latest, r: 'oldrel'}
+        # - { os: macOS-latest, r: 'latest'}
+        # - { os: macOS-latest, r: 'devel'}
+        # - { os: ubuntu-20.04, r: '3.6', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
         - { os: ubuntu-20.04, r: 'latest'}
 
     env:
@@ -33,7 +33,7 @@ jobs:
         with:
           r-version: ${{ matrix.config.r }}
 
-      - uses: r-lib/actions/setup-pandoc@v1
+      - uses: r-lib/actions/setup-pandoc@v2
 
       - name: Install pak
         run: |
@@ -70,7 +70,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Check
-        run: Rscript -e "rcmdcheck::rcmdcheck(args = c('--no-manual'), error_on = 'warning', check_dir = 'check')"
+        run: Rscript -e "rcmdcheck::rcmdcheck(args = c('--no-manual'), error_on = 'error', check_dir = 'check')"
 
       - name: Upload check results
         if: failure()

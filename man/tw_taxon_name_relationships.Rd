@@ -2,6 +2,7 @@
 % Please edit documentation in R/tw_taxon_name_relationships.R
 \name{tw_taxon_name_relationships}
 \alias{tw_taxon_name_relationships}
+\alias{tw_tnr}
 \title{Taxon Name Relationships}
 \usage{
 tw_taxon_name_relationships(
@@ -10,6 +11,21 @@ tw_taxon_name_relationships(
   taxon_name_id = NULL,
   taxon_name_relationship_set = NULL,
   taxon_name_relationship_type = NULL,
+  token = NULL,
+  project_token = NULL,
+  page = 0,
+  per = 50,
+  ...
+)
+
+tw_tnr(
+  object_taxon_name_id = NULL,
+  subject_taxon_name_id = NULL,
+  taxon_name_id = NULL,
+  taxon_name_relationship_set = NULL,
+  taxon_name_relationship_type = NULL,
+  token = NULL,
+  project_token = NULL,
   page = 0,
   per = 50,
   ...
@@ -26,20 +42,22 @@ tw_taxon_name_relationships(
 
 \item{taxon_name_relationship_type}{(string, vector) filter by taxon name relationship type (e.g., TaxonNameRelationship::Iczn::Invalidating)}
 
+\item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
+
+\item{project_token}{(string) a project token (set with the TW_PROJECT_TOKEN environment variable)}
+
 \item{page}{(integer) requested number of offset records (Default: 0)}
 
 \item{per}{(integer) requested number of maximum records to be returned (Default: 50, Maximum: 10000)}
 
 \item{...}{curl options passed on to \code{\link[httr2]{verb-GET}}}
-
-\item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
-
-\item{project_token}{(string) a project token (set with the TW_PROJECT_TOKEN environment variable)}
 }
 \value{
 list
 }
 \description{
+Taxon Name Relationships
+
 Taxon Name Relationships
 }
 \examples{

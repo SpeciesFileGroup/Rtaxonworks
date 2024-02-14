@@ -2,12 +2,26 @@
 % Please edit documentation in R/tw_taxon_name_classifications.R
 \name{tw_taxon_name_classifications}
 \alias{tw_taxon_name_classifications}
+\alias{tw_tnc}
 \title{Taxon Name Classifications}
 \usage{
 tw_taxon_name_classifications(
   taxon_name_id = NULL,
   taxon_name_classification_type = NULL,
   taxon_name_classification_set = NULL,
+  token = NULL,
+  project_token = NULL,
+  page = 0,
+  per = 50,
+  ...
+)
+
+tw_tnc(
+  taxon_name_id = NULL,
+  taxon_name_classification_type = NULL,
+  taxon_name_classification_set = NULL,
+  token = NULL,
+  project_token = NULL,
   page = 0,
   per = 50,
   ...
@@ -20,20 +34,22 @@ tw_taxon_name_classifications(
 
 \item{taxon_name_classification_set}{(string, vector) filter by taxon name classification set ('validating', 'invalidating', 'exceptions')}
 
+\item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
+
+\item{project_token}{(string) a project token (set with the TW_PROJECT_TOKEN environment variable)}
+
 \item{page}{(integer) requested number of offset records (Default: 0)}
 
 \item{per}{(integer) requested number of maximum records to be returned (Default: 50, Maximum: 10000)}
 
 \item{...}{curl options passed on to \code{\link[httr2]{verb-GET}}}
-
-\item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
-
-\item{project_token}{(string) a project token (set with the TW_PROJECT_TOKEN environment variable)}
 }
 \value{
 list
 }
 \description{
+Taxon Name Classifications
+
 Taxon Name Classifications
 }
 \examples{

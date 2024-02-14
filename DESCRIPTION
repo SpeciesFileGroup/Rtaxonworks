@@ -11,7 +11,7 @@ Authors@R: c(person("Geoff", "Ower", role = c("aut", "cre"),
     email = "gdower@illinois.edu",
     comment = c(ORCID = "0000-0002-9770-2345")),
     person(given = "Species File Group", role = "fnd", comment = "https://speciesfilegroup.org/"))
-License: NCSA
+License: file LICENSE
 URL: https://docs.ropensci.org/rtaxonworks/ (docs), https://github.com/SpeciesFileGroup/rtaxonworks
 BugReports: https://github.com/SpeciesFileGroup/rtaxonworks/issues
 Roxygen: list(markdown = TRUE)
@@ -21,8 +21,7 @@ Imports:
     httr2,
     tibble,
     jsonlite,
-    data.table,
-    glue
+    data.table
 Suggests:
     testthat,
     vcr
