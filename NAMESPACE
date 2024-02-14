@@ -3,6 +3,7 @@
 export(tw_biological_associations)
 export(tw_otus)
 export(tw_projects)
+export(tw_taxon_name_relationships)
 export(tw_taxon_names)
 export(tw_up)
 importFrom(httr2,"%>%")
