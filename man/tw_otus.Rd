@@ -84,7 +84,7 @@ tw_otus(
 
 \item{per}{(integer) requested number of maximum records to be returned (Default: 50, Maximum: 10000)}
 
-\item{...}{curl options passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{curl options passed on to \code{\link[httr2]{verb-GET}}}
 
 \item{taxon_name_relationship_id}{(string) filter by taxon name relationship ids}
 

@@ -153,7 +153,7 @@ tw_taxon_names(
 
 \item{per}{(integer) requested number of maximum records to be returned (Default: 50, Maximum: 10000)}
 
-\item{...}{curl options passed on to \code{\link[crul]{verb-GET}}}
+\item{...}{curl options passed on to \code{\link[httr2]{verb-GET}}}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 

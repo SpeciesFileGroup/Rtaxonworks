@@ -5,5 +5,5 @@ test_that("tw_projects", {
     x <- tw_projects()
   })
 
-  expect_true(x$meta$success)
+  expect_equal(names(x)[1], "name")
 })

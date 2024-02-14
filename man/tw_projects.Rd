@@ -7,12 +7,7 @@
 tw_projects()
 }
 \value{
-list with two slots
-\itemize{
-\item \code{result} (data.frame/tibble): results, a zero row data.frame
-if no results found
-\item \code{meta} (data.frame/tibble): number of results found
-}
+a list of open projects
 }
 \description{
 Projects

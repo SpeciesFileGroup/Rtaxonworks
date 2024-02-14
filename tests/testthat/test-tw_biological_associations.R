@@ -9,3 +9,14 @@ test_that("tw_biological_associations", {
   })
   expect_equal(x$base_class[1], 'BiologicalAssociation')
 })
+
+test_that("tw_biological_associations_array_params", {
+  vcr::use_cassette("tw_biological_associations_array_params", {
+    assign("TW_API_URL", "https://sandbox.taxonworks.org/api/v1", envir = .GlobalEnv)
+    assign("TW_PROJECT_TOKEN", Sys.getenv("TW_PROJECT_TOKEN"), envir = .GlobalEnv)
+    assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
+    one <- nrow(tw_biological_associations(otu_id=c(112685)))
+    two <- nrow(tw_biological_associations(otu_id=c(112685, 112699)))
+  })
+  expect_true(one < two)
+})

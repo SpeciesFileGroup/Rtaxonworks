@@ -3,7 +3,7 @@
 Install the package dependencies:
 
 ```{r eval=FALSE}
-install.packages('devtools', 'roxygen2', 'profvis', 'crul', 'vcr')
+install.packages('devtools', 'roxygen2', 'profvis', 'httr2', 'vcr')
 ```
 
 Install the development version of the RTaxonWorks package:
@@ -30,6 +30,6 @@ Note that the command `remotes::install_github` won't be available until you at 
 After that you may still need to install the remaining dependency packages:
 
 ```{r eval=FALSE}
-install.packages('crul', 'vcr')
+install.packages('httr2', 'vcr')
 ```
 
