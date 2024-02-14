@@ -101,3 +101,62 @@ tw_taxon_names <- function(ancestors = NULL, author = NULL,
   df <- as_tibble(tw_list_to_df(res))
   return(df)
 }
+
+
+#' Taxon Names
+#'
+#' @export
+#' @importFrom tibble as_tibble
+#' @param ancestors (boolean) include ancestors
+#' @param author (string) filter by cached_author_year
+#' @param author_exact (boolean) filter by exact match on cached_author_year
+#' @param authors (boolean) filter by taxon names that have an author string present
+#' @param citations (boolean) filter by taxon names with citations
+#' @param citation_documents (boolean) filter by taxon names with citation documents
+#' @param collecting_event_id (integer) filter by collecting event id
+#' @param collection_object_id (integer) filter by collection object id
+#' @param combination_taxon_name_id (integer) filter by combination taxon name id
+#' @param data_attribute_exact_value (boolean) filter by exact match on data attribute value
+#' @param data_attribute_predicate_id (integer) filter by data attribute predicate id
+#' @param data_attribute_value (string) filter by data attribute value
+#' @param data_attributes (boolean) filter by taxon names that have 1 or more data attributes
+#' @param descendants (boolean) include descendants
+#' @param descendants_max_depth (integer) maximum depth of descendants to include
+#' @param etymology (boolean) filter by taxon names with etymology
+#' @param exact (boolean) filter by exact match on name
+#' @param image_id (integer) filter by taxon names associated with an image id
+#' @param images (boolean) filter by taxon names with images
+#' @param keyword_id_and (integer) filter by keyword id with and operator
+#' @param keyword_id_or (integer) filter by keyword id with or operator
+#' @param leaves (boolean) filiter by names having no descendants
+#' @param name (string) filter by name
+#' @param name_exact (boolean) filter by exact match on name
+#' @param note_exact (boolean) filter by exact match on note
+#' @param note_text (string) filter by note text
+#' @param notes (boolean) filter by taxon names with notes
+#' @param nomenclatural_code (string) filter by nomenclatural code
+#' @param nomenclature_group (string) filter by nomenclature group
+#' @param not_specified (boolean) filter by whether the name has NOT SPECIFIED in one of the cached values
+#' @param origin_citation (boolean) filter by taxon names with an origin citation
+#' @param original_combination (boolean) filter by names with at least one element of the original combination
+#' @param otus (boolean) filter by names that have one or more Otus
+#' @param parent_id (integer) filter by parent id
+#' @param rank (string) filter by rank class (e.g., NomenclaturalRank::Iczn::SpeciesGroup::Species)
+#' @param tags (boolean) filter by taxon names with tags
+#' @param taxon_name_author_id_or (boolean)
+#' @param taxon_name_id (integer) filter by taxon name id
+#' @param taxon_name_relationship (string) filter by taxon name relationship
+#' @param taxon_name_relationship_type (string) filter by taxon name relationship type (e.g., TaxonNameRelationship::Iczn::Invalidating)
+#' @param taxon_name_type (string) filter by taxon name type (e.g., Protonym, Combination, Hybrid)
+#' @param type_metadata (boolean) filter by taxon names that are linked to type specimen material
+#' @param validity (boolean) filter by taxon names that are valid
+#' @param year (integer) filter by authority year in the cached_author_year field
+#' @param year_end (integer) filter by taxon names with the cached_author_year field less than or equal to this value
+#' @param year_start (integer) filter by taxon names with the cached_author_year field greater than or equal to this value
+#' @template args
+#' @return list
+#' @examples
+#' \dontrun{
+#' tw_taxon_names(name="Lycorma delicatula", valid=TRUE)
+#' }
+tw_tn <- tw_taxon_names

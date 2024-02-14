@@ -59,3 +59,39 @@ tw_otus <- function(asserted_distribution_ids = NULL, biological_association_ids
   df <- as_tibble(tw_list_to_df(res))
   return(df)
 }
+
+
+#' Otus
+#'
+#' @export
+#' @importFrom tibble as_tibble
+#' @param asserted_distribution_ids (string) filter by asserted distribution ids
+#' @param biological_association_ids (string) filter by biological association ids
+#' @param citations (boolean) filter by otus with citations
+#' @param citations_documents (boolean) filter by otus with citation documents
+#' @param data_attribute_exact_value (boolean) require exact match on data attribute value
+#' @param data_attribute_predicate_id (integer) filter by data attribute predicate id
+#' @param data_attribute_value (string) filter by data attribute value
+#' @param data_attributes (boolean) filter by otus with data attributes
+#' @param data_attributes_attributes (string) filter by data attributes attributes
+#' @param image_id (integer) filter by image id
+#' @param images (boolean) filter by otus with images
+#' @param keyword_id_and (integer) filter by keyword id with and operator
+#' @param keyword_id_or (integer) filter by keyword id with or operator
+#' @param name (string) filter by name
+#' @param note_exact (boolean) require exact match on note text
+#' @param note_text (string) filter by note text
+#' @param notes (boolean) filter by otus with notes
+#' @param origin_citations (boolean) filter by otus with origin citations
+#' @param otu_id (integer) filter by otu id
+#' @param tags (boolean) filter by otus with tags
+#' @param taxon_name_classification_ids (string) filter by taxon name classification ids
+#' @param taxon_name_id (integer) filter by taxon name id
+#' @param taxon_name_relationship_id (string) filter by taxon name relationship ids
+#' @template args
+#' @return list
+#' @examples
+#' \dontrun{
+#' tw_otus()
+#' }
+tw_otu <- tw_otus

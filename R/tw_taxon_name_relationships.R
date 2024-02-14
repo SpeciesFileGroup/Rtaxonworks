@@ -34,4 +34,18 @@ tw_taxon_name_relationships <- function(object_taxon_name_id = NULL,
   return(df)
 }
 
+
+#' Taxon Name Relationships
+#'
+#' @export
+#' @importFrom tibble as_tibble
+#' @param object_taxon_name_id (integer, vector) filter by object taxon name id
+#' @param subject_taxon_name_id (integer, vector) filter by subject taxon name id
+#' @param taxon_name_id (integer, vector) filter by taxon name id
+#' @param taxon_name_relationship_set (string) filter by taxon name relationship set ('validating', 'invalidating', 'exceptions')
+#' @param taxon_name_relationship_type (string, vector) filter by taxon name relationship type (e.g., TaxonNameRelationship::Iczn::Invalidating)
+#' @param page (integer) page number
+#' @param per (integer) number of records per page
+#' @template args
+#' @return list
 tw_tnr <- tw_taxon_name_relationships

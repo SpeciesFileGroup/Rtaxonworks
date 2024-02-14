@@ -104,3 +104,57 @@ tw_biological_associations <- function(biological_association_id = NULL,
   df <- as_tibble(tw_list_to_df(res))
   return(df)
 }
+
+
+#' Biological Associations
+#'
+#' @export
+#' @importFrom tibble as_tibble
+#' @param biological_association_id (integer) filter by biological association id
+#' @param biological_associations_graph_id (integer) filter by biological associations graph id
+#' @param biological_relationship_id (integer) filter by biological relationship id
+#' @param collecting_event_id (integer) filter by collecting event id
+#' @param collection_object_id (integer) filter by collection object id
+#' @param descendants (boolean) include descendants
+#' @param exclude_taxon_name_relationship (boolean) exclude taxon name relationship
+#' @param geo_json (boolean) return result as geojson
+#' @param geographic_area_id (integer) filter by geographic area id
+#' @param geographic_area_mode (boolean)
+#' @param object_biological_property_id (integer) filter by object biological property id
+#' @param object_object_global_id (integer) filter by object object global id
+#' @param object_taxon_name_id (integer) filter by object taxon name id
+#' @param object_type (string) filter by object type (Otu, CollectionObject)
+#' @param otu_id (integer) filter by otu id
+#' @param subject_biological_property_id (integer) filter by subject biological property id
+#' @param subject_object_global_id (integer) filter by subject object global id
+#' @param subject_taxon_name_id (integer) filter by subject taxon name id
+#' @param subject_type (string) filter by subject type (Otu, CollectionObject)
+#' @param taxon_name_id (integer) filter by taxon name id
+#' @param taxon_name_id_mode (boolean)
+#' @param wkt (string) WKT shape to search for biological associations
+#' @param citations (boolean) filter by biological associations with citations
+#' @param citation_documents (boolean) filter by biological associations with citation documents
+#' @param origin_citation (boolean) filter by biological associations with an origin citation
+#' @param identifier (string) filter by biological association identifier
+#' @param identifier_end (string) filter by biological association identifier end
+#' @param identifier_exact (boolean) filter by exact match on biological association identifier
+#' @param identifier_start (string) filter by biological association identifier start
+#' @param identifier_type (string) filter by biological association identifier class type (e.g., "Identifier::Local::CatalogNumber")
+#' @param identifiers (boolean) filter by biological associations with identifiers
+#' @param local_identifiers (boolean) filter by biological associations with local identifiers
+#' @param match_identifiers_delimiter (string) A list delimiter, defaults to ','. Is applied to match_identifiers to build an Array. Any reference is possible. '\t' is translated to "\t" '\n' is translated to "\n"
+#' @param match_identifiers_type (string) one of 'internal' or 'identifier' if 'internal' then references the internal id of the object
+#' @param namespace_id (integer) filter by namespace id
+#' @param note_exact (boolean) filter by exact match on note
+#' @param note_text (string) filter by note text
+#' @param notes (boolean) filter by biological associations with notes
+#' @param keyword_id_and (integer) filter by keyword id with and operator
+#' @param keyword_id_or (integer) filter by keyword id with or operator
+#' @param tags (boolean) filter by biological associations with tags
+#' @template args
+#' @return list
+#' @examples
+#' \dontrun{
+#' tw_biological_associations()
+#' }
+tw_ba <- tw_biological_associations
