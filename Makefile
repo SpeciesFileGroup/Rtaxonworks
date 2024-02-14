@@ -32,7 +32,7 @@ test:
 
 vign:
 	cd vignettes;\
-	${RSCRIPT} -e "Sys.setenv(NOT_CRAN='true'); knitr::knit('RTaxonWorks.Rmd.og', output = 'RTaxonWorks.Rmd')";\
+	${RSCRIPT} -e "Sys.setenv(NOT_CRAN='true'); knitr::knit('rtaxonworks.Rmd.og', output = 'rtaxonworks.Rmd')";\
 	cd ..
 
 # update api spec and params in functions

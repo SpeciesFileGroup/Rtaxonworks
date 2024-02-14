@@ -1,26 +1,21 @@
 ---
-title: "RTaxonWorks"
+title: "rtaxonworks"
 author: "Geoff Ower"
-date: "`r Sys.Date()`"
+date: "2024-02-12"
 output:
   html_document:
     toc: true
     toc_float: true
     theme: readable
 vignette: >
-  %\VignetteIndexEntry{Introduction to RTaxonWorks}
+  %\VignetteIndexEntry{Introduction to rtaxonworks}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
 
-`RTaxonWorks` is a R client for the TaxonWorks API
+
+`rtaxonworks` is a R client for the TaxonWorks API
 
 Package documentation: https://docs.taxonworks.org/r
 
@@ -34,10 +29,12 @@ The following are a few examples.
 
 ## Installation
 
-```{r eval=FALSE}
-remotes::install_github("SpeciesFileGroup/RTaxonWorks")
+
+```r
+remotes::install_github("SpeciesFileGroup/rtaxonworks")
 ```
 
-```{r}
-library("RTaxonWorks")
+
+```r
+library("rtaxonworks")
 ```

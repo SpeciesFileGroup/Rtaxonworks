@@ -43,7 +43,7 @@ serialize <- function(params) {
 tw_ua <- function(on_gh_actions = FALSE) {
   versions <- c(paste0("r-curl/", utils::packageVersion("curl")),
     paste0("httr2/", utils::packageVersion("httr2")),
-    sprintf("SpeciesFileGroup(RTaxonWorks/%s)", utils::packageVersion("RTaxonWorks")))
+    sprintf("SpeciesFileGroup(rtaxonworks/%s)", utils::packageVersion("rtaxonworks")))
   if (on_gh_actions) versions <- c(versions, "GitHub Actions")
   paste0(versions, collapse = " ")
 }

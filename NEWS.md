@@ -1,4 +1,4 @@
-RTaxonWorks 0.0.1
+rtaxonworks 0.0.1
 ==========
 
 ### NEW FEATURES

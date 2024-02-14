@@ -6,9 +6,9 @@ Install the package dependencies:
 install.packages('devtools', 'roxygen2', 'profvis', 'httr2', 'vcr')
 ```
 
-Install the development version of the RTaxonWorks package:
+Install the development version of the rtaxonworks package:
 ```{r eval=FALSE}
-remotes::install_github("SpeciesFileGroup/RTaxonWorks")
+remotes::install_github("SpeciesFileGroup/rtaxonworks")
 ```
 
 

@@ -4,12 +4,12 @@
     "http://schema.org"
   ],
   "@type": "SoftwareSourceCode",
-  "identifier": "RTaxonWorks",
+  "identifier": "rtaxonworks",
   "description": "Client for TaxonWorks\n    (<https://www.taxonworks.org/>); a web application for managing biodiversity data, in particular taxonomic data. TaxonWorks is a Rails application, and this package provides an R interface to the TaxonWorks API.",
-  "name": "RTaxonWorks: TaxonWorks Client",
-  "codeRepository": "https://github.com/SpeciesFileGroup/RTaxonWorks",
+  "name": "rtaxonworks: TaxonWorks Client",
+  "codeRepository": "https://github.com/SpeciesFileGroup/rtaxonworks",
   "relatedLink": "https://api.taxonworks.org",
-  "issueTracker": "https://github.com/SpeciesFileGroup/RTaxonWorks/issues",
+  "issueTracker": "https://github.com/SpeciesFileGroup/rtaxonworks/issues",
   "license": "https://spdx.org/licenses/NCSA",
   "version": "0.0.1",
   "programmingLanguage": {
@@ -135,8 +135,8 @@
   "applicationCategory": "Biology",
   "isPartOf": "https://taxonworks.org",
   "keywords": ["biology", "science", "API", "web", "api-client", "taxonomy", "species", "rstats", "r"],
-  "releaseNotes": "https://github.com/SpeciesFileGroup/RTaxonWorks/blob/master/NEWS.md",
-  "readme": "https://github.com/SpeciesFileGroup/RTaxonWorks/blob/master/README.md",
+  "releaseNotes": "https://github.com/SpeciesFileGroup/rtaxonworks/blob/master/NEWS.md",
+  "readme": "https://github.com/SpeciesFileGroup/rtaxonworks/blob/master/README.md",
   "fileSize": "212.515KB",
   "provider": {
     "@id": "https://cran.r-project.org",
