@@ -2,6 +2,8 @@
 
 export(tw_ba)
 export(tw_biological_associations)
+export(tw_co)
+export(tw_collection_objects)
 export(tw_otu)
 export(tw_otus)
 export(tw_projects)
