@@ -99,7 +99,7 @@ tw_taxon_names <- function(ancestors = NULL, author = NULL,
     year = year, year_end = year_end, year_start = year_start, 
     token = token, project_token = project_token, page = page, per = per))
 
-  res <- tw_GET(api_base_url(), "/taxon_names", body = args, ...)
+  res <- tw_GET(api_base_url(), "/taxon_names", query = args, ...)
   df <- as_tibble(tw_list_to_df(res))
   return(df)
 }
