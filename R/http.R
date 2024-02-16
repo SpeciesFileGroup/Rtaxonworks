@@ -59,20 +59,35 @@ tw_ual <- list(`User-Agent` = tw_ua(ongha), `X-USER-AGENT` = tw_ua(ongha))
 #' @param headers a list of headers
 #' @keywords internal
 #' @return a list of JSON results
-tw_GET <- function(url, path = NULL, query = list(), headers = list(), ...) {
-
-  browser()
-  # if token and project_token are null then add them to the query
+tw_GET <- function(url, path = NULL, query = list(), headers = list(), csv = TRUE, ...) {
+  
+  # if token and project_token query parameters are null then add tokens from global environment
   if (is.null(query$token) && is.null(query$project_token)) {
     query <- add_token_params(query)
   }
+  
+  # Check if csv parameter is set to TRUE
+  if (csv) {
+    query$page <- NULL
+    query$per <- NULL
+    
+    path <- paste0(path, ".csv")
+        url_params_string <- serialize(query)
+    url <- paste0(api_base_url(), path, url_params_string)
+    
+    cat("\033[38;2;0;204;146mGET ", url, "\033[0m\n", sep = "")
+    result <- read.csv(url, sep='\t', header=TRUE, stringsAsFactors=FALSE, na.strings = c("", "NA"))
+    return(result)
+  }
+  
   url_params_string <- serialize(query)
   url <- paste0(api_base_url(), path, url_params_string)
-
+  
   req <- request(url)
+  cat("\033[38;2;0;204;146mGET ", url, "\033[0m\n", sep = "")
   resp <- req_perform(req)
   result <- resp %>% resp_body_json()
-  return(result)
+  return(tw_list_to_df(result))
 }  # TODO: need to add error handling
 
 

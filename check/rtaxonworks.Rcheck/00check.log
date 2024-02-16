@@ -1,4 +1,4 @@
-* using log directory ‘/home/gdo/data/contrib/rtaxonworks/check/rtaxonworks.Rcheck’
+* using log directory ‘/home/gdo/contrib/rtw/check/rtaxonworks.Rcheck’
 * using R version 4.3.2 (2023-10-31)
 * using platform: x86_64-pc-linux-gnu (64-bit)
 * R was compiled by
@@ -50,6 +50,9 @@ to your NAMESPACE file.
 * checking Rd metadata ... OK
 * checking Rd cross-references ... WARNING
 Missing link or links in documentation object 'tw_biological_associations.Rd':
+  ‘[httr2]{verb-GET}’
+
+Missing link or links in documentation object 'tw_collection_objects.Rd':
   ‘[httr2]{verb-GET}’
 
 Missing link or links in documentation object 'tw_otus.Rd':

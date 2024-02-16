@@ -43,6 +43,24 @@ Type 'q()' to quit R.
 > 
 > 
 > cleanEx()
+> nameEx("tw_collection_objects")
+> ### * tw_collection_objects
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: tw_collection_objects
+> ### Title: Collection objects
+> ### Aliases: tw_collection_objects tw_co
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D tw_taxon_names(name="Lycorma delicatula", valid=TRUE)
+> ## End(Not run)
+> 
+> 
+> 
+> cleanEx()
 > nameEx("tw_otus")
 > ### * tw_otus
 > 
@@ -137,7 +155,7 @@ Type 'q()' to quit R.
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.175 0.006 0.182 0 0 
+Time elapsed:  0.444 0.01 0.459 0 0 
 > grDevices::dev.off()
 null device 
           1 

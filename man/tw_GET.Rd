@@ -4,7 +4,7 @@
 \alias{tw_GET}
 \title{Perform a GET request to the TaxonWorks API}
 \usage{
-tw_GET(url, path = NULL, query = list(), headers = list(), ...)
+tw_GET(url, path = NULL, query = list(), headers = list(), csv = TRUE, ...)
 }
 \arguments{
 \item{url}{the base URL}

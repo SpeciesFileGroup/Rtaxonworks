@@ -69,7 +69,7 @@ tw_taxon_names <- function(ancestors = NULL, author = NULL,
   tags = NULL, taxon_name_author_id_or = NULL, taxon_name_id = NULL,
   taxon_name_relationship = NULL, taxon_name_relationship_type = NULL,
   taxon_name_type = NULL, type_metadata = NULL, validity = NULL, year = NULL,
-  year_end = NULL, year_start = NULL, token = NULL, project_token = NULL, 
+  year_end = NULL, year_start = NULL, csv = TRUE, token = NULL, project_token = NULL, 
   page = 0, per = 50, ...) {
   
   assert(page, c("numeric", "integer"))
@@ -99,8 +99,8 @@ tw_taxon_names <- function(ancestors = NULL, author = NULL,
     year = year, year_end = year_end, year_start = year_start, 
     token = token, project_token = project_token, page = page, per = per))
 
-  res <- tw_GET(api_base_url(), "/taxon_names", query = args, ...)
-  df <- as_tibble(tw_list_to_df(res))
+  res <- tw_GET(api_base_url(), "/taxon_names", query = args, csv = csv, ...)
+  df <- as_tibble(res)
   return(df)
 }
 

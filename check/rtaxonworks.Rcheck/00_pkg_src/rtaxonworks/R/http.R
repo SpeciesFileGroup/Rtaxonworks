@@ -1,6 +1,6 @@
 api_base_url <- function() {
   if (!exists("TW_API_URL", envir = globalenv())) {
-    assign("TW_API_URL", "https://sfg.taxonworks.org/api/v1", envir = globalenv())
+    return("https://sfg.taxonworks.org/api/v1")
   }
   get("TW_API_URL", envir = globalenv())
 }
@@ -61,7 +61,11 @@ tw_ual <- list(`User-Agent` = tw_ua(ongha), `X-USER-AGENT` = tw_ua(ongha))
 #' @return a list of JSON results
 tw_GET <- function(url, path = NULL, query = list(), headers = list(), ...) {
 
-  query <- add_token_params(query)
+  browser()
+  # if token and project_token are null then add them to the query
+  if (is.null(query$token) && is.null(query$project_token)) {
+    query <- add_token_params(query)
+  }
   url_params_string <- serialize(query)
   url <- paste0(api_base_url(), path, url_params_string)
 

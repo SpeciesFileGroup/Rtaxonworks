@@ -24,6 +24,24 @@ flush(stderr()); flush(stdout())
 
 
 cleanEx()
+nameEx("tw_collection_objects")
+### * tw_collection_objects
+
+flush(stderr()); flush(stdout())
+
+### Name: tw_collection_objects
+### Title: Collection objects
+### Aliases: tw_collection_objects tw_co
+
+### ** Examples
+
+## Not run: 
+##D tw_taxon_names(name="Lycorma delicatula", valid=TRUE)
+## End(Not run)
+
+
+
+cleanEx()
 nameEx("tw_otus")
 ### * tw_otus
 
