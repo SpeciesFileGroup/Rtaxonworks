@@ -1,7 +1,6 @@
 #' Taxon Name Relationships
 #'
 #' @export
-#' @importFrom tibble as_tibble
 #' @param object_taxon_name_id (integer, vector) filter by object taxon name id
 #' @param subject_taxon_name_id (integer, vector) filter by subject taxon name id
 #' @param taxon_name_id (integer, vector) filter by taxon name id
@@ -30,8 +29,7 @@ tw_taxon_name_relationships <- function(object_taxon_name_id = NULL,
     token = token, project_token = project_token, page = page, per = per))
 
   res <- tw_GET(api_base_url(), "/taxon_name_relationships", body = args, ...)
-  df <- as_tibble(tw_list_to_df(res))
-  return(df)
+  return(res)
 }
 
 

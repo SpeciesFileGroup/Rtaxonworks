@@ -6,6 +6,7 @@
 \title{Biological Associations}
 \usage{
 tw_biological_associations(
+  subresource = NULL,
   biological_association_id = NULL,
   biological_associations_graph_id = NULL,
   biological_relationship_id = NULL,
@@ -49,12 +50,14 @@ tw_biological_associations(
   tags = NULL,
   token = NULL,
   project_token = NULL,
+  csv = TRUE,
   page = 0,
   per = 50,
   ...
 )
 
 tw_ba(
+  subresource = NULL,
   biological_association_id = NULL,
   biological_associations_graph_id = NULL,
   biological_relationship_id = NULL,
@@ -98,12 +101,15 @@ tw_ba(
   tags = NULL,
   token = NULL,
   project_token = NULL,
+  csv = TRUE,
   page = 0,
   per = 50,
   ...
 )
 }
 \arguments{
+\item{subresource}{(string) access API subresource (e.g., subresource=simple for the simple biological associations table)}
+
 \item{biological_association_id}{(integer) filter by biological association id}
 
 \item{biological_associations_graph_id}{(integer) filter by biological associations graph id}
@@ -207,5 +213,15 @@ Biological Associations
 \examples{
 \dontrun{
 tw_biological_associations()
+
+# How to get all simple biological associations with pagination
+page <- 1
+per <- 500
+results <- res <- tw_ba(subresource='simple', page=page, per=per)
+while (nrow(res) > 0) {
+  page <- page + 1
+  res <- tw_ba(subresource='simple', page=page, per=per)
+  results <- rbind(results, res)
+}
 }
 }

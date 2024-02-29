@@ -1,7 +1,6 @@
 #' Collection objects
 #'
 #' @export
-#' @importFrom tibble as_tibble
 #' @param biocuration_class_id (integer, vector) filter by biocuration class id
 #' @param biological_association_id (integer, vector) filter by biological association id
 #' @param biological_associations (boolean) filter by collection objects with/without biological associations
@@ -137,9 +136,8 @@ tw_collection_objects <- function(biocuration_class_id = NULL, biological_associ
     with_buffered_other_labels = with_buffered_other_labels, wkt = wkt, token = token, project_token = project_token,
     page = page, per = per))
 
-  res <- tw_GET(api_base_url(), "/taxon_names", body = args, ...)
-  df <- as_tibble(tw_list_to_df(res))
-  return(df)
+  res <- tw_GET(api_base_url(), "/collection_objects", query = args, ...)
+  return(res)
 }
 
 

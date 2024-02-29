@@ -1,7 +1,6 @@
 #' Taxon Names
 #'
 #' @export
-#' @importFrom tibble as_tibble
 #' @param ancestors (boolean) include ancestors
 #' @param author (string) filter by cached_author_year
 #' @param author_exact (boolean) filter by exact match on cached_author_year
@@ -100,8 +99,7 @@ tw_taxon_names <- function(ancestors = NULL, author = NULL,
     token = token, project_token = project_token, page = page, per = per))
 
   res <- tw_GET(api_base_url(), "/taxon_names", query = args, ...)
-  df <- as_tibble(tw_list_to_df(res))
-  return(df)
+  return(res)
 }
 
 

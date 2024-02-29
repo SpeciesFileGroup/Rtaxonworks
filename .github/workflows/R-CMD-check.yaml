@@ -22,8 +22,8 @@ jobs:
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       CRAN: ${{ matrix.config.rspm }}
-      VCR_VERBOSE_ERRORS: true
-      # VCR_TURN_OFF: true
+      VCR_VERBOSE_ERRORS: false
+      VCR_TURN_OFF: true
       # ON_GH_ACTIONS: true
 
     steps:

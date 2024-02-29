@@ -2,6 +2,7 @@
 #'
 #' @export
 #' @importFrom tibble as_tibble
+#' @param subresource (string) access API subresource (e.g., subresource=simple for the simple biological associations table)
 #' @param biological_association_id (integer) filter by biological association id
 #' @param biological_associations_graph_id (integer) filter by biological associations graph id
 #' @param biological_relationship_id (integer) filter by biological relationship id
@@ -48,8 +49,18 @@
 #' @examples
 #' \dontrun{
 #' tw_biological_associations()
+#'
+#' # How to get all simple biological associations with pagination
+#' page <- 1
+#' per <- 500
+#' results <- res <- tw_ba(subresource='simple', page=page, per=per)
+#' while (nrow(res) > 0) {
+#'   page <- page + 1
+#'   res <- tw_ba(subresource='simple', page=page, per=per)
+#'   results <- rbind(results, res)
 #' }
-tw_biological_associations <- function(biological_association_id = NULL, 
+#' }
+tw_biological_associations <- function(subresource = NULL, biological_association_id = NULL, 
   biological_associations_graph_id = NULL, biological_relationship_id = NULL, 
   collecting_event_id = NULL, collection_object_id = NULL, descendants = NULL, 
   exclude_taxon_name_relationship = NULL, geo_json = NULL, 
@@ -65,7 +76,7 @@ tw_biological_associations <- function(biological_association_id = NULL,
   match_identifiers_delimiter = NULL, match_identifiers_type = NULL, 
   namespace_id = NULL, note_exact = NULL, note_text = NULL, notes = NULL, 
   keyword_id_and = NULL, keyword_id_or = NULL, tags = NULL, 
-  token = NULL, project_token = NULL, page = 0, per = 50, ...) {
+  token = NULL, project_token = NULL, csv = TRUE, page = 0, per = 50, ...) {
 
   assert(page, c("numeric", "integer"))
   assert(per, c("numeric", "integer"))
@@ -101,9 +112,16 @@ tw_biological_associations <- function(biological_association_id = NULL,
     tags = tags, token = token, project_token = project_token, 
     page = page, per = per))
 
-  res <- tw_GET(api_base_url(), "/biological_associations", query = args, ...)
-  df <- as_tibble(tw_list_to_df(res))
-  return(df)
+  if (is.null(subresource)) {
+    endpoint <- "/biological_associations"
+  } else if (subresource == "simple") {
+    endpoint <- "/biological_associations/simple"
+  } else {
+    endpoint <- "/biological_associations"
+  }
+
+  res <- tw_GET(api_base_url(), endpoint, query = args, ...)
+  return(res)
 }
 
 
