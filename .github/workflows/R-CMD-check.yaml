@@ -12,9 +12,9 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        # - { os: windows-latest, r: 'latest'}
+        - { os: windows-latest, r: 'latest'}
         # - { os: macOS-latest, r: 'oldrel'}
-        # - { os: macOS-latest, r: 'latest'}
+        - { os: macOS-latest, r: 'latest'}
         # - { os: macOS-latest, r: 'devel'}
         # - { os: ubuntu-20.04, r: '3.6', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
         - { os: ubuntu-20.04, r: 'latest'}
