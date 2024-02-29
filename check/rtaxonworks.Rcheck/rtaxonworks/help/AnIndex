@@ -1,5 +1,7 @@
 tw_ba	tw_biological_associations
 tw_biological_associations	tw_biological_associations
+tw_co	tw_collection_objects
+tw_collection_objects	tw_collection_objects
 tw_GET	tw_GET
 tw_otu	tw_otus
 tw_otus	tw_otus

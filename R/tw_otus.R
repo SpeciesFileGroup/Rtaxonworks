@@ -37,7 +37,7 @@ tw_otus <- function(asserted_distribution_ids = NULL, biological_association_ids
   keyword_id_or = NULL, name = NULL, note_exact = NULL, note_text = NULL, notes = NULL,
   origin_citations = NULL, otu_id = NULL, tags = NULL,
   taxon_name_classification_id = NULL, taxon_name_id = NULL, 
-  taxon_name_relationship_id = NULL, token = NULL, project_token = NULL, 
+  taxon_name_relationship_id = NULL, csv = FALSE, token = NULL, project_token = NULL, 
   page = 0, per = 50, ...) {
 
   assert(page, c("numeric", "integer"))
@@ -55,7 +55,7 @@ tw_otus <- function(asserted_distribution_ids = NULL, biological_association_ids
     taxon_name_id = taxon_name_id, taxon_name_relationship_id = taxon_name_relationship_id, 
     token = token, project_token = project_token, page = page, per = per))
 
-  res <- tw_GET(api_base_url(), "/otus", query = args, ...)
+  res <- tw_GET(api_base_url(), "/otus", query = args, csv = csv, ...)
   return(res)
 }
 

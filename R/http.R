@@ -14,6 +14,7 @@ api_user_token <- function() {
 
 api_project_token <- function() {
   if (!exists("TW_PROJECT_TOKEN", envir = globalenv())) {
+    cat("\033[38;2;255;255;0mNo TW_PROJECT_TOKEN variable is set\033[0m\n")
     return()
   }
   get("TW_PROJECT_TOKEN", envir = globalenv())
@@ -23,7 +24,7 @@ add_token_params <- function(query) {
   query <- c(query, list(
                          token = api_user_token(),
                          project_token = api_project_token()))
-  return(query)
+  return(cc(query))
 }
 
 serialize <- function(params) {
@@ -37,7 +38,7 @@ serialize <- function(params) {
     } else {
       url_params <- c(url_params,
                       paste0(
-                             name, "=", 
+                             name, "=",
                              URLencode(as.character(params[[name]]))))
     }
   }
@@ -75,17 +76,22 @@ tw_GET <- function(
     path <- paste0(path, ".csv")
   }
 
-  # if token and project_token are null then add them to the query
+  # if tokens are null then add tokens from global environment
   if (is.null(query$token) && is.null(query$project_token)) {
     query <- add_token_params(query)
   }
+
+
   url_params_string <- serialize(query)
   url <- paste0(api_base_url(), path, url_params_string)
 
   cat(sprintf("\033[32mGET %s\033[39m\n", url))
 
   if (csv) {
-    return(as_tibble(read.csv(url)))
+    return(as_tibble(read.csv(url, sep = "\t",
+                              header = TRUE,
+                              stringsAsFactors = FALSE,
+                              na.strings = c("", "NA"))))
   } else {
     req <- request(url)
     resp <- req_perform(req)

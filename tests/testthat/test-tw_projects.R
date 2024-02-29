@@ -5,5 +5,5 @@ test_that("tw_projects", {
     x <- tw_projects()
   })
 
-  expect_equal(names(x)[2], "open_projects")
+  expect_equal(names(x)[2], "project_token")
 })

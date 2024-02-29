@@ -67,7 +67,7 @@ tol <- function(x) if (is.character(x)) tolower(x) else x
 #' @keywords internal
 #' @return boolean. `TRUE` if http request succeeds, `FALSE` if not
 tw_up <- function() {
-  z <- tryCatch(tw_GET(api_base_url(), "/ping")$pong,
+  z <- tryCatch(tw_GET(api_base_url(), "/ping", csv=FALSE),
      error = function(e) e)
-  if (inherits(z, "error")) FALSE else z
+  if (inherits(z, "error")) FALSE else TRUE
 }

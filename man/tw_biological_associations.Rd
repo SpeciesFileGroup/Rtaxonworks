@@ -50,7 +50,7 @@ tw_biological_associations(
   tags = NULL,
   token = NULL,
   project_token = NULL,
-  csv = TRUE,
+  csv = FALSE,
   page = 0,
   per = 50,
   ...
@@ -101,7 +101,7 @@ tw_ba(
   tags = NULL,
   token = NULL,
   project_token = NULL,
-  csv = TRUE,
+  csv = FALSE,
   page = 0,
   per = 50,
   ...

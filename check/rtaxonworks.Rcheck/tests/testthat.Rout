@@ -30,4 +30,4 @@ Loading required package: rtaxonworks
 > 
 > proc.time()
    user  system elapsed 
-  0.515   0.040   0.545 
+  1.221   0.104   1.314 
