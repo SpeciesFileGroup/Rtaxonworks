@@ -1,6 +1,8 @@
 #' Otus
 #'
 #' @export
+#' @param id (integer) access an OTU by ID
+#' @param subresource (string) access an API subresource (e.g., inventory/dwc)
 #' @param asserted_distribution_ids (string) filter by asserted distribution ids
 #' @param biological_association_ids (string) filter by biological association ids
 #' @param citations (boolean) filter by otus with citations
@@ -30,7 +32,8 @@
 #' \dontrun{
 #' tw_otus()
 #' }
-tw_otus <- function(asserted_distribution_ids = NULL, biological_association_ids = NULL,
+tw_otus <- function(id = NULL, subresource = NULL, asserted_distribution_ids = NULL, 
+  biological_association_ids = NULL,
   citations = NULL, citations_documents = NULL, data_attribute_exact_value = NULL,
   data_attribute_predicate_id = NULL, data_attribute_value = NULL, data_attributes = NULL,
   data_attributes_attributes = NULL, image_id = NULL, images = NULL, keyword_id_and = NULL,
@@ -55,7 +58,15 @@ tw_otus <- function(asserted_distribution_ids = NULL, biological_association_ids
     taxon_name_id = taxon_name_id, taxon_name_relationship_id = taxon_name_relationship_id, 
     token = token, project_token = project_token, page = page, per = per))
 
-  res <- tw_GET(api_base_url(), "/otus", query = args, csv = csv, ...)
+  if (is.null(id)) {
+    res <- tw_GET(api_base_url(), "/otus", query = args, csv = csv, ...)
+  } else {
+    if (is.null(subresource)) {
+      res <- tw_GET(api_base_url(), sprintf("/otus/%d", id), query = args, csv = csv, ...)
+    } else {
+      res <- tw_GET(api_base_url(), sprintf("/otus/%d/%s", id, subresource), query = args, csv = csv, ...)
+    }
+  }
   return(res)
 }
 
