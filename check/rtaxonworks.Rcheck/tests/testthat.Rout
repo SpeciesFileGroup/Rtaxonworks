@@ -18,16 +18,17 @@ Type 'q()' to quit R.
 > library("testthat")
 > test_check("rtaxonworks")
 Loading required package: rtaxonworks
-[ FAIL 0 | WARN 0 | SKIP 7 | PASS 0 ]
+[ FAIL 0 | WARN 0 | SKIP 8 | PASS 0 ]
 
-══ Skipped tests (7) ═══════════════════════════════════════════════════════════
-• On CRAN (7): 'test-tw_biological_associations.R:1:1', 'test-tw_otus.R:1:1',
+══ Skipped tests (8) ═══════════════════════════════════════════════════════════
+• On CRAN (8): 'test-tw_biological_associations.R:1:1',
+  'test-tw_collection_objects.R:1:1', 'test-tw_otus.R:1:1',
   'test-tw_projects.R:1:1', 'test-tw_taxon_name_classifications.R:1:1',
   'test-tw_taxon_name_relationships.R:1:1', 'test-tw_taxon_names.R:1:1',
   'test-tw_up.R:1:1'
 
-[ FAIL 0 | WARN 0 | SKIP 7 | PASS 0 ]
+[ FAIL 0 | WARN 0 | SKIP 8 | PASS 0 ]
 > 
 > proc.time()
    user  system elapsed 
-  1.221   0.104   1.314 
+  0.499   0.063   0.553 

@@ -6,6 +6,8 @@
 \title{Otus}
 \usage{
 tw_otus(
+  id = NULL,
+  subresource = NULL,
   asserted_distribution_ids = NULL,
   biological_association_ids = NULL,
   citations = NULL,
@@ -38,6 +40,8 @@ tw_otus(
 )
 
 tw_otu(
+  id = NULL,
+  subresource = NULL,
   asserted_distribution_ids = NULL,
   biological_association_ids = NULL,
   citations = NULL,
@@ -70,6 +74,10 @@ tw_otu(
 )
 }
 \arguments{
+\item{id}{(integer) access an OTU by ID}
+
+\item{subresource}{(string) access an API subresource (e.g., inventory/dwc)}
+
 \item{asserted_distribution_ids}{(string) filter by asserted distribution ids}
 
 \item{biological_association_ids}{(string) filter by biological association ids}

@@ -19,6 +19,16 @@ flush(stderr()); flush(stdout())
 
 ## Not run: 
 ##D tw_biological_associations()
+##D 
+##D # How to get all simple biological associations with pagination
+##D page <- 1
+##D per <- 500
+##D results <- res <- tw_ba(subresource='simple', page=page, per=per)
+##D while (nrow(res) > 0) {
+##D   page <- page + 1
+##D   res <- tw_ba(subresource='simple', page=page, per=per)
+##D   results <- rbind(results, res)
+##D }
 ## End(Not run)
 
 

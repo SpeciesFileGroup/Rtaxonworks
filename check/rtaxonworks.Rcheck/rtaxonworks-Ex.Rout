@@ -38,6 +38,16 @@ Type 'q()' to quit R.
 > 
 > ## Not run: 
 > ##D tw_biological_associations()
+> ##D 
+> ##D # How to get all simple biological associations with pagination
+> ##D page <- 1
+> ##D per <- 500
+> ##D results <- res <- tw_ba(subresource='simple', page=page, per=per)
+> ##D while (nrow(res) > 0) {
+> ##D   page <- page + 1
+> ##D   res <- tw_ba(subresource='simple', page=page, per=per)
+> ##D   results <- rbind(results, res)
+> ##D }
 > ## End(Not run)
 > 
 > 
@@ -155,7 +165,7 @@ Type 'q()' to quit R.
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.444 0.01 0.459 0 0 
+Time elapsed:  0.183 0.006 0.191 0 0 
 > grDevices::dev.off()
 null device 
           1 

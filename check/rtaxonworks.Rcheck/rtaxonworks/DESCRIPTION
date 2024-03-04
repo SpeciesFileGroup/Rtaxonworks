@@ -26,8 +26,8 @@ X-schema.org-keywords: biology, science, API, web, api-client,
         taxonomy, species
 X-schema.org-isPartOf: https://ropensci.org
 NeedsCompilation: no
-Packaged: 2024-02-15 20:03:57 UTC; gdo
+Packaged: 2024-02-29 22:55:37 UTC; gdo
 Author: Geoff Ower [aut, cre] (<https://orcid.org/0000-0002-9770-2345>),
   Species File Group [fnd] (https://speciesfilegroup.org/)
 Maintainer: Geoff Ower <gdower@illinois.edu>
-Built: R 4.3.2; ; 2024-02-15 20:04:02 UTC; unix
+Built: R 4.3.2; ; 2024-02-29 22:55:40 UTC; unix

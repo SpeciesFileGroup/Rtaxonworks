@@ -72,6 +72,8 @@ tw_ual <- list(`User-Agent` = tw_ua(ongha), `X-USER-AGENT` = tw_ua(ongha))
 tw_GET <- function(
     url, path = NULL, query = list(), headers = list(), csv = FALSE, ...) {
 
+  result <- list(meta = list(), data = tibble())
+
   if (csv) {
     path <- paste0(path, ".csv")
   }
@@ -95,17 +97,23 @@ tw_GET <- function(
   } else {
     req <- request(url)
     resp <- req_perform(req)
+    result$meta$page <- as.integer(resp$headers$`pagination-page`)
+    result$meta$next_page <- as.integer(resp$headers$`pagination-next-page`)
+    result$meta$per <- as.integer(resp$headers$`pagination-per-page`)
+    result$meta$total <- as.integer(resp$headers$`pagination-total`)
+    result$meta$total_pages <- as.integer(resp$headers$`pagination-total-pages`)
     output <- resp_body_string(resp)
 
     if (output == "" || output == "[]" || output == "{}" ||
           is.null(output) || is.na(output)) {
-      return(tibble())
+      result$data <- tibble()
     } else {
       if (is.data.frame(fromJSON(output))) {
-        return(as_tibble(flatten(fromJSON(output), recursive = TRUE)))
+        result$data <- as_tibble(flatten(fromJSON(output), recursive = TRUE))
       } else {
-        return(as_tibble(fromJSON(output)))
+        result$data <- as_tibble(fromJSON(output))
       }
     }
+    return(result)
   }
 }

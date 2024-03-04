@@ -1,7 +1,6 @@
 #' Taxon Name Relationships
 #'
 #' @export
-#' @importFrom tibble as_tibble
 #' @param object_taxon_name_id (integer, vector) filter by object taxon name id
 #' @param subject_taxon_name_id (integer, vector) filter by subject taxon name id
 #' @param taxon_name_id (integer, vector) filter by taxon name id
@@ -18,7 +17,7 @@
 tw_taxon_name_relationships <- function(object_taxon_name_id = NULL, 
   subject_taxon_name_id = NULL, taxon_name_id = NULL,
   taxon_name_relationship_set = NULL, taxon_name_relationship_type = NULL,
-  token = NULL, project_token = NULL, page = 0, per = 50, ...) {
+  csv = FALSE, token = NULL, project_token = NULL, page = 0, per = 50, ...) {
 
   assert(page, c("numeric", "integer"))
   assert(per, c("numeric", "integer"))
@@ -29,11 +28,10 @@ tw_taxon_name_relationships <- function(object_taxon_name_id = NULL,
     taxon_name_relationship_type = taxon_name_relationship_type,
     token = token, project_token = project_token, page = page, per = per))
 
-  res <- tw_GET(api_base_url(), "/taxon_name_relationships", body = args, ...)
-  df <- as_tibble(tw_list_to_df(res))
+  res <- tw_GET(api_base_url(), "/taxon_name_relationships", query = args, csv = csv, ...)
+  df <- as_tibble(res)
   return(df)
-}
-
+}  # TODO: tnr needs a csv endpoint?
 
 #' Taxon Name Relationships
 #'

@@ -53,11 +53,12 @@
 #' # How to get all simple biological associations with pagination
 #' page <- 1
 #' per <- 500
-#' results <- res <- tw_ba(subresource='simple', page=page, per=per)
-#' while (nrow(res) > 0) {
+#' res <- tw_ba(subresource = "simple", page = page, per = per)
+#' results <- res$data
+#' while (page < res$meta$total_pages) {
 #'   page <- page + 1
-#'   res <- tw_ba(subresource='simple', page=page, per=per)
-#'   results <- rbind(results, res)
+#'   res <- tw_ba(subresource = "simple", page = page, per = per)
+#'   results <- rbind(results, res$data)
 #' }
 #' }
 tw_biological_associations <- function(subresource = NULL, biological_association_id = NULL, 

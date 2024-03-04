@@ -1,4 +1,4 @@
-* using log directory ‘/home/gdo/contrib/rtw/check/rtaxonworks.Rcheck’
+* using log directory ‘/home/gdo/data/contrib/rtaxonworks/check/rtaxonworks.Rcheck’
 * using R version 4.3.2 (2023-10-31)
 * using platform: x86_64-pc-linux-gnu (64-bit)
 * R was compiled by
@@ -41,10 +41,11 @@
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
 serialize: no visible global function definition for ‘URLencode’
+tw_GET: no visible global function definition for ‘read.csv’
 Undefined global functions or variables:
-  URLencode
+  URLencode read.csv
 Consider adding
-  importFrom("utils", "URLencode")
+  importFrom("utils", "URLencode", "read.csv")
 to your NAMESPACE file.
 * checking Rd files ... OK
 * checking Rd metadata ... OK
@@ -70,7 +71,30 @@ Missing link or links in documentation object 'tw_taxon_names.Rd':
 See section 'Cross-references' in the 'Writing R Extensions' manual.
 * checking for missing documentation entries ... OK
 * checking for code/documentation mismatches ... OK
-* checking Rd \usage sections ... OK
+* checking Rd \usage sections ... WARNING
+Undocumented arguments in documentation object 'tw_biological_associations'
+  ‘csv’
+
+Undocumented arguments in documentation object 'tw_collection_objects'
+  ‘csv’
+
+Undocumented arguments in documentation object 'tw_otus'
+  ‘csv’
+
+Undocumented arguments in documentation object 'tw_taxon_name_classifications'
+  ‘csv’
+
+Undocumented arguments in documentation object 'tw_taxon_name_relationships'
+  ‘csv’
+
+Undocumented arguments in documentation object 'tw_taxon_names'
+  ‘csv’
+
+Functions with \usage entries need to have the appropriate \alias
+entries, and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See chapter ‘Writing R documentation files’ in the ‘Writing R
+Extensions’ manual.
 * checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
 * checking examples ... OK
@@ -78,4 +102,4 @@ See section 'Cross-references' in the 'Writing R Extensions' manual.
 * checking tests ... OK
   Running ‘testthat.R’
 * DONE
-Status: 1 WARNING, 1 NOTE
+Status: 2 WARNINGs, 1 NOTE
