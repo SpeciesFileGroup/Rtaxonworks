@@ -34,12 +34,17 @@ Package documentation: https://docs.taxonworks.org/r
 install.packages("rtaxonworks")
 ```
 
-Load the package
-```{r}
-library("rtaxonworks")
+Install the development version from GitHub with:
+
+```{r eval=FALSE} 
+install.packages("remotes")
+remotes::install_github("SpeciesFileGroup/rtaxonworks")
 ```
 
-Dev version
+Load the package
+```{r eval=FALSE}
+library("rtaxonworks")
+```
 
 ## Contributing
 

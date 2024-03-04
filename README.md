@@ -28,14 +28,19 @@ Package documentation: https://docs.taxonworks.org/r
 install.packages("rtaxonworks")
 ```
 
+Install the development version from GitHub with:
+
+
+```r
+install.packages("remotes")
+remotes::install_github("SpeciesFileGroup/rtaxonworks")
+```
+
 Load the package
 
 ```r
 library("rtaxonworks")
-#> Error in library("rtaxonworks"): there is no package called 'rtaxonworks'
 ```
-
-Dev version
 
 ## Contributing
 
