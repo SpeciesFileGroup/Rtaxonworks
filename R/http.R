@@ -97,23 +97,26 @@ tw_GET <- function(
   } else {
     req <- request(url)
     resp <- req_perform(req)
-    result$meta$page <- as.integer(resp$headers$`pagination-page`)
-    result$meta$next_page <- as.integer(resp$headers$`pagination-next-page`)
-    result$meta$per <- as.integer(resp$headers$`pagination-per-page`)
-    result$meta$total <- as.integer(resp$headers$`pagination-total`)
-    result$meta$total_pages <- as.integer(resp$headers$`pagination-total-pages`)
-    output <- resp_body_string(resp)
+    meta <- list(
+      page <- as.integer(resp$headers$`pagination-page`),
+      next_page <- as.integer(resp$headers$`pagination-next-page`),
+      per <- as.integer(resp$headers$`pagination-per-page`),
+      total <- as.integer(resp$headers$`pagination-total`),
+      total_pages <- as.integer(resp$headers$`pagination-total-pages`)
+    )
+    body <- resp_body_string(resp)
 
-    if (output == "" || output == "[]" || output == "{}" ||
-          is.null(output) || is.na(output)) {
-      result$data <- tibble()
+    if (body == "" || body == "[]" || body == "{}" ||
+          is.null(body) || is.na(body)) {
+      data <- tibble()
     } else {
-      if (is.data.frame(fromJSON(output))) {
-        result$data <- as_tibble(flatten(fromJSON(output), recursive = TRUE))
+      if (is.data.frame(fromJSON(body))) {
+        data <- as_tibble(flatten(fromJSON(body), recursive = TRUE))
       } else {
-        result$data <- as_tibble(fromJSON(output))
+        data <- as_tibble(fromJSON(body))
       }
     }
+    result <- list(meta = meta, data = data)
     return(result)
   }
 }

@@ -25,8 +25,7 @@ tw_taxon_name_classifications <- function(taxon_name_id = NULL,
     token = token, project_token = project_token, page = page, per = per))
 
   res <- tw_GET(api_base_url(), "/taxon_name_classifications", query = args, csv = csv, ...)
-  df <- as_tibble(res)
-  return(df)
+  return(res)
 }
 # TODO: tnc needs a csv endpoint?
 
