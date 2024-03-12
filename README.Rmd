@@ -12,8 +12,7 @@ knitr::opts_chunk$set(
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![cran checks](https://cranchecks.info/badges/worst/rtaxonworks)](https://cranchecks.info/pkgs/rtaxonworks)
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![R-CMD-check](https://github.com/SpeciesFileGroup/rtaxonworks/workflows/R-CMD-check/badge.svg)](https://github.com/SpeciesFileGroup/rtaxonworks/actions)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rtaxonworks)](https://github.com/r-hub/cranlogs.app)
 [![cran version](https://www.r-pkg.org/badges/version/rtaxonworks)](https://cran.r-project.org/package=rtaxonworks)
