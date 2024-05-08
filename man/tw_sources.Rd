@@ -134,7 +134,7 @@ tw_sources(
 
 \item{match_identifiers}{(string) match identifiers with a delimited string of identifiers}
 
-\item{match_identifiers_delimiter}{(string) the delimiter for the match_identifiers parameter (e.g., comma (,), new line (\n), tab (\t), etc.)}
+\item{match_identifiers_delimiter}{(string) the delimiter for the match_identifiers parameter}
 
 \item{match_identifiers_type}{(string) the type of indentifiers to match (internal or identifier)}
 

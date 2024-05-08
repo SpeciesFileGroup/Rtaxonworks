@@ -75,7 +75,7 @@ tw_ad(csv = FALSE, token = NULL, project_token = NULL, page = 0, per = 50, ...)
 
 \item{local_identifiers}{(boolean) filter by asserted distributions with local identifiers}
 
-\item{match_identifiers_delimiter}{(string) the delimiter used to separate identifiers (e.g., \n for line break, \t for tab)}
+\item{match_identifiers_delimiter}{(string) the delimiter used to separate identifiers}
 
 \item{match_identifiers_type}{(string) filter by internal or external identifier type}
 

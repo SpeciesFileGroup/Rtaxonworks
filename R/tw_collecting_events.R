@@ -39,7 +39,7 @@
 #' @param keyword_id_or (integer, vector) filter by keyword id (OR)
 #' @param lithology (string) 
 #' @param local_identifiers (boolean) filter by collecting events with local identifiers
-#' @param match_identifiers_delimiter (string) the delimiter for the match_identifiers parameter (e.g., comma (,), new line (\n), tab (\t), etc.)
+#' @param match_identifiers_delimiter (string) the delimiter for the match_identifiers parameter
 #' @param match_identifiers_type (string) the type of match to perform on the identifiers (internal or identifier)
 #' @param maximum_elevation (numeric) filter by maximum elevation in meters
 #' @param md5_of_verbatim_label (string) 

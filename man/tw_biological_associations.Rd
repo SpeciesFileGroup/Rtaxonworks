@@ -174,7 +174,7 @@ tw_ba(
 
 \item{local_identifiers}{(boolean) filter by biological associations with local identifiers}
 
-\item{match_identifiers_delimiter}{(string) the delimiter used to separate identifiers (e.g., \n for line break, \t for tab)}
+\item{match_identifiers_delimiter}{(string) the delimiter used to separate identifiers}
 
 \item{match_identifiers_type}{(string) filter by internal or external identifier type}
 

@@ -112,7 +112,7 @@ tw_ce(csv = FALSE, token = NULL, project_token = NULL, page = 0, per = 50, ...)
 
 \item{local_identifiers}{(boolean) filter by collecting events with local identifiers}
 
-\item{match_identifiers_delimiter}{(string) the delimiter for the match_identifiers parameter (e.g., comma (,), new line (\n), tab (\t), etc.)}
+\item{match_identifiers_delimiter}{(string) the delimiter for the match_identifiers parameter}
 
 \item{match_identifiers_type}{(string) the type of match to perform on the identifiers (internal or identifier)}
 

@@ -35,7 +35,7 @@
 #' @param identifier_type (string, vector) filter by biological association identifier class type (e.g., "Identifier::Local::CatalogNumber")
 #' @param identifiers (boolean) filter by biological associations with identifiers
 #' @param local_identifiers (boolean) filter by biological associations with local identifiers
-#' @param match_identifiers_delimiter (string) the delimiter used to separate identifiers (e.g., \n for line break, \t for tab)
+#' @param match_identifiers_delimiter (string) the delimiter used to separate identifiers
 #' @param match_identifiers_type (string) filter by internal or external identifier type
 #' @param namespace_id (integer) filter by namespace id
 #' @param note_exact (boolean) filter by exact match on note

@@ -23,7 +23,7 @@
 #' @param in_project (boolean) filter by sources in project
 #' @param local_identifiers (boolean) filter by sources with/without local identifiers
 #' @param match_identifiers (string) match identifiers with a delimited string of identifiers
-#' @param match_identifiers_delimiter (string) the delimiter for the match_identifiers parameter (e.g., comma (,), new line (\n), tab (\t), etc.)
+#' @param match_identifiers_delimiter (string) the delimiter for the match_identifiers parameter
 #' @param match_identifiers_type (string) the type of indentifiers to match (internal or identifier)
 #' @param namespace_id (integer) filter by namespace ID
 #' @param nomenclature (boolean) filter by sources with/without nomenclature

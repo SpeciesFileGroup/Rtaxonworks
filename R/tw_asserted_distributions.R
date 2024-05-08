@@ -26,7 +26,7 @@
 #' @param identifier_type (string, vector) filter by identifier class type (e.g., "Identifier::Local::CatalogNumber")
 #' @param identifiers (boolean) filter by asserted distributions with identifiers
 #' @param local_identifiers (boolean) filter by asserted distributions with local identifiers
-#' @param match_identifiers_delimiter (string) the delimiter used to separate identifiers (e.g., \n for line break, \t for tab)
+#' @param match_identifiers_delimiter (string) the delimiter used to separate identifiers
 #' @param match_identifiers_type (string) filter by internal or external identifier type
 #' @param namespace_id (integer) filter by namespace id
 #' @param keyword_id_and (integer, vector) filter by keyword id with and operator
