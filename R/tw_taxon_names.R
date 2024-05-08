@@ -23,12 +23,12 @@
 #' @param keyword_id_and (integer) filter by keyword id with and operator
 #' @param keyword_id_or (integer) filter by keyword id with or operator
 #' @param leaves (boolean) filiter by names having no descendants
-#' @param name (string) filter by name
+#' @param name (string, vector) filter by name
 #' @param name_exact (boolean) filter by exact match on name
 #' @param note_exact (boolean) filter by exact match on note
 #' @param note_text (string) filter by note text
 #' @param notes (boolean) filter by taxon names with notes
-#' @param nomenclatural_code (string) filter by nomenclatural code
+#' @param nomenclature_code (string) filter by nomenclatural code
 #' @param nomenclature_group (string) filter by nomenclature group
 #' @param not_specified (boolean) filter by whether the name has NOT SPECIFIED in one of the cached values
 #' @param origin_citation (boolean) filter by taxon names with an origin citation
@@ -62,7 +62,7 @@ tw_taxon_names <- function(ancestors = NULL, author = NULL,
   descendants_max_depth = NULL, etymology = NULL, exact = NULL,
   image_id = NULL, images = NULL, keyword_id_and = NULL,
   keyword_id_or = NULL, leaves = NULL, name = NULL, name_exact = NULL,
-  note_exact = NULL, note_text = NULL, notes = NULL, nomenclatural_code = NULL,
+  note_exact = NULL, note_text = NULL, notes = NULL, nomenclature_code = NULL,
   nomenclature_group = NULL, not_specified = NULL, origin_citation = NULL,
   original_combination = NULL, otus = NULL, parent_id = NULL, rank = NULL,
   tags = NULL, taxon_name_author_id_or = NULL, taxon_name_id = NULL,
@@ -87,7 +87,7 @@ tw_taxon_names <- function(ancestors = NULL, author = NULL,
     etymology = etymology, exact = exact, image_id = image_id, images = images, 
     keyword_id_and = keyword_id_and, keyword_id_or = keyword_id_or, leaves = leaves, 
     name = name, name_exact = name_exact, note_exact = note_exact, note_text = note_text, 
-    notes = notes, nomenclatural_code = nomenclatural_code, 
+    notes = notes, nomenclature_code = nomenclature_code, 
     nomenclature_group = nomenclature_group, not_specified = not_specified, 
     origin_citation = origin_citation, original_combination = original_combination, 
     otus = otus, parent_id = parent_id, rank = rank, tags = tags, 
@@ -98,7 +98,13 @@ tw_taxon_names <- function(ancestors = NULL, author = NULL,
     year = year, year_end = year_end, year_start = year_start, 
     token = token, project_token = project_token, page = page, per = per))
 
-  res <- tw_GET(api_base_url(), "/taxon_names", query = args, csv = csv, ...)
+  vector_params <- c("collecting_event_id", "collection_object_id", 
+    "combination_taxon_name_id", "data_attribute_predicate_id", 
+    "data_attribute_value", "image_id", "keyword_id_and", "keyword_id_or", 
+    "name", "parent_id", "rank",  "taxon_name_id", "taxon_name_relationship", 
+    "taxon_name_relationship_type", "taxon_name_type")
+
+  res <- tw_GET(api_base_url(), "/taxon_names", query = args, csv = csv, vector_params = vector_params, ...)
   return(res)
 }
 
@@ -108,3 +114,47 @@ tw_taxon_names <- function(ancestors = NULL, author = NULL,
 #' @rdname tw_taxon_names
 #' @export
 tw_tn <- tw_taxon_names
+
+
+#' Taxon Names Autocomplete
+#'
+#' @export
+#' @template args
+#' @param term (string) filter by search term
+#' @param exact (boolean) filter by exact match on name
+#' @param no_leaves (boolean) filter by names having no descendants
+#' @param nomenclature_group (string, vector) filter by nomenclature group (e.g., Family, Genus, Species)
+#' @param parent_id (integer, vector) filter by parent id
+#' @param project_id (integer) filter by project id
+#' @param type (string, vector) filter by type (e.g., Protonym, Combination)
+#' @param valid (boolean) filter by valid or invalid names
+#' @return list
+#' @examples
+#' \dontrun{
+#' tw_taxon_names(name="Lycorma delicatula", valid=TRUE)
+#' }
+tw_taxon_names_autocomplete <- function(term = NULL, exact = NULL, no_leaves = NULL,
+  nomenclature_group = NULL, parent_id = NULL, project_id = NULL, type = NULL,
+  valid = NULL, csv = FALSE, token = NULL, project_token = NULL, 
+  page = 0, per = 50, ...) {
+  
+  assert(page, c("numeric", "integer"))
+  assert(per, c("numeric", "integer"))
+
+  args <- cc(list(term = term, exact = exact, no_leaves = no_leaves,
+    nomenclature_group = nomenclature_group, parent_id = parent_id,
+    project_id = project_id, type = type, valid = valid,
+    token = token, project_token = project_token, page = page, per = per))
+
+  vector_params = c("nomenclature_group", "parent_id", "type")
+
+  res <- tw_GET(api_base_url(), "/taxon_names/autocomplete", query = args, csv = csv, vector_params = vector_params, ...)
+  return(res)
+}
+
+
+#' Taxon Names Autocomplete
+#'
+#' @rdname tw_taxon_names_autocomplete
+#' @export
+tw_tn_auto <- tw_taxon_names_autocomplete
