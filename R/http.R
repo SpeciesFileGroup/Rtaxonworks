@@ -27,19 +27,21 @@ add_token_params <- function(query) {
   return(cc(query))
 }
 
-serialize <- function(params) {
+serialize <- function(params, vector_params) {
   url_params <- c()
   for (name in names(params)) {
-    if (length(params[[name]]) > 1) {
-      for (value in params[[name]]) {
-        url_params <- c(url_params,
-                        paste0(name, "[]=", URLencode(as.character(value))))
-      }
+    if (name %in% vector_params) {
+      sep <- "[]="
     } else {
+       sep <- "="
+    }
+    values <- as.vector(params[[name]])
+    for (value in values) {
+      if (is.numeric(value)) {
+        value <- formatC(value, format = "f", digits = 0)  # eliminates scientific notation
+      }
       url_params <- c(url_params,
-                      paste0(
-                             name, "=",
-                             URLencode(as.character(params[[name]]))))
+                      paste0(name, sep, URLencode(as.character(value))))
     }
   }
   url_params_string <- paste(url_params, collapse = "&")
@@ -70,7 +72,7 @@ tw_ual <- list(`User-Agent` = tw_ua(ongha), `X-USER-AGENT` = tw_ua(ongha))
 #' @keywords internal
 #' @return a tibble of results
 tw_GET <- function(
-    url, path = NULL, query = list(), headers = list(), csv = FALSE, ...) {
+    url, path = NULL, query = list(), headers = list(), csv = FALSE, vector_params = c(), ...) {
 
   result <- list(meta = list(), data = tibble())
 
@@ -84,7 +86,7 @@ tw_GET <- function(
   }
 
 
-  url_params_string <- serialize(query)
+  url_params_string <- serialize(query, vector_params = vector_params)
   url <- paste0(api_base_url(), path, url_params_string)
 
   cat(sprintf("\033[32mGET %s\033[39m\n", url))
@@ -98,11 +100,11 @@ tw_GET <- function(
     req <- request(url)
     resp <- req_perform(req)
     meta <- list(
-      page <- as.integer(resp$headers$`pagination-page`),
-      next_page <- as.integer(resp$headers$`pagination-next-page`),
-      per <- as.integer(resp$headers$`pagination-per-page`),
-      total <- as.integer(resp$headers$`pagination-total`),
-      total_pages <- as.integer(resp$headers$`pagination-total-pages`)
+      page = as.integer(resp$headers$`pagination-page`),
+      next_page = as.integer(resp$headers$`pagination-next-page`),
+      per = as.integer(resp$headers$`pagination-per-page`),
+      total = as.integer(resp$headers$`pagination-total`),
+      total_pages = as.integer(resp$headers$`pagination-total-pages`)
     )
     body <- resp_body_string(resp)
 
