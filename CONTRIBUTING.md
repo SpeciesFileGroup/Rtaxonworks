@@ -33,3 +33,9 @@ After that you may still need to install the remaining dependency packages:
 install.packages('httr2', 'vcr')
 ```
 
+### vcr warnings
+Until the VCR package supports httr2, it may be necessary to install the httr2 branch of vcr with:
+
+```{r eval=FALSE}
+remotes::install_github("ropensci/vcr@httr2")
+```
