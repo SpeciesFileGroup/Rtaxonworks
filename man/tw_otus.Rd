@@ -120,9 +120,9 @@ tw_otu(
 
 \item{taxon_name_classification_id}{(string) filter by taxon name classification ids}
 
-\item{taxon_name_id}{(integer) filter by taxon name id}
+\item{taxon_name_id}{(integer, vector) filter by taxon name id}
 
-\item{taxon_name_relationship_id}{(string) filter by taxon name relationship ids}
+\item{taxon_name_relationship_id}{(string, vector) filter by taxon name relationship ids}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 

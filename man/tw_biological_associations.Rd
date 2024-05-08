@@ -124,7 +124,7 @@ tw_ba(
 
 \item{exclude_taxon_name_relationship}{(boolean) exclude taxon name relationship}
 
-\item{geo_json}{(boolean) return result as geojson}
+\item{geo_json}{(boolean) filter by geojson}
 
 \item{geographic_area_id}{(integer) filter by geographic area id}
 
@@ -152,7 +152,7 @@ tw_ba(
 
 \item{taxon_name_id_mode}{(boolean)}
 
-\item{wkt}{(string) WKT shape to search for biological associations}
+\item{wkt}{(string) filter by well known text shape to search for biological associations}
 
 \item{citations}{(boolean) filter by biological associations with citations}
 
@@ -168,15 +168,15 @@ tw_ba(
 
 \item{identifier_start}{(string) filter by biological association identifier start}
 
-\item{identifier_type}{(string) filter by biological association identifier class type (e.g., "Identifier::Local::CatalogNumber")}
+\item{identifier_type}{(string, vector) filter by biological association identifier class type (e.g., "Identifier::Local::CatalogNumber")}
 
 \item{identifiers}{(boolean) filter by biological associations with identifiers}
 
 \item{local_identifiers}{(boolean) filter by biological associations with local identifiers}
 
-\item{match_identifiers_delimiter}{(string) A list delimiter}
+\item{match_identifiers_delimiter}{(string) the delimiter used to separate identifiers (e.g., \n for line break, \t for tab)}
 
-\item{match_identifiers_type}{(string) one of 'internal' or 'identifier', if 'internal' then references the internal id of the object}
+\item{match_identifiers_type}{(string) filter by internal or external identifier type}
 
 \item{namespace_id}{(integer) filter by namespace id}
 

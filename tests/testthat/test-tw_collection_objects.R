@@ -5,7 +5,7 @@ test_that("tw_collection_objects", {
     assign("TW_API_URL", "https://sandbox.taxonworks.org/api/v1", envir = .GlobalEnv)
     assign("TW_PROJECT_TOKEN", Sys.getenv("TW_PROJECT_TOKEN"), envir = .GlobalEnv)
     assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
-    x <- tw_co(collection_object_type = "Specimen", page = 0, per = 1)$data
+    x <- tw_collection_objects(collection_object_type = "Specimen", page = 0, per = 1)$data
   })
   expect_equal(x$type[1], "Specimen")
 })

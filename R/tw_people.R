@@ -67,6 +67,9 @@ tw_people <- function(
     notes = notes, keyword_id_and = keyword_id_and, keyword_id_or = keyword_id_or,
     token = token, project_token = project_token, page = page, per = per))
 
-  res <- tw_GET(api_base_url(), "/people", query = args, csv = csv, ...)
+  vector_params <- c("data_attribute_predicate_id", "data_attribute_value", "keyword_id_and", 
+                     "keyword_id_or", "person_wildcard", "role")
+
+  res <- tw_GET(api_base_url(), "/people", query = args, csv = csv, vector_params = vector_params, ...)
   return(res)
 }

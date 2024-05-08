@@ -132,6 +132,9 @@ tw_sources <- function(author = NULL, exact_author = NULL, author_id = NULL,
     url = url, verbatim = verbatim, verbatim_contents = verbatim_contents, verbatim_keywords = verbatim_keywords,
     volume = volume, year_suffix = year_suffix, token = token, project_token = project_token, page = page, per = per))
 
-  res <- tw_GET(api_base_url(), "/sources", query = args, csv = csv, ...)
+  vector_params = c("author_id", "bibtex_type", "citation_object_type", "empty", "ids", "keyword_id_and", "keyword_id_or", 
+    "not_empty", "serial_id", "source_id", "taxon_name_id", "topic_id")
+
+  res <- tw_GET(api_base_url(), "/sources", query = args, csv = csv, vector_params = vector_params, ...)
   return(res)
 }

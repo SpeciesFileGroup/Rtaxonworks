@@ -10,7 +10,7 @@
 #' @param collection_object_id (integer) filter by collection object id
 #' @param descendants (boolean) include descendants
 #' @param exclude_taxon_name_relationship (boolean) exclude taxon name relationship
-#' @param geo_json (boolean) return result as geojson
+#' @param geo_json (boolean) filter by geojson
 #' @param geographic_area_id (integer) filter by geographic area id
 #' @param geographic_area_mode (boolean)
 #' @param object_biological_property_id (integer) filter by object biological property id
@@ -24,7 +24,7 @@
 #' @param subject_type (string) filter by subject type (Otu, CollectionObject)
 #' @param taxon_name_id (integer) filter by taxon name id
 #' @param taxon_name_id_mode (boolean)
-#' @param wkt (string) WKT shape to search for biological associations
+#' @param wkt (string) filter by well known text shape to search for biological associations
 #' @param citations (boolean) filter by biological associations with citations
 #' @param citation_documents (boolean) filter by biological associations with citation documents
 #' @param origin_citation (boolean) filter by biological associations with an origin citation
@@ -32,11 +32,11 @@
 #' @param identifier_end (string) filter by biological association identifier end
 #' @param identifier_exact (boolean) filter by exact match on biological association identifier
 #' @param identifier_start (string) filter by biological association identifier start
-#' @param identifier_type (string) filter by biological association identifier class type (e.g., "Identifier::Local::CatalogNumber")
+#' @param identifier_type (string, vector) filter by biological association identifier class type (e.g., "Identifier::Local::CatalogNumber")
 #' @param identifiers (boolean) filter by biological associations with identifiers
 #' @param local_identifiers (boolean) filter by biological associations with local identifiers
-#' @param match_identifiers_delimiter (string) A list delimiter
-#' @param match_identifiers_type (string) one of 'internal' or 'identifier', if 'internal' then references the internal id of the object
+#' @param match_identifiers_delimiter (string) the delimiter used to separate identifiers (e.g., \n for line break, \t for tab)
+#' @param match_identifiers_type (string) filter by internal or external identifier type
 #' @param namespace_id (integer) filter by namespace id
 #' @param note_exact (boolean) filter by exact match on note
 #' @param note_text (string) filter by note text
@@ -121,7 +121,16 @@ tw_biological_associations <- function(subresource = NULL, biological_associatio
     endpoint <- "/biological_associations"
   }
 
-  res <- tw_GET(api_base_url(), endpoint, query = args, ...)
+  vector_params <- c("biological_association_id", "biological_associations_graph_id", 
+    "biological_relationship_id", "collecting_event_id", 
+    "collection_object_id", "geographic_area_id",
+    "identifier_type", "keyword_id_and", "keyword_id_or", "object_biological_property_id", 
+    "object_object_global_id", "object_taxon_name_id", 
+    "otu_id", "subject_biological_property_id", 
+    "subject_object_global_id", "subject_taxon_name_id", 
+    "taxon_name_id")
+
+  res <- tw_GET(api_base_url(), endpoint, query = args, vector_params = vector_params, ...)
   return(res)
 }
 

@@ -24,8 +24,8 @@
 #' @param otu_id (integer) filter by otu id
 #' @param tags (boolean) filter by otus with tags
 #' @param taxon_name_classification_id (string) filter by taxon name classification ids
-#' @param taxon_name_id (integer) filter by taxon name id
-#' @param taxon_name_relationship_id (string) filter by taxon name relationship ids
+#' @param taxon_name_id (integer, vector) filter by taxon name id
+#' @param taxon_name_relationship_id (string, vector) filter by taxon name relationship ids
 #' @template args
 #' @return list
 #' @examples
@@ -58,13 +58,18 @@ tw_otus <- function(id = NULL, subresource = NULL, asserted_distribution_ids = N
     taxon_name_id = taxon_name_id, taxon_name_relationship_id = taxon_name_relationship_id, 
     token = token, project_token = project_token, page = page, per = per))
 
+  vector_params <- c("asserted_distribution_ids", "biological_association_ids", 
+    "data_attribute_predicate_id", "data_attribute_value", "image_id",
+    "image_id", "keyword_id_and", "keyword_id_or", "otu_id", "taxon_name_classification_id", 
+    "taxon_name_id", "taxon_name_relationship_id")
+
   if (is.null(id)) {
     res <- tw_GET(api_base_url(), "/otus", query = args, csv = csv, ...)
   } else {
     if (is.null(subresource)) {
-      res <- tw_GET(api_base_url(), sprintf("/otus/%d", id), query = args, csv = csv, ...)
+      res <- tw_GET(api_base_url(), sprintf("/otus/%d", id), query = args, csv = csv, vector_params = vector_params, ...)
     } else {
-      res <- tw_GET(api_base_url(), sprintf("/otus/%d/%s", id, subresource), query = args, csv = csv, ...)
+      res <- tw_GET(api_base_url(), sprintf("/otus/%d/%s", id, subresource), query = args, csv = csv, vector_params = vector_params, ...)
     }
   }
   return(res)

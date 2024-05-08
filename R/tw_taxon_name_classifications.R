@@ -24,7 +24,9 @@ tw_taxon_name_classifications <- function(taxon_name_id = NULL,
     taxon_name_classification_set = taxon_name_classification_set,
     token = token, project_token = project_token, page = page, per = per))
 
-  res <- tw_GET(api_base_url(), "/taxon_name_classifications", query = args, csv = csv, ...)
+  vector_params <- c("taxon_name_id", "taxon_name_classification_type", "taxon_name_classification_set")
+
+  res <- tw_GET(api_base_url(), "/taxon_name_classifications", query = args, csv = csv, vector_params = vector_params, ...)
   return(res)
 }
 # TODO: tnc needs a csv endpoint?

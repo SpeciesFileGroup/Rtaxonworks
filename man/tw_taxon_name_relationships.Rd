@@ -38,9 +38,9 @@ tw_tnr(
 
 \item{subject_taxon_name_id}{(integer, vector) filter by subject taxon name id}
 
-\item{taxon_name_id}{(integer, vector) filter by taxon name id}
+\item{taxon_name_id}{(integer, vector) filter by taxon name id on both subject and object}
 
-\item{taxon_name_relationship_set}{(string) filter by taxon name relationship set ('validating', 'invalidating', 'exceptions')}
+\item{taxon_name_relationship_set}{(string) filter by taxon name relationship set (synonym, classification, status, and (soon) misspelling)}
 
 \item{taxon_name_relationship_type}{(string, vector) filter by taxon name relationship type (e.g., TaxonNameRelationship::Iczn::Invalidating)}
 

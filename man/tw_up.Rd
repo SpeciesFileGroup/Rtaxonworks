@@ -2,14 +2,19 @@
 % Please edit documentation in R/zzz.R
 \name{tw_up}
 \alias{tw_up}
+\alias{tw_ping}
 \title{check if api up in examples}
 \usage{
 tw_up()
+
+tw_ping()
 }
 \value{
 boolean. \code{TRUE} if http request succeeds, \code{FALSE} if not
 }
 \description{
 check if api up in examples
+
+Ping
 }
 \keyword{internal}

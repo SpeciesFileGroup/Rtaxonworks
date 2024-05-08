@@ -250,7 +250,7 @@ tw_co(
 
 \item{in_verbatim_locality}{(string) search in verbatim locality in related collecting events}
 
-\item{is_type}{(string, vector) filter by types}
+\item{is_type}{(string, vector) filter by types  # TODO: can it really be a vector?}
 
 \item{keyword_id_and}{(string, vector) filter by keyword id with an and operator}
 
@@ -340,6 +340,6 @@ Collection objects
 }
 \examples{
 \dontrun{
-tw_taxon_names(name="Lycorma delicatula", valid=TRUE)
+tw_collection_objects()
 }
 }

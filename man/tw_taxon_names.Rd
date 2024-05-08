@@ -33,7 +33,7 @@ tw_taxon_names(
   note_exact = NULL,
   note_text = NULL,
   notes = NULL,
-  nomenclatural_code = NULL,
+  nomenclature_code = NULL,
   nomenclature_group = NULL,
   not_specified = NULL,
   origin_citation = NULL,
@@ -88,7 +88,7 @@ tw_tn(
   note_exact = NULL,
   note_text = NULL,
   notes = NULL,
-  nomenclatural_code = NULL,
+  nomenclature_code = NULL,
   nomenclature_group = NULL,
   not_specified = NULL,
   origin_citation = NULL,
@@ -160,7 +160,7 @@ tw_tn(
 
 \item{leaves}{(boolean) filiter by names having no descendants}
 
-\item{name}{(string) filter by name}
+\item{name}{(string, vector) filter by name}
 
 \item{name_exact}{(boolean) filter by exact match on name}
 
@@ -170,7 +170,7 @@ tw_tn(
 
 \item{notes}{(boolean) filter by taxon names with notes}
 
-\item{nomenclatural_code}{(string) filter by nomenclatural code}
+\item{nomenclature_code}{(string) filter by nomenclatural code}
 
 \item{nomenclature_group}{(string) filter by nomenclature group}
 

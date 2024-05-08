@@ -30,7 +30,7 @@ test_that("tw_sources_author_id", {
     assign("TW_PROJECT_TOKEN", Sys.getenv("TW_PROJECT_TOKEN"), envir = .GlobalEnv)
     assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
     person <- tw_people(first_name = "E. L.", last_name = "Mockford", role = "SourceAuthor", page = 0, per = 10)$data
-    x <- tw_sources(author = "Smith", author_id = person$id, author_id_or = TRUE, page = 0, per = 1)$data
+    x <- tw_sources(author = "Mockford", author_id = person$id, author_id_or = TRUE, page = 0, per = 1)$data
   })
   expect_true(grepl("Mockford, E. L.", x$author[1]))
   expect_equal(nrow(x), 1)
@@ -80,7 +80,7 @@ test_that("tw_sources_documents", {
     assign("TW_API_URL", "https://sandbox.taxonworks.org/api/v1", envir = .GlobalEnv)
     assign("TW_PROJECT_TOKEN", NULL, envir = .GlobalEnv)
     assign("TW_USER_TOKEN", NULL, envir = .GlobalEnv)
-    sources <- tw_sources(documents = TRUE, in_project = FALSE, extend=c("documents"), page = 0, per = 1)$meta$total
+    sources <- tw_sources(documents = TRUE, in_project = FALSE, extend = "documents", page = 0, per = 1)$meta$total
   })
   expect_true(sources < all_sources)
 })
@@ -106,7 +106,7 @@ test_that("tw_sources_empty", {
 #     assign("TW_API_URL", "https://sandbox.taxonworks.org/api/v1", envir = .GlobalEnv)
 #     assign("TW_PROJECT_TOKEN", Sys.getenv("TW_PROJECT_TOKEN"), envir = .GlobalEnv)
 #     assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
-#     source <- tw_sources(not_empty = c("doi", "doi"), page = 0, per = 10)$data
+#     source <- tw_sources(not_empty = "doi", page = 0, per = 10)$data
 #   })
 #   expect_true(all(!is.na(source$doi)))
 # })
@@ -149,7 +149,7 @@ test_that("tw_sources_identifier", {
     assign("TW_API_URL", "https://sandbox.taxonworks.org/api/v1", envir = .GlobalEnv)
     assign("TW_PROJECT_TOKEN", Sys.getenv("TW_PROJECT_TOKEN"), envir = .GlobalEnv)
     assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
-    doi <- tw_sources(not_empty = c("doi", "doi"), per = 1)$data$doi
+    doi <- tw_sources(not_empty = "doi", per = 1)$data$doi
     x <- tw_sources(identifier = doi, identifier_object_type = "Source", identifier_exact = TRUE)$data
   })
   expect_true(grepl(doi, x$doi[1]))
@@ -163,7 +163,7 @@ test_that("tw_sources_identifiers_range", {
     assign("TW_API_URL", "https://sandbox.taxonworks.org/api/v1", envir = .GlobalEnv)
     assign("TW_PROJECT_TOKEN", Sys.getenv("TW_PROJECT_TOKEN"), envir = .GlobalEnv)
     assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
-    x <- tw_sources(identifier_start = 1, identifier_end = 100, page = 0, per = 1)
+    x <- tw_sources(identifier_start = 1, identifier_end = 1000000, page = 0, per = 1)
   })
   expect_true(x$meta$total < all_sources)
 })
@@ -225,7 +225,7 @@ test_that("tw_sources_serial_id", {
     assign("TW_PROJECT_TOKEN", Sys.getenv("TW_PROJECT_TOKEN"), envir = .GlobalEnv)
     assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
     serial_id <- tw_sources(serial = TRUE, page = 0, per = 1)$data$serial_id
-    x <- tw_sources(serial_id = c(serial_id, serial_id), page = 0, per = 10)$data
+    x <- tw_sources(serial_id = serial_id, page = 0, per = 10)$data
   })
   expect_true(all(x$serial_id == serial_id))
   expect_true(all(!is.na(x$serial_id)))
@@ -348,7 +348,7 @@ test_that("tw_sources_wildcard_attribute_journal", {
     assign("TW_API_URL", "https://sandbox.taxonworks.org/api/v1", envir = .GlobalEnv)
     assign("TW_PROJECT", Sys.getenv("TW_PROJECT"), envir = .GlobalEnv)
     assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
-    x <- tw_sources(journal = "Journal of", wildcard_attribute = c("journal", "journal"), page = 0, per = 10)$data
+    x <- tw_sources(journal = "Journal of", wildcard_attribute = "journal", page = 0, per = 10)$data
   })
   expect_true(all(grepl("Journal of", x$journal)))
 })

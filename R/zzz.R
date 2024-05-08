@@ -71,3 +71,8 @@ tw_up <- function() {
      error = function(e) e)
   if (inherits(z, "error")) FALSE else TRUE
 }
+
+#' Ping
+#' @rdname tw_up
+#' @export
+tw_ping <- tw_up

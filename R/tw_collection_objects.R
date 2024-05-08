@@ -40,7 +40,7 @@
 #' @param identifiers (boolean) filter by collection objects with/without identifiers
 #' @param in_labels (string) wildcard search in all related collecting event labels
 #' @param in_verbatim_locality (string) search in verbatim locality in related collecting events
-#' @param is_type (string, vector) filter by types
+#' @param is_type (string, vector) filter by types  # TODO: can it really be a vector?
 #' @param keyword_id_and (string, vector) filter by keyword id with an and operator
 #' @param keyword_id_or (string, vector) filter by keyword id with an or operator
 #' @param loaned (boolean) filter by collection objects with/without loans
@@ -79,7 +79,7 @@
 #' @return list
 #' @examples
 #' \dontrun{
-#' tw_taxon_names(name="Lycorma delicatula", valid=TRUE)
+#' tw_collection_objects()
 #' }
 tw_collection_objects <- function(biocuration_class_id = NULL, biological_association_id = NULL, 
   biological_associations = NULL, biological_relationship_id = NULL, buffered_collecting_event = NULL, 
@@ -136,7 +136,13 @@ tw_collection_objects <- function(biocuration_class_id = NULL, biological_associ
     with_buffered_other_labels = with_buffered_other_labels, wkt = wkt, token = token, project_token = project_token,
     page = page, per = per))
 
-  df <- tw_GET(api_base_url(), "/collection_objects", query = args, csv = csv, ...)
+  vector_params <- c("biocuration_class_id", "biological_association_id", "biological_relationship_id", 
+    "collecting_event_id", "collection_object_id", "current_repository_id", "determiner_id", "extract_id", 
+    "geographic_area_id", "is_type", "image_id", "keyword_id_and", "keyword_id_or", "namespace_id", 
+    "otu_id", "preparation_type_id", "repository_id", "sled_image_id", "taxon_determination_id", 
+    "taxon_name_id", "type_specimen_taxon_name_id", "user_id")
+
+  df <- tw_GET(api_base_url(), "/collection_objects", query = args, csv = csv, vector_params = vector_params, ...)
   return(df)
 }
 
