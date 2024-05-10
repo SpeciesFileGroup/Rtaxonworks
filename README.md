@@ -22,11 +22,6 @@ Package documentation: https://docs.taxonworks.org/r
 
 ## Installation
 
-
-```r
-install.packages("rtaxonworks")
-```
-
 Install the development version from GitHub with:
 
 
