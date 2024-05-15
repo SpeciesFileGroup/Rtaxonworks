@@ -77,7 +77,7 @@ tw_biological_associations <- function(subresource = NULL, biological_associatio
   match_identifiers_delimiter = NULL, match_identifiers_type = NULL, 
   namespace_id = NULL, note_exact = NULL, note_text = NULL, notes = NULL, 
   keyword_id_and = NULL, keyword_id_or = NULL, tags = NULL, 
-  token = NULL, project_token = NULL, csv = FALSE, page = 0, per = 50, ...) {
+  token = NULL, project_token = NULL, csv = TRUE, page = 0, per = 50, ...) {
 
   assert(page, c("numeric", "integer"))
   assert(per, c("numeric", "integer"))
@@ -115,6 +115,8 @@ tw_biological_associations <- function(subresource = NULL, biological_associatio
 
   if (is.null(subresource)) {
     endpoint <- "/biological_associations"
+  } else if (subresource == "extended") {
+    endpoint <- "/biological_associations/extended"
   } else if (subresource == "simple") {
     endpoint <- "/biological_associations/simple"
   } else {
@@ -130,7 +132,7 @@ tw_biological_associations <- function(subresource = NULL, biological_associatio
     "subject_object_global_id", "subject_taxon_name_id", 
     "taxon_name_id")
 
-  res <- tw_GET(api_base_url(), endpoint, query = args, vector_params = vector_params, ...)
+  res <- tw_GET(api_base_url(), endpoint, query = args, csv = csv, vector_params = vector_params, ...)
   return(res)
 }
 
