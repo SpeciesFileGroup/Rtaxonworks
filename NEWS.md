@@ -1,6 +1,9 @@
 rtaxonworks 0.0.2
 ==========
 
+### UNRELEASED
+* Changed license from NCSA to MIT
+
 ### NEW FEATURES
 
 * More API endpoints covered

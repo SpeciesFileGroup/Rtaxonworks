@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/SpeciesFileGroup/rtaxonworks",
   "relatedLink": "https://api.taxonworks.org",
   "issueTracker": "https://github.com/SpeciesFileGroup/rtaxonworks/issues",
-  "license": "https://spdx.org/licenses/NCSA",
+  "license": "https://spdx.org/licenses/MIT",
   "version": "0.0.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
