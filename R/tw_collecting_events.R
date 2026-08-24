@@ -67,9 +67,8 @@
 #' @param time_end_second (integer) 
 #' @param time_start_hour (integer) 
 #' @param time_start_minute (integer) 
-#' @param time_start_second (integer) 
-#' @param token (NULL) 
-#' @param use_max (boolean) 
+#' @param time_start_second (integer)
+#' @param use_max (boolean)
 #' @param use_min (boolean)
 #' @param verbatim_collectors (string) 
 #' @param verbatim_datum (string) 
@@ -112,7 +111,8 @@ tw_collecting_events <- function(
   start_date_day = NULL, start_date_month = NULL, start_date_year = NULL,
   tags = NULL, time_end_hour = NULL, time_end_minute = NULL,
   time_end_second = NULL, time_start_hour = NULL, time_start_minute = NULL,
-  time_start_second = NULL, token = NULL, use_max = NULL, use_min = NULL,
+  time_start_second = NULL, token = NULL, project_token = NULL,
+  use_max = NULL, use_min = NULL,
   verbatim_collectors = NULL, verbatim_datum = NULL, verbatim_date = NULL,
   verbatim_elevation = NULL, verbatim_geolocation_uncertainty = NULL,
   verbatim_habitat = NULL, verbatim_label = NULL, verbatim_latitude = NULL,
@@ -145,8 +145,9 @@ tw_collecting_events <- function(
     start_date_day = start_date_day, start_date_month = start_date_month, start_date_year = start_date_year,
     tags = tags, time_end_hour = time_end_hour, time_end_minute = time_end_minute,
     time_end_second = time_end_second, time_start_hour = time_start_hour, time_start_minute = time_start_minute,
-    time_start_second = time_start_second, token = token, use_max = use_max,
-    use_min = use_min, verbatim_collectors = verbatim_collectors, verbatim_datum = verbatim_datum,
+    time_start_second = time_start_second, token = token, project_token = project_token,
+    use_max = use_max, use_min = use_min,
+    verbatim_collectors = verbatim_collectors, verbatim_datum = verbatim_datum,
     verbatim_date = verbatim_date, verbatim_elevation = verbatim_elevation, verbatim_geolocation_uncertainty = verbatim_geolocation_uncertainty,
     verbatim_habitat = verbatim_habitat, verbatim_label = verbatim_label, verbatim_latitude = verbatim_latitude,
     verbatim_locality = verbatim_locality, verbatim_longitude = verbatim_longitude, verbatim_method = verbatim_method,
@@ -161,32 +162,6 @@ tw_collecting_events <- function(
   df <- tw_GET(api_base_url(), "/collecting_events", query = args, csv = csv, vector_params = vector_params, ...)
   return(df)
 }
-#' Collection events
-#' @rdname tw_collecting_events
-#' @export
-tw_ce <- tw_collecting_events
-
-
-#' @return list
-#' @examples
-#' \dontrun{
-#' tw_collecting_events()
-#' }
-tw_collecting_events <- function(
-    csv = FALSE, token = NULL, project_token = NULL, page = 0, per = 50, ...) {
-  
-  assert(page, c("numeric", "integer"))
-  assert(per, c("numeric", "integer"))
-
-  args <- cc(list(
-    token = token, project_token = project_token,
-    page = page, per = per))
-
-  df <- tw_GET(api_base_url(), "/collecting_events", query = args, csv = csv, ...)
-  return(df)
-}
-
-
 #' Collection events
 #' @rdname tw_collecting_events
 #' @export
