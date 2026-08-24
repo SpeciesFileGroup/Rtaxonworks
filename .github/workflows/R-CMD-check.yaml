@@ -17,7 +17,7 @@ jobs:
         - { os: macOS-latest, r: 'latest'}
         # - { os: macOS-latest, r: 'devel'}
         # - { os: ubuntu-20.04, r: '3.6', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
-        - { os: ubuntu-20.04, r: 'latest'}
+        - { os: ubuntu-24.04, r: 'latest'}
 
     env:
       TW_PROJECT_TOKEN: ${{ secrets.TW_PROJECT_TOKEN }}
@@ -43,7 +43,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Cache R packages
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{ hashFiles('DESCRIPTION') }}
@@ -56,7 +56,7 @@ jobs:
           while read -r cmd
           do
             eval sudo $cmd
-          done < <(Rscript -e 'writeLines(pak::local_system_requirements("ubuntu", "20.04"))')
+          done < <(Rscript -e 'writeLines(pak::local_system_requirements("ubuntu", "24.04"))')
       
       - name: Install dependencies
         run: |
@@ -76,7 +76,7 @@ jobs:
 
       - name: Upload check results
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
           path: check
