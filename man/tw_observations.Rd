@@ -10,23 +10,46 @@ tw_observations(
   collection_object_id = NULL,
   descendants = NULL,
   descriptor_id = NULL,
+  geo_json = NULL,
+  geo_mode = NULL,
+  geo_shape_id = NULL,
+  geo_shape_type = NULL,
   observation_id = NULL,
   observation_matrix_id = NULL,
   observation_object_global_id = NULL,
+  observation_object_id = NULL,
   observation_object_type = NULL,
   observation_type = NULL,
   otu_id = NULL,
+  radius = NULL,
+  sound_id = NULL,
   taxon_name_id = NULL,
+  wkt = NULL,
   citations = NULL,
   citation_documents = NULL,
-  data_depictions = NULL,
+  origin_citation = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  exclude_confidences = NULL,
+  data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
   depictions = NULL,
-  identifiers = NULL,
+  data_depictions = NULL,
+  image_id = NULL,
+  images = NULL,
   notes = NULL,
   note_text = NULL,
   note_exact = NULL,
   protocols = NULL,
   tags = NULL,
+  exclude_tags = NULL,
+  keyword_id_and = NULL,
+  keyword_id_or = NULL,
+  identifier = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
   csv = FALSE,
   token = NULL,
   project_token = NULL,
@@ -40,23 +63,46 @@ tw_obs(
   collection_object_id = NULL,
   descendants = NULL,
   descriptor_id = NULL,
+  geo_json = NULL,
+  geo_mode = NULL,
+  geo_shape_id = NULL,
+  geo_shape_type = NULL,
   observation_id = NULL,
   observation_matrix_id = NULL,
   observation_object_global_id = NULL,
+  observation_object_id = NULL,
   observation_object_type = NULL,
   observation_type = NULL,
   otu_id = NULL,
+  radius = NULL,
+  sound_id = NULL,
   taxon_name_id = NULL,
+  wkt = NULL,
   citations = NULL,
   citation_documents = NULL,
-  data_depictions = NULL,
+  origin_citation = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  exclude_confidences = NULL,
+  data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
   depictions = NULL,
-  identifiers = NULL,
+  data_depictions = NULL,
+  image_id = NULL,
+  images = NULL,
   notes = NULL,
   note_text = NULL,
   note_exact = NULL,
   protocols = NULL,
   tags = NULL,
+  exclude_tags = NULL,
+  keyword_id_and = NULL,
+  keyword_id_or = NULL,
+  identifier = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
   csv = FALSE,
   token = NULL,
   project_token = NULL,
@@ -74,39 +120,85 @@ tw_obs(
 
 \item{descriptor_id}{(integer, vector) filter by descriptor ID}
 
+\item{geo_json}{(string) GeoJSON geometry for spatial filtering}
+
+\item{geo_mode}{(string) geographic matching mode}
+
+\item{geo_shape_id}{(integer, vector) shape ids for geographic filtering}
+
+\item{geo_shape_type}{(string, vector) shape types (\code{GeographicArea} or \code{Gazetteer})}
+
 \item{observation_id}{(integer, vector) filter by observation ID}
 
 \item{observation_matrix_id}{(integer, vector) filter by observation matrix ID}
 
 \item{observation_object_global_id}{(string) filter by observation object global ID}
 
-\item{observation_object_type}{(string, vector) filter by observation object type (Extract, CollectionObject, Otu)}
+\item{observation_object_id}{(integer, vector) filter by observation object id}
 
-\item{observation_type}{(string, vector) filter by observation type (Observation::Qualitative, Observation::Presence, Observation::Continuous, Observation::Sample, Observation::Media, Observation::FreeText)}
+\item{observation_object_type}{(string, vector) filter by observation object type (\code{Extract}, \code{CollectionObject}, \code{Otu}, \code{FieldOccurrence})}
+
+\item{observation_type}{(string, vector) filter by observation type (e.g., \code{Observation::Qualitative})}
 
 \item{otu_id}{(integer, vector) filter by OTU ID}
 
+\item{radius}{(integer) buffer radius in meters for \code{geo_json}}
+
+\item{sound_id}{(integer, vector) filter by sound ID}
+
 \item{taxon_name_id}{(integer, vector) filter by taxon name ID}
 
-\item{citations}{(boolean) filter by observations that have citations}
+\item{wkt}{(string) filter by well-known text shape}
 
-\item{citation_documents}{(boolean) filter by observations that have citation documents}
+\item{citations}{(boolean) filter by observations with citations}
 
-\item{data_depictions}{(boolean) filter by observations that have data depictions}
+\item{citation_documents}{(boolean) filter by observations with citation documents}
 
-\item{depictions}{(boolean) filter by observations that have depictions}
+\item{origin_citation}{(boolean) filter by observations with an origin citation}
 
-\item{identifiers}{(boolean) filter by observations that have identifiers}
+\item{confidences}{(boolean) filter by observations with confidences}
 
-\item{notes}{(boolean) filter by observations that have notes}
+\item{confidence_level_id}{(integer, vector) filter by confidence level id}
+
+\item{exclude_confidences}{(boolean) exclude observations with matching confidences}
+
+\item{data_attributes}{(boolean) filter by observations with data attributes}
+
+\item{data_attribute_predicate_id}{(integer, vector) filter by data attribute predicate id}
+
+\item{data_attribute_exact_value}{(string, vector) filter by exact data attribute value}
+
+\item{data_attribute_value}{(string, vector) filter by data attribute value}
+
+\item{depictions}{(boolean) filter by observations with depictions}
+
+\item{data_depictions}{(boolean) filter by observations with data depictions}
+
+\item{image_id}{(integer, vector) filter by image ID}
+
+\item{images}{(boolean) filter by observations with images}
+
+\item{notes}{(boolean) filter by observations with notes}
 
 \item{note_text}{(string) filter by note text}
 
 \item{note_exact}{(boolean) filter by exact match on note}
 
-\item{protocols}{(boolean) filter by observations that have protocols}
+\item{protocols}{(boolean) filter by observations with protocols}
 
-\item{tags}{(boolean) filter by observations that have tags}
+\item{tags}{(boolean) filter by observations with tags}
+
+\item{exclude_tags}{(boolean) invert keyword_id_and / keyword_id_or match}
+
+\item{keyword_id_and}{(integer, vector) filter by keyword id with and operator}
+
+\item{keyword_id_or}{(integer, vector) filter by keyword id with or operator}
+
+\item{identifier}{(string) filter by identifier}
+
+\item{identifier_type}{(string, vector) filter by identifier class type}
+
+\item{identifiers}{(boolean) filter by observations with identifiers}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 

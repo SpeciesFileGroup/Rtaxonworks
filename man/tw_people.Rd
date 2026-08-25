@@ -12,28 +12,45 @@ tw_people(
   died_after_year = NULL,
   died_before_year = NULL,
   first_name = NULL,
+  first_name_like = NULL,
+  last_name = NULL,
+  last_name_like = NULL,
+  last_name_starts_with = NULL,
+  name = NULL,
+  prefix = NULL,
+  suffix = NULL,
+  person_id = NULL,
+  role = NULL,
+  with = NULL,
+  without = NULL,
+  only_project_id = NULL,
+  except_project_id = NULL,
+  except_role = NULL,
   identifier = NULL,
   identifier_end = NULL,
   identifier_exact = NULL,
   identifier_start = NULL,
-  last_name = NULL,
-  last_name_starts_with = NULL,
-  person_wildcard = NULL,
-  role = NULL,
-  project_id = NULL,
-  name = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  global_identifiers = NULL,
+  local_identifiers = NULL,
+  match_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  namespace_id = NULL,
   tags = NULL,
-  user_date_end = NULL,
+  exclude_tags = NULL,
+  keyword_id_and = NULL,
+  keyword_id_or = NULL,
   user_date_start = NULL,
-  data_attribute_exact_value = NULL,
-  data_attribute_predicate_id = NULL,
-  data_attribute_value = NULL,
+  user_date_end = NULL,
   data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
   note_exact = NULL,
   note_text = NULL,
   notes = NULL,
-  keyword_id_and = NULL,
-  keyword_id_or = NULL,
   csv = FALSE,
   token = NULL,
   project_token = NULL,
@@ -57,6 +74,34 @@ tw_people(
 
 \item{first_name}{(string) filter by first name}
 
+\item{first_name_like}{(string) fuzzy filter by first name}
+
+\item{last_name}{(string) filter by last name}
+
+\item{last_name_like}{(string) fuzzy filter by last name}
+
+\item{last_name_starts_with}{(string) filter by last name prefix}
+
+\item{name}{(string) filter by full name}
+
+\item{prefix}{(string) filter by prefix}
+
+\item{suffix}{(string) filter by suffix}
+
+\item{person_id}{(integer, vector) filter by person id}
+
+\item{role}{(string, vector) filter by role class name}
+
+\item{with}{(string, vector) filter to people with a given role (upstream currently 500s for role names)}
+
+\item{without}{(string, vector) filter to people without a given role (upstream currently 500s for role names)}
+
+\item{only_project_id}{(integer, vector) restrict to people in the given projects}
+
+\item{except_project_id}{(integer, vector) exclude people in the given projects}
+
+\item{except_role}{(string, vector) exclude people with the given role}
+
 \item{identifier}{(string) filter by identifier}
 
 \item{identifier_end}{(string) filter by identifier end}
@@ -65,41 +110,47 @@ tw_people(
 
 \item{identifier_start}{(string) filter by identifier start}
 
-\item{last_name}{(string) filter by last name}
+\item{identifier_type}{(string, vector) filter by identifier class type}
 
-\item{last_name_starts_with}{(string) filter by last name starts with}
+\item{identifiers}{(boolean) filter by people with identifiers}
 
-\item{person_wildcard}{(vector) filter by person wildcard}
+\item{global_identifiers}{(boolean) filter by people with global identifiers}
 
-\item{role}{(vector, string) filter by role}
+\item{local_identifiers}{(boolean) filter by people with local identifiers}
 
-\item{project_id}{(integer) filter by project id}
+\item{match_identifiers}{(string) match identifiers with a delimited string of identifiers}
 
-\item{name}{(string) filter by name}
+\item{match_identifiers_delimiter}{(string) delimiter for \code{match_identifiers}}
+
+\item{match_identifiers_type}{(string) filter by internal or external identifier type}
+
+\item{namespace_id}{(integer) filter by namespace id}
 
 \item{tags}{(boolean) filter by people with tags}
 
-\item{user_date_end}{(string) filter by user date end}
+\item{exclude_tags}{(boolean) invert keyword_id_and / keyword_id_or match}
 
-\item{user_date_start}{(string) filter by user date start}
+\item{keyword_id_and}{(integer, vector) filter by keyword id with and operator}
 
-\item{data_attribute_exact_value}{(boolean) require exact match on data attribute value}
+\item{keyword_id_or}{(integer, vector) filter by keyword id with or operator}
+
+\item{user_date_start}{(string) filter by user date start (ISO 8601)}
+
+\item{user_date_end}{(string) filter by user date end (ISO 8601)}
+
+\item{data_attributes}{(boolean) filter by people with data attributes}
 
 \item{data_attribute_predicate_id}{(integer, vector) filter by data attribute predicate id}
 
-\item{data_attribute_value}{(string, vector) filter by data attribute value}
+\item{data_attribute_exact_value}{(boolean) require exact match on data attribute value}
 
-\item{data_attributes}{(boolean) filter by people with data attributes}
+\item{data_attribute_value}{(string, vector) filter by data attribute value}
 
 \item{note_exact}{(boolean) require exact match on note text}
 
 \item{note_text}{(string) filter by note text}
 
 \item{notes}{(boolean) filter by people with notes}
-
-\item{keyword_id_and}{(integer, vector) filter by keyword id with and operator}
-
-\item{keyword_id_or}{(integer, vector) filter by keyword id with or operator}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 
@@ -119,6 +170,7 @@ People
 }
 \examples{
 \dontrun{
-tw_people(last_name="Smith")
+tw_people(last_name = "Smith")
+tw_people(name = "Darwin", only_project_id = 5)
 }
 }

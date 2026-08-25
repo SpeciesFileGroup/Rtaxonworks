@@ -7,6 +7,7 @@
 \usage{
 tw_observation_matrices(
   observation_matrix_id = NULL,
+  otu_id = NULL,
   csv = FALSE,
   token = NULL,
   project_token = NULL,
@@ -17,6 +18,7 @@ tw_observation_matrices(
 
 tw_obsm(
   observation_matrix_id = NULL,
+  otu_id = NULL,
   csv = FALSE,
   token = NULL,
   project_token = NULL,
@@ -27,6 +29,8 @@ tw_obsm(
 }
 \arguments{
 \item{observation_matrix_id}{(integer, vector) filter by observation matrix id}
+
+\item{otu_id}{(integer, vector) filter by otu id}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 
