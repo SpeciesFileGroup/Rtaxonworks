@@ -1,0 +1,12 @@
+skip_on_cran()
+
+test_that("tw_sounds", {
+  vcr::use_cassette("tw_sounds", {
+    assign("TW_API_URL", "https://sandbox.taxonworks.org/api/v1", envir = .GlobalEnv)
+    assign("TW_PROJECT_TOKEN", Sys.getenv("TW_PROJECT_TOKEN"), envir = .GlobalEnv)
+    assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
+    x <- tw_sounds(page = 0, per = 1)
+  })
+  expect_true(is.list(x))
+  expect_true("data" %in% names(x))
+})

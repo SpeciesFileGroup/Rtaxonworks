@@ -49,6 +49,7 @@ tw_sources(
   topic_id = NULL,
   year_start = NULL,
   year_end = NULL,
+  any_value_attribute = NULL,
   wildcard_attribute = NULL,
   abstract = NULL,
   address = NULL,
@@ -180,6 +181,8 @@ tw_sources(
 
 \item{year_end}{(integer) filter by year end}
 
+\item{any_value_attribute}{(string, vector) filter by wildcard_attribute (e.g., any of the below fields abstract through year_suffix)}
+
 \item{wildcard_attribute}{(string, vector) filter by wildcard_attribute (e.g., any of the below fields abstract through year_suffix)}
 
 \item{abstract}{(string) filter by wildcard_attribute on abstract}
@@ -259,8 +262,6 @@ tw_sources(
 \item{...}{curl options passed on to \code{\link[httr2]{verb-GET}}}
 
 \item{namespace_id}{(integer) filter by namespace ID}
-
-\item{any_value_attribute}{(string, vector) filter by wildcard_attribute (e.g., any of the below fields abstract through year_suffix)}
 }
 \value{
 list

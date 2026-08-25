@@ -6,38 +6,186 @@
 \title{Collecting events}
 \usage{
 tw_collecting_events(
-  csv = FALSE,
+  citation_documents = NULL,
+  citations = NULL,
+  collection_objects = NULL,
+  collector_id = NULL,
+  collector_id_or = NULL,
+  collectors = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_value = NULL,
+  data_attributes = NULL,
+  document_label = NULL,
+  elevation_precision = NULL,
+  end_date = NULL,
+  end_date_day = NULL,
+  end_date_month = NULL,
+  end_date_year = NULL,
+  field_notes = NULL,
+  formation = NULL,
+  geographic_area = NULL,
+  geographic_area_id = NULL,
+  geographic_area_mode = NULL,
+  georeferences = NULL,
+  group = NULL,
+  identifier = NULL,
+  identifier_end = NULL,
+  identifier_exact = NULL,
+  identifier_start = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  image_id = NULL,
+  images = NULL,
+  in_labels = NULL,
+  in_verbatim_locality = NULL,
+  keyword_id_and = NULL,
+  keyword_id_or = NULL,
+  lithology = NULL,
+  local_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  maximum_elevation = NULL,
+  md5_of_verbatim_label = NULL,
+  md5_verbatim_label = NULL,
+  member = NULL,
+  meta_prioritize_geographic_area = NULL,
+  min_ma = NULL,
+  minimum_elevation = NULL,
+  namespace_id = NULL,
+  note_exact = NULL,
+  note_text = NULL,
+  notes = NULL,
+  origin_citation = NULL,
+  otu_id = NULL,
+  print_label = NULL,
+  radius = NULL,
+  recent = NULL,
+  start_date = NULL,
+  start_date_day = NULL,
+  start_date_month = NULL,
+  start_date_year = NULL,
+  tags = NULL,
+  time_end_hour = NULL,
+  time_end_minute = NULL,
+  time_end_second = NULL,
+  time_start_hour = NULL,
+  time_start_minute = NULL,
+  time_start_second = NULL,
   token = NULL,
   project_token = NULL,
+  use_max = NULL,
+  use_min = NULL,
+  verbatim_collectors = NULL,
+  verbatim_datum = NULL,
+  verbatim_date = NULL,
+  verbatim_elevation = NULL,
+  verbatim_geolocation_uncertainty = NULL,
+  verbatim_habitat = NULL,
+  verbatim_label = NULL,
+  verbatim_latitude = NULL,
+  verbatim_locality = NULL,
+  verbatim_longitude = NULL,
+  verbatim_method = NULL,
+  verbatim_trip_identifier = NULL,
+  wkt = NULL,
+  csv = FALSE,
   page = 0,
   per = 50,
   ...
 )
 
-tw_ce(csv = FALSE, token = NULL, project_token = NULL, page = 0, per = 50, ...)
-
-tw_collecting_events(
-  csv = FALSE,
+tw_ce(
+  citation_documents = NULL,
+  citations = NULL,
+  collection_objects = NULL,
+  collector_id = NULL,
+  collector_id_or = NULL,
+  collectors = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_value = NULL,
+  data_attributes = NULL,
+  document_label = NULL,
+  elevation_precision = NULL,
+  end_date = NULL,
+  end_date_day = NULL,
+  end_date_month = NULL,
+  end_date_year = NULL,
+  field_notes = NULL,
+  formation = NULL,
+  geographic_area = NULL,
+  geographic_area_id = NULL,
+  geographic_area_mode = NULL,
+  georeferences = NULL,
+  group = NULL,
+  identifier = NULL,
+  identifier_end = NULL,
+  identifier_exact = NULL,
+  identifier_start = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  image_id = NULL,
+  images = NULL,
+  in_labels = NULL,
+  in_verbatim_locality = NULL,
+  keyword_id_and = NULL,
+  keyword_id_or = NULL,
+  lithology = NULL,
+  local_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  maximum_elevation = NULL,
+  md5_of_verbatim_label = NULL,
+  md5_verbatim_label = NULL,
+  member = NULL,
+  meta_prioritize_geographic_area = NULL,
+  min_ma = NULL,
+  minimum_elevation = NULL,
+  namespace_id = NULL,
+  note_exact = NULL,
+  note_text = NULL,
+  notes = NULL,
+  origin_citation = NULL,
+  otu_id = NULL,
+  print_label = NULL,
+  radius = NULL,
+  recent = NULL,
+  start_date = NULL,
+  start_date_day = NULL,
+  start_date_month = NULL,
+  start_date_year = NULL,
+  tags = NULL,
+  time_end_hour = NULL,
+  time_end_minute = NULL,
+  time_end_second = NULL,
+  time_start_hour = NULL,
+  time_start_minute = NULL,
+  time_start_second = NULL,
   token = NULL,
   project_token = NULL,
+  use_max = NULL,
+  use_min = NULL,
+  verbatim_collectors = NULL,
+  verbatim_datum = NULL,
+  verbatim_date = NULL,
+  verbatim_elevation = NULL,
+  verbatim_geolocation_uncertainty = NULL,
+  verbatim_habitat = NULL,
+  verbatim_label = NULL,
+  verbatim_latitude = NULL,
+  verbatim_locality = NULL,
+  verbatim_longitude = NULL,
+  verbatim_method = NULL,
+  verbatim_trip_identifier = NULL,
+  wkt = NULL,
+  csv = FALSE,
   page = 0,
   per = 50,
   ...
 )
-
-tw_ce(csv = FALSE, token = NULL, project_token = NULL, page = 0, per = 50, ...)
 }
 \arguments{
-\item{token}{(NULL)}
-
-\item{project_token}{(string) a project token (set with the TW_PROJECT_TOKEN environment variable)}
-
-\item{page}{(integer) requested number of offset records (Default: 0)}
-
-\item{per}{(integer) requested number of maximum records to be returned (Default: 50, Maximum: 10000)}
-
-\item{...}{curl options passed on to \code{\link[httr2]{verb-GET}}}
-
 \item{citation_documents}{(boolean) filter by collecting events with citation documents}
 
 \item{citations}{(boolean) filter by collecting events with citations}
@@ -170,6 +318,10 @@ tw_ce(csv = FALSE, token = NULL, project_token = NULL, page = 0, per = 50, ...)
 
 \item{time_start_second}{(integer)}
 
+\item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
+
+\item{project_token}{(string) a project token (set with the TW_PROJECT_TOKEN environment variable)}
+
 \item{use_max}{(boolean)}
 
 \item{use_min}{(boolean)}
@@ -199,23 +351,22 @@ tw_ce(csv = FALSE, token = NULL, project_token = NULL, page = 0, per = 50, ...)
 \item{verbatim_trip_identifier}{(string)}
 
 \item{wkt}{(string) filter by well-known text describing the search area}
+
+\item{page}{(integer) requested number of offset records (Default: 0)}
+
+\item{per}{(integer) requested number of maximum records to be returned (Default: 50, Maximum: 10000)}
+
+\item{...}{curl options passed on to \code{\link[httr2]{verb-GET}}}
 }
 \value{
-list
-
 list
 }
 \description{
 Collecting events
 
 Collection events
-
-Collection events
 }
 \examples{
-\dontrun{
-tw_collecting_events()
-}
 \dontrun{
 tw_collecting_events()
 }

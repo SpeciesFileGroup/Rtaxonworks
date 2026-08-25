@@ -70,32 +70,42 @@ After loading the package, the following functions are added to your environment
 
 ```r
 > ls("package:rtaxonworks")
- [1] "tw_ad"                          "tw_asserted_distributions"
- [3] "tw_ba"                          "tw_biological_associations"
- [5] "tw_biological_relationships"    "tw_both_authenticated"
- [7] "tw_br"                          "tw_ce"
- [9] "tw_citations"                   "tw_cn"
-[11] "tw_co"                          "tw_collecting_events"
-[13] "tw_collection_objects"          "tw_common_names"
-[15] "tw_contents"                    "tw_controlled_vocabulary_terms"
-[17] "tw_cvt"                         "tw_da"
-[19] "tw_data_attributes"             "tw_depictions"
-[21] "tw_download"                    "tw_downloads"
-[23] "tw_dwc"                         "tw_dwc_occurrences"
-[25] "tw_identifiers"                 "tw_images"
-[27] "tw_note"                        "tw_notes"
-[29] "tw_obs"                         "tw_observation_matrices"
-[31] "tw_observations"                "tw_obsm"
-[33] "tw_otu"                         "tw_otus"
-[35] "tw_people"                      "tw_ping"
-[37] "tw_project_authenticated"       "tw_projects"
-[39] "tw_sources"                     "tw_tag"
-[41] "tw_tags"                        "tw_taxon_name_classifications"
-[43] "tw_taxon_name_relationships"    "tw_taxon_names"
-[45] "tw_taxon_names_autocomplete"    "tw_tn"
-[47] "tw_tn_auto"                     "tw_tnc"
-[49] "tw_tnr"                         "tw_up"
-[51] "tw_user_authenticated"          "tw_vocab"
+ [1] "tw_activity"                       "tw_ad"
+ [3] "tw_asserted_distributions"         "tw_ba"
+ [5] "tw_bag"                            "tw_biological_associations"
+ [7] "tw_biological_associations_graphs" "tw_biological_relationships"
+ [9] "tw_both_authenticated"             "tw_br"
+[11] "tw_cached_maps"                    "tw_ce"
+[13] "tw_citations"                      "tw_cm"
+[15] "tw_cn"                             "tw_co"
+[17] "tw_collecting_events"              "tw_collection_objects"
+[19] "tw_common_names"                   "tw_contents"
+[21] "tw_controlled_vocabulary_terms"    "tw_conv"
+[23] "tw_conveyances"                    "tw_count_valid_species"
+[25] "tw_cvt"                            "tw_da"
+[27] "tw_data_attributes"                "tw_depictions"
+[29] "tw_download"                       "tw_downloads"
+[31] "tw_dwc"                            "tw_dwc_occurrences"
+[33] "tw_field_occurrences"              "tw_fo"
+[35] "tw_identifiers"                    "tw_images"
+[37] "tw_ld"                             "tw_leads"
+[39] "tw_news"                           "tw_note"
+[41] "tw_notes"                          "tw_obs"
+[43] "tw_observation_matrices"           "tw_observations"
+[45] "tw_obsm"                           "tw_otu"
+[47] "tw_otus"                           "tw_people"
+[49] "tw_ping"                           "tw_pingz"
+[51] "tw_project_authenticated"          "tw_projects"
+[53] "tw_snd"                            "tw_sounds"
+[55] "tw_sources"                        "tw_stats"
+[57] "tw_tag"                            "tw_tags"
+[59] "tw_taxon_determinations"           "tw_taxon_name_classifications"
+[61] "tw_taxon_name_relationships"       "tw_taxon_names"
+[63] "tw_taxon_names_autocomplete"       "tw_td"
+[65] "tw_tn"                             "tw_tn_auto"
+[67] "tw_tnc"                            "tw_tnr"
+[69] "tw_up"                             "tw_user_authenticated"
+[71] "tw_vocab"
 ```
 
 Many functions have short aliases (e.g., `tw_tn` for `tw_taxon_names`, `tw_ba` for `tw_biological_associations`). Both forms are interchangeable.
@@ -1065,6 +1075,168 @@ tw_both_authenticated(token = "your-user-token", project_token = "your-project-t
 ```
 
 These helpers accept only the shared parameters and return the result of the corresponding authentication check.
+
+### Biological associations graphs
+
+Named graphs that group biological associations for visualising interaction networks.
+
+```{r eval=FALSE}
+tw_biological_associations_graphs()
+tw_biological_associations_graphs(id = 1)
+```
+
+<details>
+<summary>Parameters for <code>tw_biological_associations_graphs</code> (alias <code>tw_bag</code>)</summary>
+
+| Param | Type | Description |
+|---|---|---|
+| `id` | integer | fetch a single graph by id |
+| `biological_associations_graph_id` | integer, vector | filter by graph id |
+| `biological_association_id` | integer, vector | filter by BiologicalAssociation id |
+| `biological_relationship_id` | integer, vector | filter by BiologicalRelationship id |
+| `wkt` | string | spatial filter in WKT format |
+| `geo_json` | string | GeoJSON geometry for spatial filtering |
+| `radius` | integer | buffer radius in meters for `geo_json` |
+| `geo_shape_id` | integer, vector | shape ids for geographic filtering |
+| `geo_shape_type` | string, vector | shape types (`GeographicArea` or `Gazetteer`) |
+| `geo_mode` | string | geographic matching mode |
+| `extend` | string, vector | extend the response (`biological_associations_biological_associations_graphs`, `notes`) |
+
+</details>
+
+### Cached maps
+
+Pre-computed geographic distribution maps for an OTU (single-record fetch only).
+
+```{r eval=FALSE}
+tw_cached_maps(id = 1)
+```
+
+### Conveyances
+
+Links Sound recordings to CollectionObjects/OTUs/FieldOccurrences.
+
+```{r eval=FALSE}
+tw_conveyances()
+tw_conveyances(sound_id = 1)
+```
+
+<details>
+<summary>Parameters for <code>tw_conveyances</code> (alias <code>tw_conv</code>)</summary>
+
+| Param | Type | Description |
+|---|---|---|
+| `id` | integer | fetch a single Conveyance by id |
+| `conveyance_id` | integer, vector | filter by Conveyance id |
+| `sound_id` | integer, vector | filter by Sound id |
+| `otu_id` | integer, vector | filter by OTU id |
+| `conveyance_object_type` | string, vector | filter by conveyed object class |
+| `conveyance_object_id` | integer, vector | filter by conveyed object id |
+| `name` | string | filter by conveyance name |
+| `extend` | string, vector | extend the response (`sound`, `notes`) |
+
+</details>
+
+### Field occurrences
+
+Darwin Core data for a field observation (single-record fetch).
+
+```{r eval=FALSE}
+tw_field_occurrences(id = 1)
+```
+
+### Leads (dichotomous keys)
+
+Retrieve a dichotomous identification key rooted at the given Lead id.
+
+```{r eval=FALSE}
+tw_leads(id = 1)
+```
+
+### News
+
+News items associated with the TaxonWorks instance or a project.
+
+```{r eval=FALSE}
+tw_news()
+tw_news(type = "News::Project::BlogPost")
+```
+
+<details>
+<summary>Parameters for <code>tw_news</code></summary>
+
+| Param | Type | Description |
+|---|---|---|
+| `id` | integer | fetch a single News item by id |
+| `news_id` | integer, vector | filter by News item id |
+| `type` | string, vector | filter by news type (e.g., `News::Project::BlogPost`) |
+
+</details>
+
+### Sounds
+
+Sound recordings, linked to specimens or field observations via Conveyances.
+
+```{r eval=FALSE}
+tw_sounds()
+tw_sounds(otu_id = 1)
+```
+
+<details>
+<summary>Parameters for <code>tw_sounds</code> (alias <code>tw_snd</code>)</summary>
+
+| Param | Type | Description |
+|---|---|---|
+| `id` | integer | fetch a single Sound by id |
+| `sound_id` | integer, vector | filter by Sound id |
+| `name` | string | filter by sound name |
+| `otu_id` | integer, vector | filter by OTU id (via conveyances) |
+| `collection_object_id` | integer, vector | filter by CollectionObject id |
+| `field_occurrence_id` | integer, vector | filter by FieldOccurrence id |
+| `conveyances` | boolean | filter by whether the sound has conveyances |
+| `with_name` | boolean | filter by whether the sound has a name |
+| `extend` | string, vector | extend the response (`conveyances`, `attribution`, `notes`) |
+
+</details>
+
+### Taxon determinations
+
+The determination stack for a specimen or field occurrence (which OTU applies, position, determiner, year).
+
+```{r eval=FALSE}
+tw_taxon_determinations()
+tw_taxon_determinations(collection_object_id = 1)
+```
+
+<details>
+<summary>Parameters for <code>tw_taxon_determinations</code> (alias <code>tw_td</code>)</summary>
+
+| Param | Type | Description |
+|---|---|---|
+| `id` | integer | fetch a single TaxonDetermination by id |
+| `taxon_determination_id` | integer, vector | filter by TaxonDetermination id |
+| `otu_id` | integer, vector | filter by OTU id |
+| `collection_object_id` | integer, vector | filter by CollectionObject id |
+| `field_occurrence_id` | integer, vector | filter by FieldOccurrence id |
+| `determiner_id` | integer, vector | filter by determiner Person id |
+| `taxon_determination_object_id` | integer, vector | filter by determined object id |
+| `taxon_determination_object_type` | string, vector | filter by determined object type (`CollectionObject`, `FieldOccurrence`) |
+| `extend` | string, vector | extend the response |
+
+</details>
+
+### Utility endpoints
+
+Deep health check, project statistics, recent activity, and citation helpers.
+
+```{r eval=FALSE}
+tw_pingz()
+tw_stats()
+tw_activity()
+tw_count_valid_species(taxon_name = "Aphrodinae")
+```
+
+`tw_count_valid_species` requires a `taxon_name` argument; `tw_activity` accepts an optional `past_days`. All accept only the shared parameters otherwise.
 
 ## Contributing
 

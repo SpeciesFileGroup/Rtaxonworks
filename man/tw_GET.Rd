@@ -11,6 +11,7 @@ tw_GET(
   headers = list(),
   csv = FALSE,
   vector_params = c(),
+  timeout = 900,
   ...
 )
 }

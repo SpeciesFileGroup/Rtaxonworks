@@ -6,7 +6,7 @@
 \title{Biological relationships}
 \usage{
 tw_biological_relationships(
-  csv = FALSE,
+  csv = TRUE,
   token = NULL,
   project_token = NULL,
   page = 0,
@@ -14,7 +14,7 @@ tw_biological_relationships(
   ...
 )
 
-tw_br(csv = FALSE, token = NULL, project_token = NULL, page = 0, per = 50, ...)
+tw_br(csv = TRUE, token = NULL, project_token = NULL, page = 0, per = 50, ...)
 }
 \arguments{
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}

@@ -143,10 +143,13 @@ tw_GET <- function(
           is.null(body) || is.na(body)) {
       data <- tibble()
     } else {
-      if (is.data.frame(fromJSON(body))) {
-        data <- as_tibble(flatten(fromJSON(body), recursive = TRUE))
+      parsed <- fromJSON(body)
+      if (is.data.frame(parsed)) {
+        data <- as_tibble(flatten(parsed, recursive = TRUE))
       } else {
-        data <- as_tibble(fromJSON(body))
+        # Non-tabular JSON (e.g. /stats, /activity, /cite/*) is returned
+        # as-is when it can't be coerced to a tibble.
+        data <- tryCatch(as_tibble(parsed), error = function(e) parsed)
       }
     }
     result <- list(meta = meta, data = data)

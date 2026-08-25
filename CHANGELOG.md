@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+### Added
+ - Wrappers for API endpoints added to TaxonWorks since the last release: `tw_biological_associations_graphs` (alias `tw_bag`), `tw_cached_maps` (alias `tw_cm`), `tw_conveyances` (alias `tw_conv`), `tw_field_occurrences` (alias `tw_fo`), `tw_leads` (alias `tw_ld`, dichotomous keys), `tw_news`, `tw_sounds` (alias `tw_snd`), `tw_taxon_determinations` (alias `tw_td`), `tw_pingz` (deep health check), `tw_stats` (project/global statistics), `tw_activity` (recent project activity), `tw_count_valid_species` (unauthenticated citation helper)
+ - `tw_GET` now falls back to returning the parsed JSON as-is when it cannot be coerced to a tibble (e.g., for `/stats`)
+
 ### Breaking
  - `csv = TRUE` is now the default for endpoints whose TaxonWorks API controller implements a CSV response format: `tw_biological_associations`, `tw_biological_relationships`, `tw_common_names`, `tw_dwc_occurrences`, `tw_otus` (list only; single-record fetch stays JSON), `tw_taxon_name_relationships`, and `tw_taxon_names`. The CSV endpoints return all matching rows and ignore `page`/`per`, so bare calls like `tw_taxon_names()` will now download the full table for the current project. Pass `csv = FALSE` to opt back into paginated JSON.
  - The CSV path now returns `list(meta, data)` with the same shape as the JSON path (previously returned a bare tibble). Scripts that treated the CSV result as a tibble directly (e.g. `nrow(res)`) will need `nrow(res$data)`.
