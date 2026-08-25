@@ -17,10 +17,11 @@
 tw_taxon_name_relationships <- function(object_taxon_name_id = NULL, 
   subject_taxon_name_id = NULL, taxon_name_id = NULL,
   taxon_name_relationship_set = NULL, taxon_name_relationship_type = NULL,
-  csv = FALSE, token = NULL, project_token = NULL, page = 0, per = 50, ...) {
+  csv = TRUE, token = NULL, project_token = NULL, page = 0, per = 50, ...) {
 
   assert(page, c("numeric", "integer"))
   assert(per, c("numeric", "integer"))
+  if (csv && (!missing(page) || !missing(per))) warn_csv_ignores_paging(per)
 
   args <- cc(list(object_taxon_name_id = object_taxon_name_id, 
     subject_taxon_name_id = subject_taxon_name_id, taxon_name_id = taxon_name_id,
@@ -33,7 +34,7 @@ tw_taxon_name_relationships <- function(object_taxon_name_id = NULL,
 
   res <- tw_GET(api_base_url(), "/taxon_name_relationships", query = args, csv = csv, vector_params = vector_params, ...)
   return(res)
-}  # TODO: tnr needs a csv endpoint?
+}
 
 #' Taxon Name Relationships
 #'

@@ -102,18 +102,23 @@ Many functions have short aliases (e.g., `tw_tn` for `tw_taxon_names`, `tw_ba` f
 
 ## Return values and pagination
 
-By default, endpoints return a list with two elements:
+Every endpoint returns a list with two elements:
 
-* `data`: a [tibble](https://tibble.tidyverse.org/) of results for the current page
+* `data`: a [tibble](https://tibble.tidyverse.org/) of results
 * `meta`: a list of pagination information (`page`, `next_page`, `per`, `total`, `total_pages`)
 
-Results are paginated (default `per = 50`, controlled with the `page` and `per` arguments), so retrieving a full result set requires walking pages. To avoid pagination and download the full result set in one request, pass `csv = TRUE`. This calls the endpoint's CSV variant and returns a single tibble containing all matching records:
+There are two request modes controlled by the `csv` argument:
 
-```{r eval=FALSE}
-tw_taxon_names(name = "Lycorma delicatula", csv = TRUE)
-```
+* **`csv = TRUE`** (default for the endpoints whose TaxonWorks API controller implements a CSV response format): calls the endpoint's `.csv` variant and returns **all** matching rows in a single request. `page` and `per` are ignored by the server; `meta` is populated with `total = nrow(data)` and `total_pages = 1`. If you pass `page` or `per` with `csv = TRUE` a warning explains how to trim client-side (`head(res$data, N)`) or fall back to paginated JSON.
+* **`csv = FALSE`** (default for endpoints without CSV support): calls the JSON endpoint and returns one page. Server default is `per = 50`; the R client mirrors that. Walk pages with `page = 1, 2, ...` using `meta$total_pages` as the upper bound.
 
-Note that CSV downloads can be large and slow for broad queries. If a download exceeds 60 seconds, a one-time message is printed to indicate progress. The client-side timeout defaults to 900 seconds (15 minutes) and can be raised further with the `timeout` argument.
+Endpoints that default to `csv = TRUE`:
+
+`tw_biological_associations`, `tw_biological_relationships`, `tw_common_names`, `tw_dwc_occurrences`, `tw_otus` (list only; single-record fetches via `id = ...` fall back to JSON), `tw_taxon_name_relationships`, `tw_taxon_names`.
+
+All other wrappers default to `csv = FALSE` because the corresponding TaxonWorks API controllers do not implement a CSV response format yet.
+
+CSV downloads can be large and slow. If a download exceeds 60 seconds, a one-time progress notice is printed. The client-side timeout defaults to 900 seconds (15 minutes) and can be raised with the `timeout` argument.
 
 ## Usage
 
@@ -127,7 +132,7 @@ The following parameters are accepted by (almost) every function in addition to 
 
 | Param | Type | Description |
 |---|---|---|
-| `csv` | boolean | if `TRUE`, download all matching records via the CSV endpoint in one request (default `FALSE`) |
+| `csv` | boolean | if `TRUE`, download all matching records via the CSV endpoint in one request. Default is `TRUE` for endpoints whose API controller supports CSV and `FALSE` otherwise (see the *Return values and pagination* section). |
 | `page` | integer | offset in records (default `0`) |
 | `per` | integer | maximum records per page (default `50`, maximum `10000`) |
 | `timeout` | integer | client-side timeout in seconds for CSV downloads (default `900`) |

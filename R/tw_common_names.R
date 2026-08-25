@@ -14,10 +14,11 @@
 #' }
 tw_common_names <- function(common_name_id = NULL, geographic_area_id = NULL,
                             language_id = NULL, name = NULL, otu_id = NULL,
-                            csv = FALSE, token = NULL, project_token = NULL,
+                            csv = TRUE, token = NULL, project_token = NULL,
                             page = 0, per = 50, ...) {
   assert(page, c("numeric", "integer"))
   assert(per, c("numeric", "integer"))
+  if (csv && (!missing(page) || !missing(per))) warn_csv_ignores_paging(per)
 
   args <- cc(list(
     common_name_id = common_name_id, geographic_area_id = geographic_area_id,

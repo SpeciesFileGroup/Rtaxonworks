@@ -73,7 +73,7 @@ test_that("tw_contents_otu_id", {
     assign("TW_API_URL", "https://sandbox.taxonworks.org/api/v1", envir = .GlobalEnv)
     assign("TW_PROJECT_TOKEN", Sys.getenv("TW_PROJECT_TOKEN"), envir = .GlobalEnv)
     assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
-    otu_ids <- tw_otus(page = 0, per = 1)$data$id
+    otu_ids <- tw_otus(page = 0, per = 1, csv = FALSE)$data$id
     x <- tw_contents(otu_id = otu_ids, page = 0, per = 1)
   })
   expect_true(x$meta$total < total_contents)

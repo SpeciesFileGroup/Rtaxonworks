@@ -40,11 +40,15 @@ tw_otus <- function(id = NULL, subresource = NULL, asserted_distribution_ids = N
   keyword_id_or = NULL, name = NULL, note_exact = NULL, note_text = NULL, notes = NULL,
   origin_citations = NULL, otu_id = NULL, tags = NULL,
   taxon_name_classification_id = NULL, taxon_name_id = NULL, 
-  taxon_name_relationship_id = NULL, csv = FALSE, token = NULL, project_token = NULL, 
+  taxon_name_relationship_id = NULL, csv = TRUE, token = NULL, project_token = NULL,
   page = 0, per = 50, ...) {
 
   assert(page, c("numeric", "integer"))
   assert(per, c("numeric", "integer"))
+
+  # single-record and subresource paths do not support CSV
+  if (!is.null(id)) csv <- FALSE
+  if (csv && (!missing(page) || !missing(per))) warn_csv_ignores_paging(per)
 
   args <- cc(list(asserted_distribution_ids = asserted_distribution_ids,
     biological_association_ids = biological_association_ids, citations = citations,

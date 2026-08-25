@@ -6,7 +6,7 @@ Description: Client for TaxonWorks
     workbench for taxonomists and biodiversity scientists. It allows you to 
     capture, organize, and enrich your data; share it with collaborators; 
     and package it for analysis and publication.
-Version: 0.0.1
+Version: 0.1.0
 Authors@R: c(person("Geoff", "Ower", role = c("aut", "cre"),
     email = "gdower@illinois.edu",
     comment = c(ORCID = "0000-0002-9770-2345")),

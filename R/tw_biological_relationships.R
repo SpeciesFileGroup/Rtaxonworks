@@ -7,11 +7,12 @@
 #' \dontrun{
 #' tw_biological_relationships()
 #' }
-tw_biological_relationships <- function(csv = FALSE, token = NULL, project_token = NULL,
+tw_biological_relationships <- function(csv = TRUE, token = NULL, project_token = NULL,
                      page = 0, per = 50, ...) {
 
   assert(page, c("numeric", "integer"))
   assert(per, c("numeric", "integer"))
+  if (csv && (!missing(page) || !missing(per))) warn_csv_ignores_paging(per)
 
   args <- cc(list(token = token, project_token = project_token, page = page, per = per))
 

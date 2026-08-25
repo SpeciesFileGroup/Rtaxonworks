@@ -109,7 +109,7 @@ test_that("tw_observations_taxon_name_id", {
     assign("TW_PROJECT_TOKEN", Sys.getenv("TW_PROJECT_TOKEN"), envir = .GlobalEnv)
     assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
     otu_id <- tw_observations(observation_object_type = "Otu", page = 5, per = 1)$data$observation_object_id[1]
-    taxon_name_id <- tw_otus(otu_id = otu_id, page = 0, per = 1)$data$taxon_name_id[1]
+    taxon_name_id <- tw_otus(otu_id = otu_id, page = 0, per = 1, csv = FALSE)$data$taxon_name_id[1]
     x <- tw_observations(taxon_name_id = taxon_name_id, observation_object_type = "Otu", page = 0, per = 10)$data
   })
   expect_true(all(otu_id == x$observation_object_id))

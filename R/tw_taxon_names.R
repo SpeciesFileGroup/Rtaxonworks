@@ -68,13 +68,14 @@ tw_taxon_names <- function(ancestors = NULL, author = NULL,
   tags = NULL, taxon_name_author_id_or = NULL, taxon_name_id = NULL,
   taxon_name_relationship = NULL, taxon_name_relationship_type = NULL,
   taxon_name_type = NULL, type_metadata = NULL, validity = NULL, year = NULL,
-  year_end = NULL, year_start = NULL, csv = FALSE, token = NULL, project_token = NULL, 
+  year_end = NULL, year_start = NULL, csv = TRUE, token = NULL, project_token = NULL,
   page = 0, per = 50, ...) {
-  
+
   assert(page, c("numeric", "integer"))
   assert(per, c("numeric", "integer"))
+  if (csv && (!missing(page) || !missing(per))) warn_csv_ignores_paging(per)
 
-  args <- cc(list(ancestors = ancestors, author = author, 
+  args <- cc(list(ancestors = ancestors, author = author,
     author_exact = author_exact, authors = authors, citations = citations,
     citation_documents = citation_documents, 
     collecting_event_id = collecting_event_id,
@@ -135,11 +136,12 @@ tw_tn <- tw_taxon_names
 #' }
 tw_taxon_names_autocomplete <- function(term = NULL, exact = NULL, no_leaves = NULL,
   nomenclature_group = NULL, parent_id = NULL, project_id = NULL, type = NULL,
-  valid = NULL, csv = FALSE, token = NULL, project_token = NULL, 
+  valid = NULL, csv = FALSE, token = NULL, project_token = NULL,
   page = 0, per = 50, ...) {
-  
+
   assert(page, c("numeric", "integer"))
   assert(per, c("numeric", "integer"))
+  if (csv && (!missing(page) || !missing(per))) warn_csv_ignores_paging(per)
 
   args <- cc(list(term = term, exact = exact, no_leaves = no_leaves,
     nomenclature_group = nomenclature_group, parent_id = parent_id,

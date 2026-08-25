@@ -6,7 +6,7 @@ test_that("tw_biological_relationships", {
     assign("TW_API_URL", "https://sandbox.taxonworks.org/api/v1", envir = .GlobalEnv)
     assign("TW_PROJECT_TOKEN", Sys.getenv("TW_PROJECT_TOKEN"), envir = .GlobalEnv)
     assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
-    x <- tw_biological_relationships(page = 0, per = 1)$data
+    x <- tw_biological_relationships(page = 0, per = 1, csv = FALSE)$data
   })
 
   expect_true("inverted_name" %in% colnames(x))

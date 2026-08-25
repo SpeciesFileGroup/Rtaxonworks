@@ -115,10 +115,18 @@ tw_GET <- function(
       })
     curl::curl_download(url, tmp, quiet = TRUE, handle = handle)
 
-    return(as_tibble(read.csv(tmp, sep = "\t",
-                              header = TRUE,
-                              stringsAsFactors = FALSE,
-                              na.strings = c("", "NA"))))
+    data <- as_tibble(read.csv(tmp, sep = "\t",
+                               header = TRUE,
+                               stringsAsFactors = FALSE,
+                               na.strings = c("", "NA")))
+    meta <- list(
+      page = 1L,
+      next_page = NA_integer_,
+      per = nrow(data),
+      total = nrow(data),
+      total_pages = 1L
+    )
+    return(list(meta = meta, data = data))
   } else {
     req <- request(url)
     resp <- req_perform(req)

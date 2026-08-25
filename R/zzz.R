@@ -1,5 +1,15 @@
 cc <- function(x) Filter(Negate(is.null), x)
 
+warn_csv_ignores_paging <- function(per) {
+  n <- if (missing(per) || is.null(per)) "N" else format(per, scientific = FALSE)
+  warning(sprintf(
+    paste0(
+      "The CSV endpoint returns all matching rows and ignores `page`/`per`. ",
+      "To keep only the first %s rows client-side, use `head(res$data, %s)`. ",
+      "To fetch a paginated subset instead, pass `csv = FALSE`."),
+    n, n), call. = FALSE)
+}
+
 `%||%` <- function(x, y) if (is.null(x) || length(x) == 0) y else x
 
 as_log <- function(x) {

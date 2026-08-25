@@ -81,8 +81,9 @@ tw_biological_associations <- function(subresource = NULL, biological_associatio
 
   assert(page, c("numeric", "integer"))
   assert(per, c("numeric", "integer"))
+  if (csv && (!missing(page) || !missing(per))) warn_csv_ignores_paging(per)
 
-  args <- cc(list(biological_association_id = biological_association_id, 
+  args <- cc(list(biological_association_id = biological_association_id,
     biological_associations_graph_id = biological_associations_graph_id, 
     biological_relationship_id = biological_relationship_id, 
     collecting_event_id = collecting_event_id, 
