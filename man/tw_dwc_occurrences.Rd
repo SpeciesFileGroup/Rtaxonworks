@@ -9,6 +9,28 @@ tw_dwc_occurrences(
   dwc_occurrence_id = NULL,
   dwc_occurrence_object_id = NULL,
   dwc_occurrence_object_type = NULL,
+  otu_id = NULL,
+  person_id = NULL,
+  taxon_name_id = NULL,
+  empty_rank = NULL,
+  scientificName = NULL,
+  basisOfRecord = NULL,
+  catalogNumber = NULL,
+  collectionCode = NULL,
+  country = NULL,
+  stateProvince = NULL,
+  county = NULL,
+  eventDate = NULL,
+  recordedBy = NULL,
+  kingdom = NULL,
+  phylum = NULL,
+  dwcClass = NULL,
+  order = NULL,
+  family = NULL,
+  genus = NULL,
+  occurrenceID = NULL,
+  any_value_attribute = NULL,
+  wildcard_attribute = NULL,
   csv = TRUE,
   token = NULL,
   project_token = NULL,
@@ -21,6 +43,28 @@ tw_dwc(
   dwc_occurrence_id = NULL,
   dwc_occurrence_object_id = NULL,
   dwc_occurrence_object_type = NULL,
+  otu_id = NULL,
+  person_id = NULL,
+  taxon_name_id = NULL,
+  empty_rank = NULL,
+  scientificName = NULL,
+  basisOfRecord = NULL,
+  catalogNumber = NULL,
+  collectionCode = NULL,
+  country = NULL,
+  stateProvince = NULL,
+  county = NULL,
+  eventDate = NULL,
+  recordedBy = NULL,
+  kingdom = NULL,
+  phylum = NULL,
+  dwcClass = NULL,
+  order = NULL,
+  family = NULL,
+  genus = NULL,
+  occurrenceID = NULL,
+  any_value_attribute = NULL,
+  wildcard_attribute = NULL,
   csv = TRUE,
   token = NULL,
   project_token = NULL,
@@ -30,11 +74,55 @@ tw_dwc(
 )
 }
 \arguments{
-\item{dwc_occurrence_id}{(integer, vector) filter by Darwin Core occurrence ID}
+\item{dwc_occurrence_id}{(integer, vector) filter by DwC occurrence internal id}
 
-\item{dwc_occurrence_object_id}{(integer, vector) filter by Darwin Core occurrence object ID}
+\item{dwc_occurrence_object_id}{(integer, vector) filter by object id (the record the DwC row is derived from)}
 
-\item{dwc_occurrence_object_type}{(string, vector) filter by Darwin Core occurrence object type}
+\item{dwc_occurrence_object_type}{(string, vector) filter by object type (e.g., \code{CollectionObject}, \code{AssertedDistribution}, \code{FieldOccurrence})}
+
+\item{otu_id}{(integer, vector) filter by otu id}
+
+\item{person_id}{(integer, vector) filter by person id (via any person role)}
+
+\item{taxon_name_id}{(integer, vector) filter by taxon name id}
+
+\item{empty_rank}{(string, vector) return records missing values at the given rank(s)}
+
+\item{scientificName}{(string) filter by DwC scientificName}
+
+\item{basisOfRecord}{(string) filter by DwC basisOfRecord}
+
+\item{catalogNumber}{(string) filter by DwC catalogNumber}
+
+\item{collectionCode}{(string) filter by DwC collectionCode}
+
+\item{country}{(string) filter by DwC country}
+
+\item{stateProvince}{(string) filter by DwC stateProvince}
+
+\item{county}{(string) filter by DwC county}
+
+\item{eventDate}{(string) filter by DwC eventDate}
+
+\item{recordedBy}{(string) filter by DwC recordedBy}
+
+\item{kingdom}{(string) filter by DwC kingdom}
+
+\item{phylum}{(string) filter by DwC phylum}
+
+\item{dwcClass}{(string) filter by DwC class (renamed to avoid clash with Ruby keyword)}
+
+\item{order}{(string) filter by DwC order}
+
+\item{family}{(string) filter by DwC family}
+
+\item{genus}{(string) filter by DwC genus}
+
+\item{occurrenceID}{(string) filter by DwC occurrenceID}
+
+\item{any_value_attribute}{(string, vector) filter by any wildcard-matched attribute value}
+
+\item{wildcard_attribute}{(string, vector) fields to search when using \code{any_value_attribute}}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 
@@ -56,6 +144,7 @@ Darwin Core occurrences
 }
 \examples{
 \dontrun{
-tw_people(last_name = "Smith")
+tw_dwc_occurrences()
+tw_dwc_occurrences(scientificName = "Alnetoidia alneti")
 }
 }

@@ -6,6 +6,53 @@
 \title{Asserted distributions}
 \usage{
 tw_asserted_distributions(
+  asserted_distribution_id = NULL,
+  asserted_distribution_object_id = NULL,
+  asserted_distribution_object_type = NULL,
+  asserted_distribution_shape_type = NULL,
+  biological_association_id = NULL,
+  descendants = NULL,
+  geo_json = NULL,
+  geo_mode = NULL,
+  geo_shape_id = NULL,
+  geo_shape_type = NULL,
+  geographic_area_id = NULL,
+  geographic_area_mode = NULL,
+  otu_id = NULL,
+  presence = NULL,
+  radius = NULL,
+  source_id = NULL,
+  taxon_name_id = NULL,
+  wkt = NULL,
+  citations = NULL,
+  citation_documents = NULL,
+  origin_citation = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  exclude_confidences = NULL,
+  data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
+  identifier = NULL,
+  identifier_end = NULL,
+  identifier_exact = NULL,
+  identifier_start = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  global_identifiers = NULL,
+  local_identifiers = NULL,
+  match_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  namespace_id = NULL,
+  note_exact = NULL,
+  note_text = NULL,
+  notes = NULL,
+  keyword_id_and = NULL,
+  keyword_id_or = NULL,
+  tags = NULL,
+  exclude_tags = NULL,
   csv = FALSE,
   token = NULL,
   project_token = NULL,
@@ -14,34 +61,94 @@ tw_asserted_distributions(
   ...
 )
 
-tw_ad(csv = FALSE, token = NULL, project_token = NULL, page = 0, per = 50, ...)
+tw_ad(
+  asserted_distribution_id = NULL,
+  asserted_distribution_object_id = NULL,
+  asserted_distribution_object_type = NULL,
+  asserted_distribution_shape_type = NULL,
+  biological_association_id = NULL,
+  descendants = NULL,
+  geo_json = NULL,
+  geo_mode = NULL,
+  geo_shape_id = NULL,
+  geo_shape_type = NULL,
+  geographic_area_id = NULL,
+  geographic_area_mode = NULL,
+  otu_id = NULL,
+  presence = NULL,
+  radius = NULL,
+  source_id = NULL,
+  taxon_name_id = NULL,
+  wkt = NULL,
+  citations = NULL,
+  citation_documents = NULL,
+  origin_citation = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  exclude_confidences = NULL,
+  data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
+  identifier = NULL,
+  identifier_end = NULL,
+  identifier_exact = NULL,
+  identifier_start = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  global_identifiers = NULL,
+  local_identifiers = NULL,
+  match_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  namespace_id = NULL,
+  note_exact = NULL,
+  note_text = NULL,
+  notes = NULL,
+  keyword_id_and = NULL,
+  keyword_id_or = NULL,
+  tags = NULL,
+  exclude_tags = NULL,
+  csv = FALSE,
+  token = NULL,
+  project_token = NULL,
+  page = 0,
+  per = 50,
+  ...
+)
 }
 \arguments{
-\item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
-
-\item{project_token}{(string) a project token (set with the TW_PROJECT_TOKEN environment variable)}
-
-\item{page}{(integer) requested number of offset records (Default: 0)}
-
-\item{per}{(integer) requested number of maximum records to be returned (Default: 50, Maximum: 10000)}
-
-\item{...}{curl options passed on to \code{\link[httr2]{verb-GET}}}
-
 \item{asserted_distribution_id}{(integer, vector) filter by asserted distribution id}
+
+\item{asserted_distribution_object_id}{(integer, vector) filter by asserted distribution object id}
+
+\item{asserted_distribution_object_type}{(string, vector) filter by asserted distribution object type (e.g., \code{Otu})}
+
+\item{asserted_distribution_shape_type}{(string, vector) filter by shape type (\code{GeographicArea}, \code{Gazetteer})}
+
+\item{biological_association_id}{(integer, vector) filter by biological association id}
 
 \item{descendants}{(boolean) include descendants}
 
-\item{geo_json}{(boolean) filter by geojson}
+\item{geo_json}{(string) GeoJSON geometry for spatial filtering}
 
-\item{geographic_area_id}{(integer, vector) filter by geographic area id}
+\item{geo_mode}{(string) geographic matching mode}
 
-\item{geographic_area_mode}{(boolean)}
+\item{geo_shape_id}{(integer, vector) shape ids for geographic filtering}
+
+\item{geo_shape_type}{(string, vector) shape types (\code{GeographicArea} or \code{Gazetteer})}
+
+\item{geographic_area_id}{(integer, vector) filter by geographic area id (legacy; prefer geo_shape_id)}
+
+\item{geographic_area_mode}{(boolean) legacy geographic area matching mode}
 
 \item{otu_id}{(integer, vector) filter by otu id}
 
 \item{presence}{(boolean) filter by presence}
 
 \item{radius}{(integer) filter by meters around shape boundary}
+
+\item{source_id}{(integer, vector) filter by source id}
 
 \item{taxon_name_id}{(integer, vector) filter by taxon name id}
 
@@ -53,13 +160,19 @@ tw_ad(csv = FALSE, token = NULL, project_token = NULL, page = 0, per = 50, ...)
 
 \item{origin_citation}{(boolean) filter by asserted distributions with an origin citation}
 
-\item{data_attribute_exact_value}{(boolean) require exact match on data attribute value}
+\item{confidences}{(boolean) filter by asserted distributions with confidences}
+
+\item{confidence_level_id}{(integer, vector) filter by confidence level id}
+
+\item{exclude_confidences}{(boolean) exclude asserted distributions with matching confidences}
+
+\item{data_attributes}{(boolean) filter by asserted distributions with data attributes}
 
 \item{data_attribute_predicate_id}{(integer, vector) filter by data attribute predicate id}
 
-\item{data_attribute_value}{(string, vector) filter by data attribute value}
+\item{data_attribute_exact_value}{(string, vector) filter by exact data attribute value}
 
-\item{data_attributes}{(boolean) filter by asserted distributions with data attributes}
+\item{data_attribute_value}{(string, vector) filter by data attribute value}
 
 \item{identifier}{(string) filter by identifier}
 
@@ -73,7 +186,11 @@ tw_ad(csv = FALSE, token = NULL, project_token = NULL, page = 0, per = 50, ...)
 
 \item{identifiers}{(boolean) filter by asserted distributions with identifiers}
 
+\item{global_identifiers}{(boolean) filter by asserted distributions with global identifiers}
+
 \item{local_identifiers}{(boolean) filter by asserted distributions with local identifiers}
+
+\item{match_identifiers}{(string) match identifiers with a delimited string of identifiers}
 
 \item{match_identifiers_delimiter}{(string) the delimiter used to separate identifiers}
 
@@ -81,11 +198,29 @@ tw_ad(csv = FALSE, token = NULL, project_token = NULL, page = 0, per = 50, ...)
 
 \item{namespace_id}{(integer) filter by namespace id}
 
+\item{note_exact}{(boolean) filter by exact match on note}
+
+\item{note_text}{(string) filter by note text}
+
+\item{notes}{(boolean) filter by asserted distributions with notes}
+
 \item{keyword_id_and}{(integer, vector) filter by keyword id with and operator}
 
 \item{keyword_id_or}{(integer, vector) filter by keyword id with or operator}
 
 \item{tags}{(boolean) filter by asserted distributions with tags}
+
+\item{exclude_tags}{(boolean) invert keyword_id_and / keyword_id_or match}
+
+\item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
+
+\item{project_token}{(string) a project token (set with the TW_PROJECT_TOKEN environment variable)}
+
+\item{page}{(integer) requested number of offset records (Default: 0)}
+
+\item{per}{(integer) requested number of maximum records to be returned (Default: 50, Maximum: 10000)}
+
+\item{...}{curl options passed on to \code{\link[httr2]{verb-GET}}}
 }
 \value{
 list

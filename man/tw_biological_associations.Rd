@@ -7,21 +7,27 @@
 \usage{
 tw_biological_associations(
   subresource = NULL,
+  anatomical_part_id = NULL,
   biological_association_id = NULL,
   biological_associations_graph_id = NULL,
   biological_relationship_id = NULL,
   collecting_event_id = NULL,
   collection_object_id = NULL,
+  collection_object_as_subject_or_as_object = NULL,
   descendants = NULL,
   exclude_taxon_name_relationship = NULL,
+  field_occurrence_id = NULL,
   geo_json = NULL,
-  geographic_area_id = NULL,
-  geographic_area_mode = NULL,
+  geo_mode = NULL,
+  geo_shape_id = NULL,
+  geo_shape_type = NULL,
+  geo_collecting_event_geographic_area = NULL,
   object_biological_property_id = NULL,
   object_object_global_id = NULL,
   object_taxon_name_id = NULL,
   object_type = NULL,
   otu_id = NULL,
+  radius = NULL,
   subject_biological_property_id = NULL,
   subject_object_global_id = NULL,
   subject_taxon_name_id = NULL,
@@ -29,16 +35,33 @@ tw_biological_associations(
   taxon_name_id = NULL,
   taxon_name_id_mode = NULL,
   wkt = NULL,
+  biological_association_object_id = NULL,
+  biological_association_object_type = NULL,
+  biological_association_subject_id = NULL,
+  biological_association_subject_type = NULL,
   citations = NULL,
   citation_documents = NULL,
   origin_citation = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  exclude_confidences = NULL,
+  depictions = NULL,
+  data_depictions = NULL,
+  image_id = NULL,
+  images = NULL,
+  data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
   identifier = NULL,
   identifier_end = NULL,
   identifier_exact = NULL,
   identifier_start = NULL,
   identifier_type = NULL,
   identifiers = NULL,
+  global_identifiers = NULL,
   local_identifiers = NULL,
+  match_identifiers = NULL,
   match_identifiers_delimiter = NULL,
   match_identifiers_type = NULL,
   namespace_id = NULL,
@@ -48,6 +71,7 @@ tw_biological_associations(
   keyword_id_and = NULL,
   keyword_id_or = NULL,
   tags = NULL,
+  exclude_tags = NULL,
   token = NULL,
   project_token = NULL,
   csv = TRUE,
@@ -58,21 +82,27 @@ tw_biological_associations(
 
 tw_ba(
   subresource = NULL,
+  anatomical_part_id = NULL,
   biological_association_id = NULL,
   biological_associations_graph_id = NULL,
   biological_relationship_id = NULL,
   collecting_event_id = NULL,
   collection_object_id = NULL,
+  collection_object_as_subject_or_as_object = NULL,
   descendants = NULL,
   exclude_taxon_name_relationship = NULL,
+  field_occurrence_id = NULL,
   geo_json = NULL,
-  geographic_area_id = NULL,
-  geographic_area_mode = NULL,
+  geo_mode = NULL,
+  geo_shape_id = NULL,
+  geo_shape_type = NULL,
+  geo_collecting_event_geographic_area = NULL,
   object_biological_property_id = NULL,
   object_object_global_id = NULL,
   object_taxon_name_id = NULL,
   object_type = NULL,
   otu_id = NULL,
+  radius = NULL,
   subject_biological_property_id = NULL,
   subject_object_global_id = NULL,
   subject_taxon_name_id = NULL,
@@ -80,16 +110,33 @@ tw_ba(
   taxon_name_id = NULL,
   taxon_name_id_mode = NULL,
   wkt = NULL,
+  biological_association_object_id = NULL,
+  biological_association_object_type = NULL,
+  biological_association_subject_id = NULL,
+  biological_association_subject_type = NULL,
   citations = NULL,
   citation_documents = NULL,
   origin_citation = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  exclude_confidences = NULL,
+  depictions = NULL,
+  data_depictions = NULL,
+  image_id = NULL,
+  images = NULL,
+  data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
   identifier = NULL,
   identifier_end = NULL,
   identifier_exact = NULL,
   identifier_start = NULL,
   identifier_type = NULL,
   identifiers = NULL,
+  global_identifiers = NULL,
   local_identifiers = NULL,
+  match_identifiers = NULL,
   match_identifiers_delimiter = NULL,
   match_identifiers_type = NULL,
   namespace_id = NULL,
@@ -99,6 +146,7 @@ tw_ba(
   keyword_id_and = NULL,
   keyword_id_or = NULL,
   tags = NULL,
+  exclude_tags = NULL,
   token = NULL,
   project_token = NULL,
   csv = TRUE,
@@ -110,55 +158,97 @@ tw_ba(
 \arguments{
 \item{subresource}{(string) access API subresource (e.g., subresource=simple for the simple biological associations table)}
 
-\item{biological_association_id}{(integer) filter by biological association id}
+\item{anatomical_part_id}{(integer, vector) filter by anatomical part id}
 
-\item{biological_associations_graph_id}{(integer) filter by biological associations graph id}
+\item{biological_association_id}{(integer, vector) filter by biological association id}
 
-\item{biological_relationship_id}{(integer) filter by biological relationship id}
+\item{biological_associations_graph_id}{(integer, vector) filter by biological associations graph id}
 
-\item{collecting_event_id}{(integer) filter by collecting event id}
+\item{biological_relationship_id}{(integer, vector) filter by biological relationship id}
 
-\item{collection_object_id}{(integer) filter by collection object id}
+\item{collecting_event_id}{(integer, vector) filter by collecting event id}
+
+\item{collection_object_id}{(integer, vector) filter by collection object id}
+
+\item{collection_object_as_subject_or_as_object}{(string) \code{subject}, \code{object}, or NULL for either}
 
 \item{descendants}{(boolean) include descendants}
 
 \item{exclude_taxon_name_relationship}{(boolean) exclude taxon name relationship}
 
-\item{geo_json}{(boolean) filter by geojson}
+\item{field_occurrence_id}{(integer, vector) filter by field occurrence id}
 
-\item{geographic_area_id}{(integer) filter by geographic area id}
+\item{geo_json}{(string) GeoJSON geometry for spatial filtering}
 
-\item{geographic_area_mode}{(boolean)}
+\item{geo_mode}{(string) geographic matching mode}
 
-\item{object_biological_property_id}{(integer) filter by object biological property id}
+\item{geo_shape_id}{(integer, vector) shape ids for geographic filtering}
 
-\item{object_object_global_id}{(integer) filter by object object global id}
+\item{geo_shape_type}{(string, vector) shape types (\code{GeographicArea} or \code{Gazetteer})}
 
-\item{object_taxon_name_id}{(integer) filter by object taxon name id}
+\item{geo_collecting_event_geographic_area}{(boolean) include the geographic area of related collecting events}
 
-\item{object_type}{(string) filter by object type (Otu, CollectionObject)}
+\item{object_biological_property_id}{(integer, vector) filter by object biological property id}
 
-\item{otu_id}{(integer) filter by otu id}
+\item{object_object_global_id}{(integer, vector) filter by object global id}
 
-\item{subject_biological_property_id}{(integer) filter by subject biological property id}
+\item{object_taxon_name_id}{(integer, vector) filter by object taxon name id}
 
-\item{subject_object_global_id}{(integer) filter by subject object global id}
+\item{object_type}{(string) filter by object type (\code{Otu}, \code{CollectionObject}, \code{FieldOccurrence})}
 
-\item{subject_taxon_name_id}{(integer) filter by subject taxon name id}
+\item{otu_id}{(integer, vector) filter by otu id}
 
-\item{subject_type}{(string) filter by subject type (Otu, CollectionObject)}
+\item{radius}{(integer) buffer radius in meters for \code{geo_json}}
 
-\item{taxon_name_id}{(integer) filter by taxon name id}
+\item{subject_biological_property_id}{(integer, vector) filter by subject biological property id}
 
-\item{taxon_name_id_mode}{(boolean)}
+\item{subject_object_global_id}{(integer, vector) filter by subject global id}
 
-\item{wkt}{(string) filter by well known text shape to search for biological associations}
+\item{subject_taxon_name_id}{(integer, vector) filter by subject taxon name id}
+
+\item{subject_type}{(string) filter by subject type (\code{Otu}, \code{CollectionObject}, \code{FieldOccurrence})}
+
+\item{taxon_name_id}{(integer, vector) filter by taxon name id}
+
+\item{taxon_name_id_mode}{(boolean) taxon_name_id match mode}
+
+\item{wkt}{(string) filter by well known text shape}
+
+\item{biological_association_object_id}{(integer, vector) polymorphic filter by object id}
+
+\item{biological_association_object_type}{(string, vector) polymorphic filter by object type}
+
+\item{biological_association_subject_id}{(integer, vector) polymorphic filter by subject id}
+
+\item{biological_association_subject_type}{(string, vector) polymorphic filter by subject type}
 
 \item{citations}{(boolean) filter by biological associations with citations}
 
 \item{citation_documents}{(boolean) filter by biological associations with citation documents}
 
 \item{origin_citation}{(boolean) filter by biological associations with an origin citation}
+
+\item{confidences}{(boolean) filter by biological associations with confidences}
+
+\item{confidence_level_id}{(integer, vector) filter by confidence level id}
+
+\item{exclude_confidences}{(boolean) exclude biological associations with matching confidences}
+
+\item{depictions}{(boolean) filter by biological associations with depictions}
+
+\item{data_depictions}{(boolean) filter by biological associations with data depictions}
+
+\item{image_id}{(integer, vector) filter by image id}
+
+\item{images}{(boolean) filter by biological associations with images}
+
+\item{data_attributes}{(boolean) filter by biological associations with data attributes}
+
+\item{data_attribute_predicate_id}{(integer, vector) filter by data attribute predicate id}
+
+\item{data_attribute_exact_value}{(string, vector) filter by exact data attribute value}
+
+\item{data_attribute_value}{(string, vector) filter by data attribute value}
 
 \item{identifier}{(string) filter by biological association identifier}
 
@@ -172,7 +262,11 @@ tw_ba(
 
 \item{identifiers}{(boolean) filter by biological associations with identifiers}
 
+\item{global_identifiers}{(boolean) filter by biological associations with global identifiers}
+
 \item{local_identifiers}{(boolean) filter by biological associations with local identifiers}
+
+\item{match_identifiers}{(string) match identifiers with a delimited string of identifiers}
 
 \item{match_identifiers_delimiter}{(string) the delimiter used to separate identifiers}
 
@@ -186,11 +280,13 @@ tw_ba(
 
 \item{notes}{(boolean) filter by biological associations with notes}
 
-\item{keyword_id_and}{(integer) filter by keyword id with and operator}
+\item{keyword_id_and}{(integer, vector) filter by keyword id with and operator}
 
-\item{keyword_id_or}{(integer) filter by keyword id with or operator}
+\item{keyword_id_or}{(integer, vector) filter by keyword id with or operator}
 
 \item{tags}{(boolean) filter by biological associations with tags}
+
+\item{exclude_tags}{(boolean) invert keyword_id_and / keyword_id_or match}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 
