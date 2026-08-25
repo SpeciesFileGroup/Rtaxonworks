@@ -113,7 +113,7 @@ Results are paginated (default `per = 50`, controlled with the `page` and `per` 
 tw_taxon_names(name = "Lycorma delicatula", csv = TRUE)
 ```
 
-Note that CSV downloads can be large and slow for broad queries.
+Note that CSV downloads can be large and slow for broad queries. If a download exceeds 60 seconds, a one-time message is printed to indicate progress. The client-side timeout defaults to 900 seconds (15 minutes) and can be raised further with the `timeout` argument.
 
 ## Usage
 
@@ -131,6 +131,7 @@ The following parameters are accepted by (almost) every function in addition to 
 | `csv` | boolean | if `TRUE`, download all matching records via the CSV endpoint in one request (default `FALSE`) |
 | `page` | integer | offset in records (default `0`) |
 | `per` | integer | maximum records per page (default `50`, maximum `10000`) |
+| `timeout` | integer | client-side timeout in seconds for CSV downloads (default `900`) |
 | `token` | string | a user token; can also be set globally as `TW_USER_TOKEN` |
 | `project_token` | string | a project token; can also be set globally as `TW_PROJECT_TOKEN` |
 | `...` |  | additional options passed to the underlying HTTP call (`httr2`) |

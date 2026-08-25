@@ -72,7 +72,8 @@ tw_ual <- list(`User-Agent` = tw_ua(ongha), `X-USER-AGENT` = tw_ua(ongha))
 #' @keywords internal
 #' @return a tibble of results
 tw_GET <- function(
-    url, path = NULL, query = list(), headers = list(), csv = FALSE, vector_params = c(), ...) {
+    url, path = NULL, query = list(), headers = list(), csv = FALSE,
+    vector_params = c(), timeout = 900, ...) {
 
   result <- list(meta = list(), data = tibble())
 
@@ -92,7 +93,29 @@ tw_GET <- function(
   cat(sprintf("\033[32mGET %s\033[39m\n", url))
 
   if (csv) {
-    return(as_tibble(read.csv(url, sep = "\t",
+    old_timeout <- getOption("timeout")
+    on.exit(options(timeout = old_timeout), add = TRUE)
+    options(timeout = timeout)
+
+    tmp <- tempfile(fileext = ".csv")
+    on.exit(unlink(tmp), add = TRUE)
+
+    start_time <- Sys.time()
+    notified <- FALSE
+    handle <- curl::new_handle()
+    curl::handle_setopt(handle, noprogress = FALSE,
+      progressfunction = function(down, up) {
+        if (!notified && as.numeric(Sys.time() - start_time, units = "secs") > 60) {
+          message(sprintf(
+            "CSV download in progress. The R client will timeout after %.1f minutes. If you need to raise the timeout, use the timeout parameter.",
+            timeout / 60))
+          notified <<- TRUE
+        }
+        TRUE
+      })
+    curl::curl_download(url, tmp, quiet = TRUE, handle = handle)
+
+    return(as_tibble(read.csv(tmp, sep = "\t",
                               header = TRUE,
                               stringsAsFactors = FALSE,
                               na.strings = c("", "NA"))))
