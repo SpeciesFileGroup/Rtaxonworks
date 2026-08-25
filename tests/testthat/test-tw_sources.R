@@ -288,8 +288,8 @@ test_that("tw_sources_query_term", {
     assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
     x <- tw_sources(query_term = "new genus", page = 0, per = 10)$data
   })
-  expect_true(all(grepl("genus", x$cached)))
-  expect_true(all(grepl("new", x$cached)))
+  expect_true(all(grepl("genus", x$cached, ignore.case = TRUE)))
+  expect_true(all(grepl("new", x$cached, ignore.case = TRUE)))
 })
 
 test_that("tw_sources_user_id", {
@@ -297,7 +297,8 @@ test_that("tw_sources_user_id", {
     assign("TW_API_URL", "https://sandbox.taxonworks.org/api/v1", envir = .GlobalEnv)
     assign("TW_PROJECT_TOKEN", Sys.getenv("TW_PROJECT_TOKEN"), envir = .GlobalEnv)
     assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
-    user_id <- tw_sources(page = 101, per = 1)$data$created_by_id
+    page <- min(101, max(0, all_sources - 1))
+    user_id <- tw_sources(page = page, per = 1)$data$created_by_id
     x <- tw_sources(user_id = user_id, user_target = "created", page = 0, per = 10)$data
   })
   expect_true(all(x$created_by_id == user_id))

@@ -91,7 +91,8 @@ test_that("tw_biological_associations_geographic_area_id", {
     assign("TW_API_URL", "https://sandbox.taxonworks.org/api/v1", envir = .GlobalEnv)
     assign("TW_PROJECT_TOKEN", Sys.getenv("TW_PROJECT_TOKEN"), envir = .GlobalEnv)
     assign("TW_USER_TOKEN", Sys.getenv("TW_USER_TOKEN"), envir = .GlobalEnv)
-    geographical_area_id <- tw_asserted_distributions(per = 1)$data$geographic_area_id[1]
+    ads <- tw_asserted_distributions(per = 50)$data
+    geographical_area_id <- ads$asserted_distribution_shape_id[ads$asserted_distribution_shape_type == "GeographicArea"][1]
     x <- tw_biological_associations(geographic_area_id = geographical_area_id, csv = FALSE)
   })
   expect_true(x$meta$total < all_ba_total)
