@@ -11,7 +11,6 @@ tw_taxon_names_autocomplete(
   no_leaves = NULL,
   nomenclature_group = NULL,
   parent_id = NULL,
-  project_id = NULL,
   type = NULL,
   valid = NULL,
   csv = FALSE,
@@ -28,7 +27,6 @@ tw_tn_auto(
   no_leaves = NULL,
   nomenclature_group = NULL,
   parent_id = NULL,
-  project_id = NULL,
   type = NULL,
   valid = NULL,
   csv = FALSE,
@@ -46,13 +44,11 @@ tw_tn_auto(
 
 \item{no_leaves}{(boolean) filter by names having no descendants}
 
-\item{nomenclature_group}{(string, vector) filter by nomenclature group (e.g., Family, Genus, Species)}
+\item{nomenclature_group}{(string, vector) filter by nomenclature group (e.g., \code{Family}, \code{Genus}, \code{Species})}
 
 \item{parent_id}{(integer, vector) filter by parent id}
 
-\item{project_id}{(integer) filter by project id}
-
-\item{type}{(string, vector) filter by type (e.g., Protonym, Combination)}
+\item{type}{(string, vector) filter by type (e.g., \code{Protonym}, \code{Combination})}
 
 \item{valid}{(boolean) filter by valid or invalid names}
 
@@ -76,6 +72,6 @@ Taxon Names Autocomplete
 }
 \examples{
 \dontrun{
-tw_taxon_names(name="Lycorma delicatula", valid=TRUE)
+tw_taxon_names_autocomplete(term = "Lycorma")
 }
 }

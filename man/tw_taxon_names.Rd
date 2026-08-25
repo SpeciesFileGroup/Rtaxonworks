@@ -7,26 +7,40 @@
 \usage{
 tw_taxon_names(
   ancestors = NULL,
+  ancestrify = NULL,
   author = NULL,
   author_exact = NULL,
   authors = NULL,
+  availability = NULL,
+  cached = NULL,
   citations = NULL,
   citation_documents = NULL,
+  origin_citation = NULL,
   collecting_event_id = NULL,
   collection_object_id = NULL,
+  combinations = NULL,
+  combinationify = NULL,
   combination_taxon_name_id = NULL,
-  data_attribute_exact_value = NULL,
-  data_attribute_predicate_id = NULL,
-  data_attribute_value = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  exclude_confidences = NULL,
   data_attributes = NULL,
-  descendants = NULL,
-  descendants_max_depth = NULL,
-  etymology = NULL,
-  exact = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
+  depictions = NULL,
+  data_depictions = NULL,
   image_id = NULL,
   images = NULL,
+  descendants = NULL,
+  descendants_max_depth = NULL,
+  epithet_only = NULL,
+  etymology = NULL,
   keyword_id_and = NULL,
   keyword_id_or = NULL,
+  tags = NULL,
+  exclude_tags = NULL,
+  latinized = NULL,
   leaves = NULL,
   name = NULL,
   name_exact = NULL,
@@ -34,24 +48,48 @@ tw_taxon_names(
   note_text = NULL,
   notes = NULL,
   nomenclature_code = NULL,
+  nomenclature_date = NULL,
   nomenclature_group = NULL,
   not_specified = NULL,
-  origin_citation = NULL,
   original_combination = NULL,
+  otu_id = NULL,
   otus = NULL,
   parent_id = NULL,
   rank = NULL,
-  tags = NULL,
+  relation_to_relationship = NULL,
+  sort = NULL,
+  synonymify = NULL,
+  taxon_name_author_id = NULL,
   taxon_name_author_id_or = NULL,
+  taxon_name_classification = NULL,
   taxon_name_id = NULL,
   taxon_name_relationship = NULL,
-  taxon_name_relationship_type = NULL,
+  taxon_name_relationship_target = NULL,
+  taxon_name_relationship_type_subject = NULL,
+  taxon_name_relationship_type_object = NULL,
+  taxon_name_relationship_type_either = NULL,
   taxon_name_type = NULL,
+  type = NULL,
   type_metadata = NULL,
+  validify = NULL,
   validity = NULL,
+  verbatim_author = NULL,
+  verbatim_name = NULL,
   year = NULL,
   year_end = NULL,
   year_start = NULL,
+  identifier = NULL,
+  identifier_end = NULL,
+  identifier_exact = NULL,
+  identifier_start = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  global_identifiers = NULL,
+  local_identifiers = NULL,
+  match_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  namespace_id = NULL,
   csv = TRUE,
   token = NULL,
   project_token = NULL,
@@ -62,26 +100,40 @@ tw_taxon_names(
 
 tw_tn(
   ancestors = NULL,
+  ancestrify = NULL,
   author = NULL,
   author_exact = NULL,
   authors = NULL,
+  availability = NULL,
+  cached = NULL,
   citations = NULL,
   citation_documents = NULL,
+  origin_citation = NULL,
   collecting_event_id = NULL,
   collection_object_id = NULL,
+  combinations = NULL,
+  combinationify = NULL,
   combination_taxon_name_id = NULL,
-  data_attribute_exact_value = NULL,
-  data_attribute_predicate_id = NULL,
-  data_attribute_value = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  exclude_confidences = NULL,
   data_attributes = NULL,
-  descendants = NULL,
-  descendants_max_depth = NULL,
-  etymology = NULL,
-  exact = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
+  depictions = NULL,
+  data_depictions = NULL,
   image_id = NULL,
   images = NULL,
+  descendants = NULL,
+  descendants_max_depth = NULL,
+  epithet_only = NULL,
+  etymology = NULL,
   keyword_id_and = NULL,
   keyword_id_or = NULL,
+  tags = NULL,
+  exclude_tags = NULL,
+  latinized = NULL,
   leaves = NULL,
   name = NULL,
   name_exact = NULL,
@@ -89,24 +141,48 @@ tw_tn(
   note_text = NULL,
   notes = NULL,
   nomenclature_code = NULL,
+  nomenclature_date = NULL,
   nomenclature_group = NULL,
   not_specified = NULL,
-  origin_citation = NULL,
   original_combination = NULL,
+  otu_id = NULL,
   otus = NULL,
   parent_id = NULL,
   rank = NULL,
-  tags = NULL,
+  relation_to_relationship = NULL,
+  sort = NULL,
+  synonymify = NULL,
+  taxon_name_author_id = NULL,
   taxon_name_author_id_or = NULL,
+  taxon_name_classification = NULL,
   taxon_name_id = NULL,
   taxon_name_relationship = NULL,
-  taxon_name_relationship_type = NULL,
+  taxon_name_relationship_target = NULL,
+  taxon_name_relationship_type_subject = NULL,
+  taxon_name_relationship_type_object = NULL,
+  taxon_name_relationship_type_either = NULL,
   taxon_name_type = NULL,
+  type = NULL,
   type_metadata = NULL,
+  validify = NULL,
   validity = NULL,
+  verbatim_author = NULL,
+  verbatim_name = NULL,
   year = NULL,
   year_end = NULL,
   year_start = NULL,
+  identifier = NULL,
+  identifier_end = NULL,
+  identifier_exact = NULL,
+  identifier_start = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  global_identifiers = NULL,
+  local_identifiers = NULL,
+  match_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  namespace_id = NULL,
   csv = TRUE,
   token = NULL,
   project_token = NULL,
@@ -116,53 +192,81 @@ tw_tn(
 )
 }
 \arguments{
-\item{ancestors}{(boolean) include ancestors}
+\item{ancestors}{(boolean) include ancestors (requires taxon_name_id)}
+
+\item{ancestrify}{(boolean) extend result to include ancestors of names in the result}
 
 \item{author}{(string) filter by cached_author_year}
 
 \item{author_exact}{(boolean) filter by exact match on cached_author_year}
 
-\item{authors}{(boolean) filter by taxon names that have an author string present}
+\item{authors}{(boolean) filter by taxon names that have an author string}
+
+\item{availability}{(boolean) filter by availability}
+
+\item{cached}{(string, vector) filter by cached string}
 
 \item{citations}{(boolean) filter by taxon names with citations}
 
 \item{citation_documents}{(boolean) filter by taxon names with citation documents}
 
-\item{collecting_event_id}{(integer) filter by collecting event id}
+\item{origin_citation}{(boolean) filter by taxon names with an origin citation}
 
-\item{collection_object_id}{(integer) filter by collection object id}
+\item{collecting_event_id}{(integer, vector) filter by collecting event id}
 
-\item{combination_taxon_name_id}{(integer) filter by combination taxon name id}
+\item{collection_object_id}{(integer, vector) filter by collection object id}
 
-\item{data_attribute_exact_value}{(boolean) filter by exact match on data attribute value}
+\item{combinations}{(boolean) include combinations in the result set}
 
-\item{data_attribute_predicate_id}{(integer) filter by data attribute predicate id}
+\item{combinationify}{(boolean) extend result to include combinations}
 
-\item{data_attribute_value}{(string) filter by data attribute value}
+\item{combination_taxon_name_id}{(integer, vector) filter by combination taxon name id}
 
-\item{data_attributes}{(boolean) filter by taxon names that have 1 or more data attributes}
+\item{confidences}{(boolean) filter by taxon names with confidences}
 
-\item{descendants}{(boolean) include descendants}
+\item{confidence_level_id}{(integer, vector) filter by confidence level id}
 
-\item{descendants_max_depth}{(integer) maximum depth of descendants to include}
+\item{exclude_confidences}{(boolean) exclude taxon names with matching confidences}
 
-\item{etymology}{(boolean) filter by taxon names with etymology}
+\item{data_attributes}{(boolean) filter by taxon names with data attributes}
 
-\item{exact}{(boolean) filter by exact match on name}
+\item{data_attribute_predicate_id}{(integer, vector) filter by data attribute predicate id}
 
-\item{image_id}{(integer) filter by taxon names associated with an image id}
+\item{data_attribute_exact_value}{(string) filter by exact data attribute value}
+
+\item{data_attribute_value}{(string, vector) filter by data attribute value}
+
+\item{depictions}{(boolean) filter by taxon names with depictions}
+
+\item{data_depictions}{(boolean) filter by taxon names with data depictions}
+
+\item{image_id}{(integer, vector) filter by image id}
 
 \item{images}{(boolean) filter by taxon names with images}
 
-\item{keyword_id_and}{(integer) filter by keyword id with and operator}
+\item{descendants}{(boolean) include descendants (requires taxon_name_id)}
 
-\item{keyword_id_or}{(integer) filter by keyword id with or operator}
+\item{descendants_max_depth}{(integer) maximum depth of descendants to include}
 
-\item{leaves}{(boolean) filiter by names having no descendants}
+\item{epithet_only}{(boolean) match on \code{name} property instead of \code{cached}}
+
+\item{etymology}{(boolean) filter by taxon names with etymology}
+
+\item{keyword_id_and}{(integer, vector) filter by keyword id with and operator}
+
+\item{keyword_id_or}{(integer, vector) filter by keyword id with or operator}
+
+\item{tags}{(boolean) filter by taxon names with tags}
+
+\item{exclude_tags}{(boolean) invert keyword_id_and / keyword_id_or match}
+
+\item{latinized}{(boolean) filter by latinized names}
+
+\item{leaves}{(boolean) filter to names with no descendants}
 
 \item{name}{(string, vector) filter by name}
 
-\item{name_exact}{(boolean) filter by exact match on name}
+\item{name_exact}{(boolean) filter by exact match on name (paired with \code{name})}
 
 \item{note_exact}{(boolean) filter by exact match on note}
 
@@ -172,41 +276,89 @@ tw_tn(
 
 \item{nomenclature_code}{(string) filter by nomenclatural code}
 
+\item{nomenclature_date}{(string) filter by nomenclature date}
+
 \item{nomenclature_group}{(string) filter by nomenclature group}
 
-\item{not_specified}{(boolean) filter by whether the name has NOT SPECIFIED in one of the cached values}
+\item{not_specified}{(boolean) filter by names with NOT SPECIFIED in a cached value}
 
-\item{origin_citation}{(boolean) filter by taxon names with an origin citation}
+\item{original_combination}{(boolean) filter by names in an original combination}
 
-\item{original_combination}{(boolean) filter by names with at least one element of the original combination}
+\item{otu_id}{(integer, vector) filter by otu id}
 
-\item{otus}{(boolean) filter by names that have one or more Otus}
+\item{otus}{(boolean) filter by names with one or more OTUs}
 
-\item{parent_id}{(integer) filter by parent id}
+\item{parent_id}{(integer, vector) filter by parent id}
 
-\item{rank}{(string) filter by rank class (e.g., NomenclaturalRank::Iczn::SpeciesGroup::Species)}
+\item{rank}{(string, vector) filter by rank class (e.g., \verb{NomenclaturalRank::Iczn::SpeciesGroup::Species})}
 
-\item{tags}{(boolean) filter by taxon names with tags}
+\item{relation_to_relationship}{(string) relation-to-relationship modifier}
 
-\item{taxon_name_author_id_or}{(boolean)}
+\item{sort}{(string) sort order}
 
-\item{taxon_name_id}{(integer) filter by taxon name id}
+\item{synonymify}{(boolean) extend result to include synonyms}
 
-\item{taxon_name_relationship}{(string) filter by taxon name relationship}
+\item{taxon_name_author_id}{(integer, vector) filter by author (Person) id}
 
-\item{taxon_name_relationship_type}{(string) filter by taxon name relationship type (e.g., TaxonNameRelationship::Iczn::Invalidating)}
+\item{taxon_name_author_id_or}{(boolean) OR-mode for taxon_name_author_id}
 
-\item{taxon_name_type}{(string) filter by taxon name type (e.g., Protonym, Combination, Hybrid)}
+\item{taxon_name_classification}{(string, vector) filter by taxon name classification}
 
-\item{type_metadata}{(boolean) filter by taxon names that are linked to type specimen material}
+\item{taxon_name_id}{(integer, vector) filter by taxon name id}
 
-\item{validity}{(boolean) filter by taxon names that are valid}
+\item{taxon_name_relationship}{(list) nested filter: list of lists with \code{subject_taxon_name_id}, \code{object_taxon_name_id}, and \code{type}}
 
-\item{year}{(integer) filter by authority year in the cached_author_year field}
+\item{taxon_name_relationship_target}{(string) relationship target}
 
-\item{year_end}{(integer) filter by taxon names with the cached_author_year field less than or equal to this value}
+\item{taxon_name_relationship_type_subject}{(string, vector) filter by relationship type on the subject side}
 
-\item{year_start}{(integer) filter by taxon names with the cached_author_year field greater than or equal to this value}
+\item{taxon_name_relationship_type_object}{(string, vector) filter by relationship type on the object side}
+
+\item{taxon_name_relationship_type_either}{(string, vector) filter by relationship type on either side}
+
+\item{taxon_name_type}{(string) filter by taxon name type (e.g., \code{Protonym}, \code{Combination}, \code{Hybrid})}
+
+\item{type}{(string, vector) filter by STI type}
+
+\item{type_metadata}{(boolean) filter by taxon names linked to type specimen material}
+
+\item{validify}{(boolean) extend result to include valid names}
+
+\item{validity}{(boolean) filter by valid names}
+
+\item{verbatim_author}{(string) filter by verbatim author}
+
+\item{verbatim_name}{(string) filter by verbatim name}
+
+\item{year}{(integer) filter by authority year in cached_author_year}
+
+\item{year_end}{(integer) filter by cached_author_year <= this value}
+
+\item{year_start}{(integer) filter by cached_author_year >= this value}
+
+\item{identifier}{(string) filter by identifier}
+
+\item{identifier_end}{(string) filter by identifier end}
+
+\item{identifier_exact}{(boolean) filter by exact match on identifier}
+
+\item{identifier_start}{(string) filter by identifier start}
+
+\item{identifier_type}{(string, vector) filter by identifier class type}
+
+\item{identifiers}{(boolean) filter by taxon names with identifiers}
+
+\item{global_identifiers}{(boolean) filter by taxon names with global identifiers}
+
+\item{local_identifiers}{(boolean) filter by taxon names with local identifiers}
+
+\item{match_identifiers}{(string) match identifiers with a delimited string}
+
+\item{match_identifiers_delimiter}{(string) delimiter for \code{match_identifiers}}
+
+\item{match_identifiers_type}{(string) internal or identifier}
+
+\item{namespace_id}{(integer) filter by namespace id}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 
@@ -228,6 +380,6 @@ Taxon Names
 }
 \examples{
 \dontrun{
-tw_taxon_names(name="Lycorma delicatula", valid=TRUE)
+tw_taxon_names(name = "Lycorma delicatula", validity = TRUE)
 }
 }
