@@ -13,73 +13,111 @@ tw_collection_objects(
   buffered_collecting_event = NULL,
   buffered_determinations = NULL,
   buffered_other_labels = NULL,
-  citations = NULL,
-  citation_documents = NULL,
   collecting_event = NULL,
   collecting_event_id = NULL,
   collection_object_id = NULL,
   collection_object_type = NULL,
   collectors = NULL,
+  container_id = NULL,
+  containerized = NULL,
   current_determinations = NULL,
   current_repository = NULL,
   current_repository_id = NULL,
-  descendants = NULL,
   dates = NULL,
+  deaccessioned = NULL,
+  descendants = NULL,
   determiner_id = NULL,
-  determiner_id_or = NULL,
+  determiner_id_all = NULL,
   determiners = NULL,
   dwc_indexed = NULL,
-  end_date = NULL,
   exact_buffered_collecting_event = NULL,
   exact_buffered_determinations = NULL,
   exact_buffered_other_labels = NULL,
   extract_id = NULL,
-  geojson = NULL,
-  geographic_area = NULL,
-  geographic_area_id = NULL,
-  georeferences = NULL,
-  image_id = NULL,
-  identifier = NULL,
-  identifier_end = NULL,
-  identifier_exact = NULL,
-  identifiers = NULL,
-  in_labels = NULL,
-  in_verbatim_locality = NULL,
+  import_dataset_id = NULL,
   is_type = NULL,
-  keyword_id_and = NULL,
-  keyword_id_or = NULL,
+  loan_id = NULL,
   loaned = NULL,
   md5_verbatim_label = NULL,
-  namespace_id = NULL,
   never_loaned = NULL,
-  note_exact = NULL,
-  notes = NULL,
   on_loan = NULL,
-  origin_citation = NULL,
   otu_id = NULL,
-  partial_overlap_dates = NULL,
   preparation_type = NULL,
   preparation_type_id = NULL,
-  radius = NULL,
   repository = NULL,
   repository_id = NULL,
   sled_image_id = NULL,
-  start_date = NULL,
-  tags = NULL,
-  taxon_determination_id = NULL,
   taxon_determinations = NULL,
   taxon_name_id = NULL,
+  taxon_name_current_determination = NULL,
   type_material = NULL,
   type_specimen_taxon_name_id = NULL,
-  user_date_end = NULL,
-  user_date_start = NULL,
-  user_id = NULL,
-  user_target = NULL,
   validity = NULL,
   with_buffered_collecting_event = NULL,
   with_buffered_determinations = NULL,
   with_buffered_other_labels = NULL,
+  in_labels = NULL,
+  in_verbatim_locality = NULL,
+  georeferences = NULL,
+  geographic_area = NULL,
+  geographic_area_id = NULL,
+  geo_collecting_event_geographic_area = NULL,
+  geo_json = NULL,
+  geo_mode = NULL,
+  geo_shape_id = NULL,
+  geo_shape_type = NULL,
   wkt = NULL,
+  wkt_geometry_type = NULL,
+  radius = NULL,
+  spatial_geographic_areas = NULL,
+  start_date = NULL,
+  end_date = NULL,
+  partial_overlap_dates = NULL,
+  citations = NULL,
+  citation_documents = NULL,
+  origin_citation = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  exclude_confidences = NULL,
+  protocols = NULL,
+  protocol_id_and = NULL,
+  protocol_id_or = NULL,
+  depictions = NULL,
+  data_depictions = NULL,
+  image_id = NULL,
+  images = NULL,
+  sound_id = NULL,
+  sounds = NULL,
+  conveyances = NULL,
+  data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
+  any_value_attribute = NULL,
+  wildcard_attribute = NULL,
+  identifier = NULL,
+  identifier_end = NULL,
+  identifier_exact = NULL,
+  identifier_start = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  global_identifiers = NULL,
+  local_identifiers = NULL,
+  match_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  namespace_id = NULL,
+  note_exact = NULL,
+  note_text = NULL,
+  notes = NULL,
+  keyword_id_and = NULL,
+  keyword_id_or = NULL,
+  tags = NULL,
+  exclude_tags = NULL,
+  user_id = NULL,
+  user_target = NULL,
+  user_date_start = NULL,
+  user_date_end = NULL,
   csv = FALSE,
   token = NULL,
   project_token = NULL,
@@ -96,73 +134,111 @@ tw_co(
   buffered_collecting_event = NULL,
   buffered_determinations = NULL,
   buffered_other_labels = NULL,
-  citations = NULL,
-  citation_documents = NULL,
   collecting_event = NULL,
   collecting_event_id = NULL,
   collection_object_id = NULL,
   collection_object_type = NULL,
   collectors = NULL,
+  container_id = NULL,
+  containerized = NULL,
   current_determinations = NULL,
   current_repository = NULL,
   current_repository_id = NULL,
-  descendants = NULL,
   dates = NULL,
+  deaccessioned = NULL,
+  descendants = NULL,
   determiner_id = NULL,
-  determiner_id_or = NULL,
+  determiner_id_all = NULL,
   determiners = NULL,
   dwc_indexed = NULL,
-  end_date = NULL,
   exact_buffered_collecting_event = NULL,
   exact_buffered_determinations = NULL,
   exact_buffered_other_labels = NULL,
   extract_id = NULL,
-  geojson = NULL,
-  geographic_area = NULL,
-  geographic_area_id = NULL,
-  georeferences = NULL,
-  image_id = NULL,
-  identifier = NULL,
-  identifier_end = NULL,
-  identifier_exact = NULL,
-  identifiers = NULL,
-  in_labels = NULL,
-  in_verbatim_locality = NULL,
+  import_dataset_id = NULL,
   is_type = NULL,
-  keyword_id_and = NULL,
-  keyword_id_or = NULL,
+  loan_id = NULL,
   loaned = NULL,
   md5_verbatim_label = NULL,
-  namespace_id = NULL,
   never_loaned = NULL,
-  note_exact = NULL,
-  notes = NULL,
   on_loan = NULL,
-  origin_citation = NULL,
   otu_id = NULL,
-  partial_overlap_dates = NULL,
   preparation_type = NULL,
   preparation_type_id = NULL,
-  radius = NULL,
   repository = NULL,
   repository_id = NULL,
   sled_image_id = NULL,
-  start_date = NULL,
-  tags = NULL,
-  taxon_determination_id = NULL,
   taxon_determinations = NULL,
   taxon_name_id = NULL,
+  taxon_name_current_determination = NULL,
   type_material = NULL,
   type_specimen_taxon_name_id = NULL,
-  user_date_end = NULL,
-  user_date_start = NULL,
-  user_id = NULL,
-  user_target = NULL,
   validity = NULL,
   with_buffered_collecting_event = NULL,
   with_buffered_determinations = NULL,
   with_buffered_other_labels = NULL,
+  in_labels = NULL,
+  in_verbatim_locality = NULL,
+  georeferences = NULL,
+  geographic_area = NULL,
+  geographic_area_id = NULL,
+  geo_collecting_event_geographic_area = NULL,
+  geo_json = NULL,
+  geo_mode = NULL,
+  geo_shape_id = NULL,
+  geo_shape_type = NULL,
   wkt = NULL,
+  wkt_geometry_type = NULL,
+  radius = NULL,
+  spatial_geographic_areas = NULL,
+  start_date = NULL,
+  end_date = NULL,
+  partial_overlap_dates = NULL,
+  citations = NULL,
+  citation_documents = NULL,
+  origin_citation = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  exclude_confidences = NULL,
+  protocols = NULL,
+  protocol_id_and = NULL,
+  protocol_id_or = NULL,
+  depictions = NULL,
+  data_depictions = NULL,
+  image_id = NULL,
+  images = NULL,
+  sound_id = NULL,
+  sounds = NULL,
+  conveyances = NULL,
+  data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
+  any_value_attribute = NULL,
+  wildcard_attribute = NULL,
+  identifier = NULL,
+  identifier_end = NULL,
+  identifier_exact = NULL,
+  identifier_start = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  global_identifiers = NULL,
+  local_identifiers = NULL,
+  match_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  namespace_id = NULL,
+  note_exact = NULL,
+  note_text = NULL,
+  notes = NULL,
+  keyword_id_and = NULL,
+  keyword_id_or = NULL,
+  tags = NULL,
+  exclude_tags = NULL,
+  user_id = NULL,
+  user_target = NULL,
+  user_date_start = NULL,
+  user_date_end = NULL,
   csv = FALSE,
   token = NULL,
   project_token = NULL,
@@ -186,19 +262,19 @@ tw_co(
 
 \item{buffered_other_labels}{(string) filter by buffered other labels text}
 
-\item{citations}{(boolean) filiter by collection objects with/without citations}
-
-\item{citation_documents}{(boolean) filter by collection objects with/without citation documents}
-
 \item{collecting_event}{(string) filter by collection objects with/without collecting events}
 
 \item{collecting_event_id}{(integer, vector) filter by collecting event id}
 
 \item{collection_object_id}{(integer, vector) filter by collection object id}
 
-\item{collection_object_type}{(string) filter by collection object type (Lot, RangedLot, Specimen)}
+\item{collection_object_type}{(string) filter by collection object type (\code{Lot}, \code{RangedLot}, \code{Specimen})}
 
 \item{collectors}{(boolean) filter by collection objects with/without collectors}
+
+\item{container_id}{(integer, vector) filter by container id}
+
+\item{containerized}{(boolean) filter by collection objects that are containerized}
 
 \item{current_determinations}{(boolean) filter by collection objects with/without current determinations}
 
@@ -206,19 +282,19 @@ tw_co(
 
 \item{current_repository_id}{(integer, vector) filter by current repository id}
 
-\item{descendants}{(boolean) include collection objects for OTU descendants}
-
 \item{dates}{(boolean) filter by collection objects with/without dates}
+
+\item{deaccessioned}{(boolean) filter by deaccessioned collection objects}
+
+\item{descendants}{(boolean) include collection objects for OTU descendants}
 
 \item{determiner_id}{(integer, vector) filter by determiner id (People IDs)}
 
-\item{determiner_id_or}{(boolean) use an or operator instead of an and operator for determiner_id}
+\item{determiner_id_all}{(boolean) require all listed determiner ids to match}
 
 \item{determiners}{(boolean) filter by collection objects with/without determiners}
 
-\item{dwc_indexed}{(boolean) include metadata for Dwarin Core indexed collection objects}
-
-\item{end_date}{(string) filter by end date}
+\item{dwc_indexed}{(boolean) include only Darwin Core indexed collection objects}
 
 \item{exact_buffered_collecting_event}{(string) filter by exact buffered collecting event text}
 
@@ -228,59 +304,25 @@ tw_co(
 
 \item{extract_id}{(integer, vector) filter by extract id}
 
-\item{geojson}{(string) filter by geojson search area}
+\item{import_dataset_id}{(integer, vector) filter by import dataset id}
 
-\item{geographic_area}{(boolean) filter by collection objects with/without geographic area}
+\item{is_type}{(string, vector) filter by type category}
 
-\item{geographic_area_id}{(integer, vector) filter by geographic area id}
-
-\item{georeferences}{(boolean) filter by collection objects with/without georeferences}
-
-\item{image_id}{(integer, vector) filter by image id}
-
-\item{identifier}{(string) filter by identifier associated with the collection object}
-
-\item{identifier_end}{(string) filter by the last part of an identifier associated with the collection object}
-
-\item{identifier_exact}{(string) filter by the exact identifier associated with the collection object}
-
-\item{identifiers}{(boolean) filter by collection objects with/without identifiers}
-
-\item{in_labels}{(string) wildcard search in all related collecting event labels}
-
-\item{in_verbatim_locality}{(string) search in verbatim locality in related collecting events}
-
-\item{is_type}{(string, vector) filter by types  # TODO: can it really be a vector?}
-
-\item{keyword_id_and}{(string, vector) filter by keyword id with an and operator}
-
-\item{keyword_id_or}{(string, vector) filter by keyword id with an or operator}
+\item{loan_id}{(integer, vector) filter by loan id}
 
 \item{loaned}{(boolean) filter by collection objects with/without loans}
 
 \item{md5_verbatim_label}{(string) filter by md5 hash of verbatim label}
 
-\item{namespace_id}{(integer) include metadata for associated identifier by namespace id}
-
 \item{never_loaned}{(boolean) filter by collection objects that were never loaned}
-
-\item{note_exact}{(string) search for the exact text in notes}
-
-\item{notes}{(boolean) filter by collection objects with/without notes}
 
 \item{on_loan}{(boolean) filter by collection objects currently on loan}
 
-\item{origin_citation}{(boolean) filter by collection objects with/without origin citation}
-
 \item{otu_id}{(integer, vector) filter by otu id}
-
-\item{partial_overlap_dates}{(boolean) allow date overlaps}
 
 \item{preparation_type}{(boolean) filter by collection objects with/without preparation type}
 
 \item{preparation_type_id}{(integer, vector) filter by preparation type id}
-
-\item{radius}{(integer) radius around location}
 
 \item{repository}{(boolean) filter by collection objects with/without repository}
 
@@ -288,27 +330,15 @@ tw_co(
 
 \item{sled_image_id}{(integer, vector) filter by sled image id}
 
-\item{start_date}{(string) filter by start date}
-
-\item{tags}{(boolean) filter by collection objects with/without tags}
-
-\item{taxon_determination_id}{(integer, vector) filter by taxon determination id}
-
 \item{taxon_determinations}{(boolean) filter by collection objects with/without taxon determinations}
 
 \item{taxon_name_id}{(integer, vector) filter by taxon name id}
 
+\item{taxon_name_current_determination}{(boolean) restrict taxon_name_id to current determinations}
+
 \item{type_material}{(boolean) filter by collection objects with/without type material}
 
 \item{type_specimen_taxon_name_id}{(integer) filter by taxon name id for type specimens}
-
-\item{user_date_end}{(string) filter by user date end}
-
-\item{user_date_start}{(string) filter by user date start}
-
-\item{user_id}{(integer) filter by user id}
-
-\item{user_target}{(string) target created or updated user date}
 
 \item{validity}{(boolean) filter by collection objects with only valid ancestors}
 
@@ -318,7 +348,129 @@ tw_co(
 
 \item{with_buffered_other_labels}{(boolean) filter by collection objects with/without buffered other labels}
 
+\item{in_labels}{(string) wildcard search in all related collecting event labels}
+
+\item{in_verbatim_locality}{(string) search in verbatim locality in related collecting events}
+
+\item{georeferences}{(boolean) filter by collection objects with/without georeferences}
+
+\item{geographic_area}{(boolean) filter by collection objects with/without geographic area}
+
+\item{geographic_area_id}{(integer, vector) filter by geographic area id (legacy)}
+
+\item{geo_collecting_event_geographic_area}{(boolean) include the geographic area of related collecting events}
+
+\item{geo_json}{(string) GeoJSON geometry for spatial filtering}
+
+\item{geo_mode}{(string) geographic matching mode}
+
+\item{geo_shape_id}{(integer, vector) shape ids for geographic filtering}
+
+\item{geo_shape_type}{(string, vector) shape types (\code{GeographicArea} or \code{Gazetteer})}
+
 \item{wkt}{(string) filter by well-known text describing the search area}
+
+\item{wkt_geometry_type}{(string) restrict wkt filter to a geometry type}
+
+\item{radius}{(integer) radius around location in meters}
+
+\item{spatial_geographic_areas}{(boolean) filter by spatial geographic area presence}
+
+\item{start_date}{(string) filter by start date}
+
+\item{end_date}{(string) filter by end date}
+
+\item{partial_overlap_dates}{(boolean) allow date overlaps}
+
+\item{citations}{(boolean) filter by collection objects with/without citations}
+
+\item{citation_documents}{(boolean) filter by collection objects with/without citation documents}
+
+\item{origin_citation}{(boolean) filter by collection objects with/without origin citation}
+
+\item{confidences}{(boolean) filter by collection objects with/without confidences}
+
+\item{confidence_level_id}{(integer, vector) filter by confidence level id}
+
+\item{exclude_confidences}{(boolean) exclude collection objects with matching confidences}
+
+\item{protocols}{(boolean) filter by collection objects with/without protocols}
+
+\item{protocol_id_and}{(integer, vector) match all listed protocol ids}
+
+\item{protocol_id_or}{(integer, vector) match any listed protocol ids}
+
+\item{depictions}{(boolean) filter by collection objects with/without depictions}
+
+\item{data_depictions}{(boolean) filter by collection objects with/without data depictions}
+
+\item{image_id}{(integer, vector) filter by image id}
+
+\item{images}{(boolean) filter by collection objects with/without images}
+
+\item{sound_id}{(integer, vector) filter by sound id (via conveyances)}
+
+\item{sounds}{(boolean) filter by collection objects with/without sounds}
+
+\item{conveyances}{(boolean) filter by collection objects with/without conveyances}
+
+\item{data_attributes}{(boolean) filter by collection objects with/without data attributes}
+
+\item{data_attribute_predicate_id}{(integer, vector) filter by data attribute predicate id}
+
+\item{data_attribute_exact_value}{(string) filter by exact data attribute value}
+
+\item{data_attribute_value}{(string, vector) filter by data attribute value}
+
+\item{any_value_attribute}{(string, vector) filter by any wildcard-matched attribute value}
+
+\item{wildcard_attribute}{(string, vector) fields to search when using \code{any_value_attribute}}
+
+\item{identifier}{(string) filter by identifier associated with the collection object}
+
+\item{identifier_end}{(string) filter by identifier end}
+
+\item{identifier_exact}{(boolean) filter by exact match on identifier}
+
+\item{identifier_start}{(string) filter by identifier start}
+
+\item{identifier_type}{(string, vector) filter by identifier class type}
+
+\item{identifiers}{(boolean) filter by collection objects with/without identifiers}
+
+\item{global_identifiers}{(boolean) filter by collection objects with/without global identifiers}
+
+\item{local_identifiers}{(boolean) filter by collection objects with/without local identifiers}
+
+\item{match_identifiers}{(string) match identifiers with a delimited string of identifiers}
+
+\item{match_identifiers_delimiter}{(string) delimiter for match_identifiers}
+
+\item{match_identifiers_type}{(string) internal or identifier}
+
+\item{namespace_id}{(integer) filter by namespace id}
+
+\item{note_exact}{(boolean) require exact match on note text}
+
+\item{note_text}{(string) filter by note text}
+
+\item{notes}{(boolean) filter by collection objects with/without notes}
+
+\item{keyword_id_and}{(integer, vector) filter by keyword id with an and operator}
+
+\item{keyword_id_or}{(integer, vector) filter by keyword id with an or operator}
+
+\item{tags}{(boolean) filter by collection objects with/without tags}
+
+\item{exclude_tags}{(boolean) invert keyword_id_and / keyword_id_or match}
+
+\item{user_id}{(integer) filter by user id}
+
+\item{user_target}{(string) target \code{created} or \code{updated}}
+
+\item{user_date_start}{(string) filter by user date start (ISO 8601)}
+
+\item{user_date_end}{(string) filter by user date end (ISO 8601)}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 
