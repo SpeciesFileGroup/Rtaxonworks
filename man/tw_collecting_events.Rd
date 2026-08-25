@@ -6,79 +6,62 @@
 \title{Collecting events}
 \usage{
 tw_collecting_events(
-  citation_documents = NULL,
-  citations = NULL,
-  collection_objects = NULL,
-  collector_id = NULL,
-  collector_id_or = NULL,
+  collecting_event_id = NULL,
+  collecting_event_object_id = NULL,
+  collection_object_id = NULL,
+  otu_id = NULL,
   collectors = NULL,
-  data_attribute_exact_value = NULL,
-  data_attribute_predicate_id = NULL,
-  data_attribute_value = NULL,
-  data_attributes = NULL,
-  document_label = NULL,
-  elevation_precision = NULL,
-  end_date = NULL,
-  end_date_day = NULL,
-  end_date_month = NULL,
-  end_date_year = NULL,
-  field_notes = NULL,
-  formation = NULL,
+  collector_id = NULL,
+  collector_id_all = NULL,
+  collector_id_or = NULL,
+  collection_objects = NULL,
+  georeferences = NULL,
   geographic_area = NULL,
   geographic_area_id = NULL,
-  geographic_area_mode = NULL,
-  georeferences = NULL,
-  group = NULL,
-  identifier = NULL,
-  identifier_end = NULL,
-  identifier_exact = NULL,
-  identifier_start = NULL,
-  identifier_type = NULL,
-  identifiers = NULL,
-  image_id = NULL,
-  images = NULL,
+  geo_collecting_event_geographic_area = NULL,
+  geo_json = NULL,
+  geo_mode = NULL,
+  geo_shape_id = NULL,
+  geo_shape_type = NULL,
+  wkt = NULL,
+  wkt_geometry_type = NULL,
+  radius = NULL,
+  meta_prioritize_geographic_area = NULL,
   in_labels = NULL,
   in_verbatim_locality = NULL,
-  keyword_id_and = NULL,
-  keyword_id_or = NULL,
-  lithology = NULL,
-  local_identifiers = NULL,
-  match_identifiers_delimiter = NULL,
-  match_identifiers_type = NULL,
-  maximum_elevation = NULL,
-  md5_of_verbatim_label = NULL,
   md5_verbatim_label = NULL,
-  member = NULL,
-  meta_prioritize_geographic_area = NULL,
-  min_ma = NULL,
-  minimum_elevation = NULL,
-  namespace_id = NULL,
-  note_exact = NULL,
-  note_text = NULL,
-  notes = NULL,
-  origin_citation = NULL,
-  otu_id = NULL,
-  print_label = NULL,
-  radius = NULL,
-  recent = NULL,
+  md5_of_verbatim_label = NULL,
   start_date = NULL,
+  end_date = NULL,
+  partial_overlap_dates = NULL,
   start_date_day = NULL,
   start_date_month = NULL,
   start_date_year = NULL,
-  tags = NULL,
-  time_end_hour = NULL,
-  time_end_minute = NULL,
-  time_end_second = NULL,
+  end_date_day = NULL,
+  end_date_month = NULL,
+  end_date_year = NULL,
   time_start_hour = NULL,
   time_start_minute = NULL,
   time_start_second = NULL,
-  token = NULL,
-  project_token = NULL,
+  time_end_hour = NULL,
+  time_end_minute = NULL,
+  time_end_second = NULL,
   use_max = NULL,
   use_min = NULL,
+  maximum_elevation = NULL,
+  minimum_elevation = NULL,
+  elevation_precision = NULL,
+  min_ma = NULL,
+  formation = NULL,
+  group = NULL,
+  lithology = NULL,
+  member = NULL,
+  field_notes = NULL,
+  document_label = NULL,
+  print_label = NULL,
   verbatim_collectors = NULL,
-  verbatim_datum = NULL,
   verbatim_date = NULL,
+  verbatim_datum = NULL,
   verbatim_elevation = NULL,
   verbatim_geolocation_uncertainty = NULL,
   verbatim_habitat = NULL,
@@ -88,7 +71,46 @@ tw_collecting_events(
   verbatim_longitude = NULL,
   verbatim_method = NULL,
   verbatim_trip_identifier = NULL,
-  wkt = NULL,
+  citations = NULL,
+  citation_documents = NULL,
+  origin_citation = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  exclude_confidences = NULL,
+  protocols = NULL,
+  protocol_id_and = NULL,
+  protocol_id_or = NULL,
+  depictions = NULL,
+  data_depictions = NULL,
+  image_id = NULL,
+  images = NULL,
+  data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
+  any_value_attribute = NULL,
+  wildcard_attribute = NULL,
+  identifier = NULL,
+  identifier_end = NULL,
+  identifier_exact = NULL,
+  identifier_start = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  global_identifiers = NULL,
+  local_identifiers = NULL,
+  match_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  namespace_id = NULL,
+  note_exact = NULL,
+  note_text = NULL,
+  notes = NULL,
+  keyword_id_and = NULL,
+  keyword_id_or = NULL,
+  tags = NULL,
+  exclude_tags = NULL,
+  token = NULL,
+  project_token = NULL,
   csv = FALSE,
   page = 0,
   per = 50,
@@ -96,79 +118,62 @@ tw_collecting_events(
 )
 
 tw_ce(
-  citation_documents = NULL,
-  citations = NULL,
-  collection_objects = NULL,
-  collector_id = NULL,
-  collector_id_or = NULL,
+  collecting_event_id = NULL,
+  collecting_event_object_id = NULL,
+  collection_object_id = NULL,
+  otu_id = NULL,
   collectors = NULL,
-  data_attribute_exact_value = NULL,
-  data_attribute_predicate_id = NULL,
-  data_attribute_value = NULL,
-  data_attributes = NULL,
-  document_label = NULL,
-  elevation_precision = NULL,
-  end_date = NULL,
-  end_date_day = NULL,
-  end_date_month = NULL,
-  end_date_year = NULL,
-  field_notes = NULL,
-  formation = NULL,
+  collector_id = NULL,
+  collector_id_all = NULL,
+  collector_id_or = NULL,
+  collection_objects = NULL,
+  georeferences = NULL,
   geographic_area = NULL,
   geographic_area_id = NULL,
-  geographic_area_mode = NULL,
-  georeferences = NULL,
-  group = NULL,
-  identifier = NULL,
-  identifier_end = NULL,
-  identifier_exact = NULL,
-  identifier_start = NULL,
-  identifier_type = NULL,
-  identifiers = NULL,
-  image_id = NULL,
-  images = NULL,
+  geo_collecting_event_geographic_area = NULL,
+  geo_json = NULL,
+  geo_mode = NULL,
+  geo_shape_id = NULL,
+  geo_shape_type = NULL,
+  wkt = NULL,
+  wkt_geometry_type = NULL,
+  radius = NULL,
+  meta_prioritize_geographic_area = NULL,
   in_labels = NULL,
   in_verbatim_locality = NULL,
-  keyword_id_and = NULL,
-  keyword_id_or = NULL,
-  lithology = NULL,
-  local_identifiers = NULL,
-  match_identifiers_delimiter = NULL,
-  match_identifiers_type = NULL,
-  maximum_elevation = NULL,
-  md5_of_verbatim_label = NULL,
   md5_verbatim_label = NULL,
-  member = NULL,
-  meta_prioritize_geographic_area = NULL,
-  min_ma = NULL,
-  minimum_elevation = NULL,
-  namespace_id = NULL,
-  note_exact = NULL,
-  note_text = NULL,
-  notes = NULL,
-  origin_citation = NULL,
-  otu_id = NULL,
-  print_label = NULL,
-  radius = NULL,
-  recent = NULL,
+  md5_of_verbatim_label = NULL,
   start_date = NULL,
+  end_date = NULL,
+  partial_overlap_dates = NULL,
   start_date_day = NULL,
   start_date_month = NULL,
   start_date_year = NULL,
-  tags = NULL,
-  time_end_hour = NULL,
-  time_end_minute = NULL,
-  time_end_second = NULL,
+  end_date_day = NULL,
+  end_date_month = NULL,
+  end_date_year = NULL,
   time_start_hour = NULL,
   time_start_minute = NULL,
   time_start_second = NULL,
-  token = NULL,
-  project_token = NULL,
+  time_end_hour = NULL,
+  time_end_minute = NULL,
+  time_end_second = NULL,
   use_max = NULL,
   use_min = NULL,
+  maximum_elevation = NULL,
+  minimum_elevation = NULL,
+  elevation_precision = NULL,
+  min_ma = NULL,
+  formation = NULL,
+  group = NULL,
+  lithology = NULL,
+  member = NULL,
+  field_notes = NULL,
+  document_label = NULL,
+  print_label = NULL,
   verbatim_collectors = NULL,
-  verbatim_datum = NULL,
   verbatim_date = NULL,
+  verbatim_datum = NULL,
   verbatim_elevation = NULL,
   verbatim_geolocation_uncertainty = NULL,
   verbatim_habitat = NULL,
@@ -178,7 +183,46 @@ tw_ce(
   verbatim_longitude = NULL,
   verbatim_method = NULL,
   verbatim_trip_identifier = NULL,
-  wkt = NULL,
+  citations = NULL,
+  citation_documents = NULL,
+  origin_citation = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  exclude_confidences = NULL,
+  protocols = NULL,
+  protocol_id_and = NULL,
+  protocol_id_or = NULL,
+  depictions = NULL,
+  data_depictions = NULL,
+  image_id = NULL,
+  images = NULL,
+  data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
+  any_value_attribute = NULL,
+  wildcard_attribute = NULL,
+  identifier = NULL,
+  identifier_end = NULL,
+  identifier_exact = NULL,
+  identifier_start = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  global_identifiers = NULL,
+  local_identifiers = NULL,
+  match_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  namespace_id = NULL,
+  note_exact = NULL,
+  note_text = NULL,
+  notes = NULL,
+  keyword_id_and = NULL,
+  keyword_id_or = NULL,
+  tags = NULL,
+  exclude_tags = NULL,
+  token = NULL,
+  project_token = NULL,
   csv = FALSE,
   page = 0,
   per = 50,
@@ -186,117 +230,61 @@ tw_ce(
 )
 }
 \arguments{
-\item{citation_documents}{(boolean) filter by collecting events with citation documents}
+\item{collecting_event_id}{(integer, vector) filter by collecting event id}
 
-\item{citations}{(boolean) filter by collecting events with citations}
+\item{collecting_event_object_id}{(integer) polymorphic filter by object id}
 
-\item{collection_objects}{(boolean) filter by collecting events with collection objects}
-
-\item{collector_id}{(integer, vector) filter by collector id}
-
-\item{collector_id_or}{(integer, vector) filter by collector id (OR)}
-
-\item{collectors}{(boolean) filter by collecting events with collectors}
-
-\item{data_attribute_exact_value}{(string) filter by data attribute exact value}
-
-\item{data_attribute_predicate_id}{(integer, vector) filter by data attribute predicate id}
-
-\item{data_attribute_value}{(string, vector) filter by data attribute value}
-
-\item{data_attributes}{(boolean) filter by collecting events with data attributes}
-
-\item{document_label}{(string)}
-
-\item{elevation_precision}{(numeric)}
-
-\item{end_date}{(string) filter by end date}
-
-\item{end_date_day}{(integer)}
-
-\item{end_date_month}{(integer)}
-
-\item{end_date_year}{(integer)}
-
-\item{field_notes}{(string)}
-
-\item{formation}{(string)}
-
-\item{geographic_area}{(boolean) filter by collecting events with geographic area}
-
-\item{geographic_area_id}{(integer, vector) filter by geographic area id}
-
-\item{geographic_area_mode}{(boolean)}
-
-\item{georeferences}{(boolean) filter by collecting events with georeferences}
-
-\item{group}{(string)}
-
-\item{identifier}{(string) filter by cached identifier}
-
-\item{identifier_end}{(string) filter by identifier end}
-
-\item{identifier_exact}{(boolean) filter by exact match on identifier}
-
-\item{identifier_start}{(string) filter by identifier start}
-
-\item{identifier_type}{(string, vector) filter by identifier type}
-
-\item{identifiers}{(boolean) filter by collecting events with identifiers}
-
-\item{image_id}{(integer, vector) filter by image id}
-
-\item{images}{(boolean) filter by collecting events with images}
-
-\item{in_labels}{(string) wildcard wrapped search against any label}
-
-\item{in_verbatim_locality}{(string) wildcard wrapped search against verbatim locality}
-
-\item{keyword_id_and}{(integer, vector) filter by keyword id (AND)}
-
-\item{keyword_id_or}{(integer, vector) filter by keyword id (OR)}
-
-\item{lithology}{(string)}
-
-\item{local_identifiers}{(boolean) filter by collecting events with local identifiers}
-
-\item{match_identifiers_delimiter}{(string) the delimiter for the match_identifiers parameter}
-
-\item{match_identifiers_type}{(string) the type of match to perform on the identifiers (internal or identifier)}
-
-\item{maximum_elevation}{(numeric) filter by maximum elevation in meters}
-
-\item{md5_of_verbatim_label}{(string)}
-
-\item{md5_verbatim_label}{(string) filter by md5 hash of verbatim label}
-
-\item{member}{(string)}
-
-\item{meta_prioritize_geographic_area}{(string)}
-
-\item{min_ma}{(numeric)}
-
-\item{minimum_elevation}{(numeric) filter by minimum elevation in meters}
-
-\item{namespace_id}{(integer) filter by namespace id}
-
-\item{note_exact}{(boolean) filter by exact match on note}
-
-\item{note_text}{(string) filter by note text}
-
-\item{notes}{(boolean) filter by collecting events with notes}
-
-\item{origin_citation}{(boolean) filter by collecting events with origin citations}
+\item{collection_object_id}{(integer, vector) filter by collection object id}
 
 \item{otu_id}{(integer, vector) filter by otu id}
 
-\item{print_label}{(string)}
+\item{collectors}{(boolean) filter by collecting events with a collector role}
 
-\item{radius}{(integer) filter by radius in meters}
+\item{collector_id}{(integer, vector) filter by collector id}
 
-\item{recent}{(boolean) filter by recent collecting events}
+\item{collector_id_all}{(boolean) require all listed collector ids to match}
 
-\item{start_date}{(string) filter by start date}
+\item{collector_id_or}{(integer, vector) filter by collector id (OR)}
+
+\item{collection_objects}{(boolean) filter by collecting events with collection objects}
+
+\item{georeferences}{(boolean) filter by collecting events with georeferences}
+
+\item{geographic_area}{(boolean) filter by collecting events with a geographic area}
+
+\item{geographic_area_id}{(integer, vector) filter by geographic area id (legacy; prefer geo_shape_id)}
+
+\item{geo_collecting_event_geographic_area}{(boolean) include the geographic area of related collecting events}
+
+\item{geo_json}{(string) GeoJSON geometry for spatial filtering}
+
+\item{geo_mode}{(string) geographic matching mode}
+
+\item{geo_shape_id}{(integer, vector) shape ids for geographic filtering}
+
+\item{geo_shape_type}{(string, vector) shape types (\code{GeographicArea} or \code{Gazetteer})}
+
+\item{wkt}{(string) filter by well-known text describing the search area}
+
+\item{wkt_geometry_type}{(string) restrict wkt filter to a geometry type}
+
+\item{radius}{(integer) buffer radius in meters}
+
+\item{meta_prioritize_geographic_area}{(string)}
+
+\item{in_labels}{(string) wildcard-wrapped search against any label}
+
+\item{in_verbatim_locality}{(string) wildcard-wrapped search against verbatim locality}
+
+\item{md5_verbatim_label}{(string) filter by md5 hash of verbatim label}
+
+\item{md5_of_verbatim_label}{(string) alias for md5_verbatim_label}
+
+\item{start_date}{(string) filter by start date (yyyy-mm-dd)}
+
+\item{end_date}{(string) filter by end date (yyyy-mm-dd)}
+
+\item{partial_overlap_dates}{(boolean) allow partial date-range overlap}
 
 \item{start_date_day}{(integer)}
 
@@ -304,13 +292,11 @@ tw_ce(
 
 \item{start_date_year}{(integer)}
 
-\item{tags}{(boolean) filter by collecting events with tags}
+\item{end_date_day}{(integer)}
 
-\item{time_end_hour}{(integer)}
+\item{end_date_month}{(integer)}
 
-\item{time_end_minute}{(integer)}
-
-\item{time_end_second}{(integer)}
+\item{end_date_year}{(integer)}
 
 \item{time_start_hour}{(integer)}
 
@@ -318,19 +304,43 @@ tw_ce(
 
 \item{time_start_second}{(integer)}
 
-\item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
+\item{time_end_hour}{(integer)}
 
-\item{project_token}{(string) a project token (set with the TW_PROJECT_TOKEN environment variable)}
+\item{time_end_minute}{(integer)}
+
+\item{time_end_second}{(integer)}
 
 \item{use_max}{(boolean)}
 
 \item{use_min}{(boolean)}
 
+\item{maximum_elevation}{(numeric) filter by maximum elevation in meters}
+
+\item{minimum_elevation}{(numeric) filter by minimum elevation in meters}
+
+\item{elevation_precision}{(numeric)}
+
+\item{min_ma}{(numeric)}
+
+\item{formation}{(string)}
+
+\item{group}{(string)}
+
+\item{lithology}{(string)}
+
+\item{member}{(string)}
+
+\item{field_notes}{(string)}
+
+\item{document_label}{(string)}
+
+\item{print_label}{(string)}
+
 \item{verbatim_collectors}{(string)}
 
-\item{verbatim_datum}{(string)}
-
 \item{verbatim_date}{(string)}
+
+\item{verbatim_datum}{(string)}
 
 \item{verbatim_elevation}{(string)}
 
@@ -350,7 +360,85 @@ tw_ce(
 
 \item{verbatim_trip_identifier}{(string)}
 
-\item{wkt}{(string) filter by well-known text describing the search area}
+\item{citations}{(boolean) filter by collecting events with citations}
+
+\item{citation_documents}{(boolean) filter by collecting events with citation documents}
+
+\item{origin_citation}{(boolean) filter by collecting events with origin citations}
+
+\item{confidences}{(boolean) filter by collecting events with confidences}
+
+\item{confidence_level_id}{(integer, vector) filter by confidence level id}
+
+\item{exclude_confidences}{(boolean) exclude collecting events with matching confidences}
+
+\item{protocols}{(boolean) filter by collecting events with protocols}
+
+\item{protocol_id_and}{(integer, vector) match all listed protocol ids}
+
+\item{protocol_id_or}{(integer, vector) match any of the listed protocol ids}
+
+\item{depictions}{(boolean) filter by collecting events with depictions}
+
+\item{data_depictions}{(boolean) filter by collecting events with data depictions}
+
+\item{image_id}{(integer, vector) filter by image id}
+
+\item{images}{(boolean) filter by collecting events with images}
+
+\item{data_attributes}{(boolean) filter by collecting events with data attributes}
+
+\item{data_attribute_predicate_id}{(integer, vector) filter by data attribute predicate id}
+
+\item{data_attribute_exact_value}{(string) filter by data attribute exact value}
+
+\item{data_attribute_value}{(string, vector) filter by data attribute value}
+
+\item{any_value_attribute}{(string, vector) filter by any wildcard-matched attribute value}
+
+\item{wildcard_attribute}{(string, vector) fields to search when using \code{any_value_attribute}}
+
+\item{identifier}{(string) filter by cached identifier}
+
+\item{identifier_end}{(string) filter by identifier end}
+
+\item{identifier_exact}{(boolean) filter by exact match on identifier}
+
+\item{identifier_start}{(string) filter by identifier start}
+
+\item{identifier_type}{(string, vector) filter by identifier type}
+
+\item{identifiers}{(boolean) filter by collecting events with identifiers}
+
+\item{global_identifiers}{(boolean) filter by collecting events with global identifiers}
+
+\item{local_identifiers}{(boolean) filter by collecting events with local identifiers}
+
+\item{match_identifiers}{(string) match identifiers with a delimited string of identifiers}
+
+\item{match_identifiers_delimiter}{(string) the delimiter for the match_identifiers parameter}
+
+\item{match_identifiers_type}{(string) internal or identifier}
+
+\item{namespace_id}{(integer) filter by namespace id}
+
+\item{note_exact}{(boolean) filter by exact match on note}
+
+\item{note_text}{(string) filter by note text}
+
+\item{notes}{(boolean) filter by collecting events with notes}
+
+\item{keyword_id_and}{(integer, vector) filter by keyword id (AND)}
+
+\item{keyword_id_or}{(integer, vector) filter by keyword id (OR)}
+
+\item{tags}{(boolean) filter by collecting events with tags}
+
+\item{exclude_tags}{(boolean) invert keyword_id_and / keyword_id_or match}
+
+\item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
+
+\item{project_token}{(string) a project token (set with the TW_PROJECT_TOKEN environment variable)}
 
 \item{page}{(integer) requested number of offset records (Default: 0)}
 
