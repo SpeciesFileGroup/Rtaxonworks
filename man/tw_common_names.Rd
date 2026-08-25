@@ -7,9 +7,11 @@
 \usage{
 tw_common_names(
   common_name_id = NULL,
+  gazetteer_id = NULL,
   geographic_area_id = NULL,
   language_id = NULL,
   name = NULL,
+  name_exact = NULL,
   otu_id = NULL,
   csv = TRUE,
   token = NULL,
@@ -21,9 +23,11 @@ tw_common_names(
 
 tw_cn(
   common_name_id = NULL,
+  gazetteer_id = NULL,
   geographic_area_id = NULL,
   language_id = NULL,
   name = NULL,
+  name_exact = NULL,
   otu_id = NULL,
   csv = TRUE,
   token = NULL,
@@ -36,11 +40,15 @@ tw_cn(
 \arguments{
 \item{common_name_id}{(integer, vector) filter by common name id}
 
-\item{geographic_area_id}{(integer) filter by geographic area id}
+\item{gazetteer_id}{(integer, vector) filter by gazetteer id}
 
-\item{language_id}{(integer) filter by language id}
+\item{geographic_area_id}{(integer, vector) filter by geographic area id}
+
+\item{language_id}{(integer, vector) filter by language id}
 
 \item{name}{(string) filter by name}
+
+\item{name_exact}{(boolean) filter by exact match on name}
 
 \item{otu_id}{(integer, vector) filter by otu id}
 
