@@ -92,9 +92,9 @@ tw_people(
 
 \item{role}{(string, vector) filter by role class name}
 
-\item{with}{(string, vector) filter to people with a given role (upstream currently 500s for role names)}
+\item{with}{(string, vector) filter to people with a given role}
 
-\item{without}{(string, vector) filter to people without a given role (upstream currently 500s for role names)}
+\item{without}{(string, vector) filter to people without a given role}
 
 \item{only_project_id}{(integer, vector) restrict to people in the given projects}
 

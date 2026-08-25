@@ -18,8 +18,8 @@
 #' @param suffix (string) filter by suffix
 #' @param person_id (integer, vector) filter by person id
 #' @param role (string, vector) filter by role class name
-#' @param with (string, vector) filter to people with a given role (upstream currently 500s for role names)
-#' @param without (string, vector) filter to people without a given role (upstream currently 500s for role names)
+#' @param with (string, vector) filter to people with a given role
+#' @param without (string, vector) filter to people without a given role
 #' @param only_project_id (integer, vector) restrict to people in the given projects
 #' @param except_project_id (integer, vector) exclude people in the given projects
 #' @param except_role (string, vector) exclude people with the given role
