@@ -1,4 +1,4 @@
-## [Unreleased]
+## [0.1.0] - 2026-08-25
 
 ### Added
  - Wrappers for API endpoints added to TaxonWorks since the last release: `tw_biological_associations_graphs` (alias `tw_bag`), `tw_cached_maps` (alias `tw_cm`), `tw_conveyances` (alias `tw_conv`), `tw_field_occurrences` (alias `tw_fo`), `tw_leads` (alias `tw_ld`, dichotomous keys), `tw_news`, `tw_sounds` (alias `tw_snd`), `tw_taxon_determinations` (alias `tw_td`), `tw_pingz` (deep health check), `tw_stats` (project/global statistics), `tw_activity` (recent project activity), `tw_count_valid_species` (unauthenticated citation helper)
@@ -17,6 +17,7 @@
 ### Fixed
  - `tw_collecting_events` now exposes all documented parameters (previously shadowed by an empty stub definition); adds `project_token`
  - Adjust tests to match current sandbox schema and filter behavior
+ - Sync every wrapper's parameter list with the underlying TaxonWorks `Queries::*::Filter` PARAMS + included concerns; add missing params exposed by concerns (Confidences, Depictions, Conveyances, Attributes, Notes, Tags, Identifiers, Protocols, etc.) and remove params that are not on the current permit list
 
 ### Changed
  - Bump CI actions (`actions/cache`, `actions/upload-artifact`) to v4; move Ubuntu runner to 24.04
