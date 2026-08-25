@@ -11,10 +11,6 @@ tw_depictions(
   image_id = NULL,
   otu_id = NULL,
   otu_scope = NULL,
-  keyword_id_and = NULL,
-  keyword_id_or = NULL,
-  tags = NULL,
-  exclude_tags = NULL,
   csv = FALSE,
   token = NULL,
   project_token = NULL,
@@ -38,14 +34,6 @@ tw_depictions(
 'otus', 'collection_objects', 'field_occurrences', 'otu_observations',
 'collection_object_observations', 'type_material',
 'type_material_observations', 'coordinate_otus')}
-
-\item{keyword_id_and}{(integer, vector) match objects tagged with all of the given keyword ids}
-
-\item{keyword_id_or}{(integer, vector) match objects tagged with any of the given keyword ids}
-
-\item{tags}{(boolean) when TRUE, restrict to tagged records; when FALSE, restrict to untagged records}
-
-\item{exclude_tags}{(boolean) when TRUE, invert the keyword_id_and/keyword_id_or match}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 
