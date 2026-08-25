@@ -9,7 +9,14 @@ tw_sources(
   exact_author = NULL,
   author_id = NULL,
   author_id_or = NULL,
+  editor = NULL,
+  exact_editor = NULL,
+  editor_id = NULL,
+  editor_id_or = NULL,
   bibtex_type = NULL,
+  source_id = NULL,
+  taxon_name_id = NULL,
+  descendants = NULL,
   citations = NULL,
   citation_object_type = NULL,
   documents = NULL,
@@ -22,19 +29,25 @@ tw_sources(
   identifier_exact = NULL,
   identifier_start = NULL,
   identifier_end = NULL,
-  ids = NULL,
+  identifier_type = NULL,
   in_project = NULL,
   local_identifiers = NULL,
   match_identifiers = NULL,
   match_identifiers_delimiter = NULL,
   match_identifiers_type = NULL,
+  namespace_id = NULL,
   nomenclature = NULL,
   notes = NULL,
+  note_exact = NULL,
+  note_text = NULL,
   roles = NULL,
   serial = NULL,
   serial_id = NULL,
   source_type = NULL,
   tags = NULL,
+  exclude_tags = NULL,
+  keyword_id_and = NULL,
+  keyword_id_or = NULL,
   title = NULL,
   exact_title = NULL,
   query_term = NULL,
@@ -42,10 +55,16 @@ tw_sources(
   user_target = NULL,
   user_date_start = NULL,
   user_date_end = NULL,
-  venn = NULL,
-  venn_mode = NULL,
+  data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
+  attribute_exact_pair = NULL,
+  attribute_wildcard_pair = NULL,
+  no_value_attribute = NULL,
   with_doi = NULL,
   with_title = NULL,
+  with_pages = NULL,
   topic_id = NULL,
   year_start = NULL,
   year_end = NULL,
@@ -60,7 +79,6 @@ tw_sources(
   crossref = NULL,
   doi = NULL,
   edition = NULL,
-  editor = NULL,
   howpublished = NULL,
   institution = NULL,
   journal = NULL,
@@ -101,21 +119,35 @@ tw_sources(
 
 \item{author_id_or}{(boolean) filter by author ID with/without OR operator}
 
+\item{editor}{(string) filter by editor name}
+
+\item{exact_editor}{(boolean) filter by exact match on the editor parameter}
+
+\item{editor_id}{(integer, vector) filter by one or more editor IDs}
+
+\item{editor_id_or}{(boolean) filter by editor ID with/without OR operator}
+
 \item{bibtex_type}{(string, vector) filter by BibTeX type (e.g., article, book, inproceedings)}
+
+\item{source_id}{(integer, vector) filter by one or more source IDs}
+
+\item{taxon_name_id}{(integer, vector) filter by one or more taxon name IDs}
+
+\item{descendants}{(boolean) include sources referencing descendants of taxon_name_id}
 
 \item{citations}{(boolean) filter by sources with/without citations}
 
-\item{citation_object_type}{(string) filter by citation object type (AssertedDistribution, BiologicalAssociation, TaxonName, TaxonNameRelationship, TypeMaterial)}
+\item{citation_object_type}{(string, vector) filter by citation object type}
 
 \item{documents}{(boolean) filter by sources with/without documents attached}
 
-\item{citations_on_otus}{(boolean) used with taxon_name_id to filter by sources with/without citations on the Otu}
+\item{citations_on_otus}{(boolean) used with taxon_name_id to filter by citations on OTUs}
 
-\item{empty}{(string, vector) filter by an fields that should be empty (e.g., c("journal", "year") for records with no journal and year)}
+\item{empty}{(string, vector) filter by fields that should be empty}
 
-\item{not_empty}{(string, vector) filter by an fields that should not be empty (e.g., c("journal", "year") for records with journal and year)}
+\item{not_empty}{(string, vector) filter by fields that should not be empty}
 
-\item{extend}{(string, vector) extend the response with additional information (e.g., documents, roles)}
+\item{extend}{(string, vector) extend the response (e.g., \code{documents}, \code{roles})}
 
 \item{global_identifiers}{(boolean) filter by sources with/without global identifiers}
 
@@ -123,25 +155,31 @@ tw_sources(
 
 \item{identifier_exact}{(boolean) filter by exact match on the identifier parameter}
 
-\item{identifier_start}{(integer) filter by Identifier range start}
+\item{identifier_start}{(integer) filter by identifier range start}
 
-\item{identifier_end}{(integer) filter by Identfier range end}
+\item{identifier_end}{(integer) filter by identifier range end}
 
-\item{ids}{(integer, vector) filter by one or more source IDs (e.g., internal TaxonWorks IDs)}
+\item{identifier_type}{(string, vector) filter by identifier class type}
 
 \item{in_project}{(boolean) filter by sources in project}
 
 \item{local_identifiers}{(boolean) filter by sources with/without local identifiers}
 
-\item{match_identifiers}{(string) match identifiers with a delimited string of identifiers}
+\item{match_identifiers}{(string) match identifiers with a delimited string}
 
-\item{match_identifiers_delimiter}{(string) the delimiter for the match_identifiers parameter}
+\item{match_identifiers_delimiter}{(string) delimiter for match_identifiers}
 
-\item{match_identifiers_type}{(string) the type of indentifiers to match (internal or identifier)}
+\item{match_identifiers_type}{(string) internal or identifier}
+
+\item{namespace_id}{(integer) filter by namespace ID}
 
 \item{nomenclature}{(boolean) filter by sources with/without nomenclature}
 
 \item{notes}{(boolean) filter by sources with/without notes}
+
+\item{note_exact}{(boolean) require exact match on note text}
+
+\item{note_text}{(string) filter by note text}
 
 \item{roles}{(boolean) filter by sources with/without roles}
 
@@ -149,9 +187,15 @@ tw_sources(
 
 \item{serial_id}{(integer, vector) filter by one or more serial IDs}
 
-\item{source_type}{(string) filter by source type (Source::Bibtex, Source::Human, or Source::Verbatim)}
+\item{source_type}{(string) filter by source type (Source::Bibtex, Source::Human, Source::Verbatim)}
 
 \item{tags}{(boolean) filter by sources with/without tags}
+
+\item{exclude_tags}{(boolean) invert keyword_id_and / keyword_id_or match}
+
+\item{keyword_id_and}{(integer, vector) filter by keyword id with AND operator}
+
+\item{keyword_id_or}{(integer, vector) filter by keyword id with OR operator}
 
 \item{title}{(string) search on the title}
 
@@ -161,19 +205,31 @@ tw_sources(
 
 \item{user_id}{(integer) filter by user ID}
 
-\item{user_target}{(string) use with user_id to filter on records that were created or updated (created, updated)}
+\item{user_target}{(string) use with user_id to filter on \code{created} or \code{updated}}
 
 \item{user_date_start}{(string) filter by user date start (e.g., 2019-01-01)}
 
 \item{user_date_end}{(string) filter by user date end (e.g., 2019-01-20)}
 
-\item{venn}{(string) filter with json or browser URL of a query}
+\item{data_attributes}{(boolean) filter by sources with data attributes}
 
-\item{venn_mode}{(string) the mode of the venn filter: exclude (a), intersect (ab), inverse exclude (b)}
+\item{data_attribute_predicate_id}{(integer, vector) filter by data attribute predicate id}
+
+\item{data_attribute_exact_value}{(string) filter by exact data attribute value}
+
+\item{data_attribute_value}{(string, vector) filter by data attribute value}
+
+\item{attribute_exact_pair}{(string, vector) filter by exact predicate:value pair}
+
+\item{attribute_wildcard_pair}{(string, vector) filter by wildcarded predicate:value pair}
+
+\item{no_value_attribute}{(string, vector) filter by attributes with no value}
 
 \item{with_doi}{(boolean) filter by sources with/without a DOI}
 
 \item{with_title}{(boolean) filter by sources with/without BibTeX title}
+
+\item{with_pages}{(boolean) filter by sources with/without pages}
 
 \item{topic_id}{(integer, vector) filter by topic ID}
 
@@ -202,8 +258,6 @@ tw_sources(
 \item{doi}{(string) filter by wildcard_attribute on DOI}
 
 \item{edition}{(string) filter by wildcard_attribute on edition}
-
-\item{editor}{(string) filter by wildcard_attribute on editor}
 
 \item{howpublished}{(string) filter by wildcard_attribute on howpublished}
 
@@ -260,8 +314,6 @@ tw_sources(
 \item{per}{(integer) requested number of maximum records to be returned (Default: 50, Maximum: 10000)}
 
 \item{...}{curl options passed on to \code{\link[httr2]{verb-GET}}}
-
-\item{namespace_id}{(integer) filter by namespace ID}
 }
 \value{
 list
