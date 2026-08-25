@@ -6,7 +6,7 @@
 \title{Tags}
 \usage{
 tw_tags(
-  tag_id = NULL,
+  keyword_id = NULL,
   tag_object_id = NULL,
   tag_object_type = NULL,
   csv = FALSE,
@@ -18,7 +18,7 @@ tw_tags(
 )
 
 tw_tag(
-  tag_id = NULL,
+  keyword_id = NULL,
   tag_object_id = NULL,
   tag_object_type = NULL,
   csv = FALSE,
@@ -30,7 +30,7 @@ tw_tag(
 )
 }
 \arguments{
-\item{tag_id}{(integer, vector) filter by tag id}
+\item{keyword_id}{(integer, vector) filter by keyword (controlled vocabulary term) id}
 
 \item{tag_object_id}{(integer, vector) filter by tag object id}
 

@@ -9,8 +9,6 @@ tw_citations(
   citation_object_id = NULL,
   citation_object_type = NULL,
   is_original = NULL,
-  model_id = NULL,
-  polymorphic = NULL,
   source_id = NULL,
   csv = FALSE,
   token = NULL,
@@ -28,10 +26,6 @@ tw_citations(
 \item{citation_object_type}{(string, vector) filter by citation object type (AssertedDistribution, BiologicalAssociation, NomenclatureStatus, Otu, TaxonName, TaxonNameRelationship, TypeMaterial)}
 
 \item{is_original}{(boolean) filter by original citation}
-
-\item{model_id}{(string) filter by model ID}
-
-\item{polymorphic}{(boolean) filter by polymorphic citation}
 
 \item{source_id}{(integer) filter by source ID}
 

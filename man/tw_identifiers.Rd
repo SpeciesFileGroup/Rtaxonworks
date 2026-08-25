@@ -12,10 +12,8 @@ tw_identifiers(
   namespace_id = NULL,
   namespace_name = NULL,
   namespace_short_name = NULL,
-  object_global_id = NULL,
   query_string = NULL,
   type = NULL,
-  polymorphic = NULL,
   csv = FALSE,
   token = NULL,
   project_token = NULL,
@@ -39,13 +37,9 @@ tw_identifiers(
 
 \item{namespace_short_name}{(string) filter by a namespace short name}
 
-\item{object_global_id}{(string) filter by an object global ID}
-
 \item{query_string}{(string) filter by a query string on the cached identifier (wildcards allowed)}
 
 \item{type}{(string) filter by identifier type (e.g., Identifier::Local::CatalogNumber)}
-
-\item{polymorphic}{(boolean) filter by polymorphic identifiers}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 

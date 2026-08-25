@@ -6,11 +6,21 @@
 \title{Taxon Name Relationships}
 \usage{
 tw_taxon_name_relationships(
+  ancestors = NULL,
+  descendants = NULL,
   object_taxon_name_id = NULL,
   subject_taxon_name_id = NULL,
   taxon_name_id = NULL,
+  taxon_name_relationship_id = NULL,
   taxon_name_relationship_set = NULL,
   taxon_name_relationship_type = NULL,
+  taxon_name_subject_object = NULL,
+  citations = NULL,
+  citation_documents = NULL,
+  origin_citation = NULL,
+  note_text = NULL,
+  notes = NULL,
+  verifiers = NULL,
   csv = TRUE,
   token = NULL,
   project_token = NULL,
@@ -20,11 +30,21 @@ tw_taxon_name_relationships(
 )
 
 tw_tnr(
+  ancestors = NULL,
+  descendants = NULL,
   object_taxon_name_id = NULL,
   subject_taxon_name_id = NULL,
   taxon_name_id = NULL,
+  taxon_name_relationship_id = NULL,
   taxon_name_relationship_set = NULL,
   taxon_name_relationship_type = NULL,
+  taxon_name_subject_object = NULL,
+  citations = NULL,
+  citation_documents = NULL,
+  origin_citation = NULL,
+  note_text = NULL,
+  notes = NULL,
+  verifiers = NULL,
   csv = TRUE,
   token = NULL,
   project_token = NULL,
@@ -34,15 +54,35 @@ tw_tnr(
 )
 }
 \arguments{
+\item{ancestors}{(boolean) operate on ancestors of taxon_name_id(s)}
+
+\item{descendants}{(boolean) operate on descendants of taxon_name_id(s)}
+
 \item{object_taxon_name_id}{(integer, vector) filter by object taxon name id}
 
 \item{subject_taxon_name_id}{(integer, vector) filter by subject taxon name id}
 
 \item{taxon_name_id}{(integer, vector) filter by taxon name id on both subject and object}
 
-\item{taxon_name_relationship_set}{(string) filter by taxon name relationship set (synonym, classification, status, and (soon) misspelling)}
+\item{taxon_name_relationship_id}{(integer, vector) filter by taxon name relationship id}
+
+\item{taxon_name_relationship_set}{(string, vector) filter by taxon name relationship set (synonym, classification, status, misspelling)}
 
 \item{taxon_name_relationship_type}{(string, vector) filter by taxon name relationship type (e.g., TaxonNameRelationship::Iczn::Invalidating)}
+
+\item{taxon_name_subject_object}{(string) when 'subject', match taxon_name_id to subjects; when 'object', match to objects; when NULL, either}
+
+\item{citations}{(boolean) filter by relationships that have citations}
+
+\item{citation_documents}{(boolean) filter by relationships that have citation documents}
+
+\item{origin_citation}{(boolean) filter by relationships that have an origin citation}
+
+\item{note_text}{(string) filter by note text}
+
+\item{notes}{(boolean) filter by relationships that have notes}
+
+\item{verifiers}{(boolean) filter by relationships that have verifiers}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 

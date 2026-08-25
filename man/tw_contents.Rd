@@ -5,9 +5,23 @@
 \title{Contents}
 \usage{
 tw_contents(
+  content_id = NULL,
   citations = NULL,
   citation_documents = NULL,
   origin_citation = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  without_confidence_level_id = NULL,
+  exclude_confidences = NULL,
+  data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_without_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_wildcard_value = NULL,
+  data_attribute_exact_pair = NULL,
+  data_attribute_wildcard_pair = NULL,
+  depictions = NULL,
+  data_depictions = NULL,
   exact = NULL,
   image_id = NULL,
   images = NULL,
@@ -23,11 +37,39 @@ tw_contents(
 )
 }
 \arguments{
+\item{content_id}{(integer, vector) filter by content id}
+
 \item{citations}{(boolean) filter by contents that have citations}
 
 \item{citation_documents}{(boolean) filter by contents that have citation documents}
 
 \item{origin_citation}{(boolean) filter by contents that have an origin citation}
+
+\item{confidences}{(boolean) filter by contents that have confidences}
+
+\item{confidence_level_id}{(integer, vector) filter by confidence level id}
+
+\item{without_confidence_level_id}{(integer, vector) filter by contents without these confidence level ids}
+
+\item{exclude_confidences}{(boolean) exclude contents with confidences}
+
+\item{data_attributes}{(boolean) filter by contents that have data attributes}
+
+\item{data_attribute_predicate_id}{(integer, vector) filter by data attribute predicate (CVT) ids}
+
+\item{data_attribute_without_predicate_id}{(integer, vector) filter by contents without these data attribute predicate (CVT) ids}
+
+\item{data_attribute_exact_value}{(string, vector) filter by exact data attribute values}
+
+\item{data_attribute_wildcard_value}{(string, vector) filter by wildcarded data attribute values}
+
+\item{data_attribute_exact_pair}{(string, vector) filter by exact predicate:value pairs (format 'predicate_id:value')}
+
+\item{data_attribute_wildcard_pair}{(string, vector) filter by wildcarded predicate:value pairs (format 'predicate_id:value')}
+
+\item{depictions}{(boolean) filter by contents that have depictions}
+
+\item{data_depictions}{(boolean) filter by contents with data depictions}
 
 \item{exact}{(boolean) require exact match on search term}
 

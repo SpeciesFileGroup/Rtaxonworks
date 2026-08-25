@@ -10,7 +10,6 @@ tw_notes(
   note_object_id = NULL,
   note_object_type = NULL,
   text = NULL,
-  polymorphic = NULL,
   csv = FALSE,
   token = NULL,
   project_token = NULL,
@@ -24,7 +23,6 @@ tw_note(
   note_object_id = NULL,
   note_object_type = NULL,
   text = NULL,
-  polymorphic = NULL,
   csv = FALSE,
   token = NULL,
   project_token = NULL,
@@ -41,8 +39,6 @@ tw_note(
 \item{note_object_type}{(string, vector) filter by note object type}
 
 \item{text}{(string) filter by note text}
-
-\item{polymorphic}{(boolean) filter by polymorphic notes}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 
