@@ -8,29 +8,70 @@
 tw_otus(
   id = NULL,
   subresource = NULL,
-  asserted_distribution_ids = NULL,
-  biological_association_ids = NULL,
+  otu_id = NULL,
+  name = NULL,
+  name_exact = NULL,
+  with_name = NULL,
+  taxon_name = NULL,
+  taxon_name_id = NULL,
+  genus_name = NULL,
+  descendants = NULL,
+  ancestrify = NULL,
+  coordinatify = NULL,
+  exclude_taxon_name_relationship = NULL,
+  descriptor_id = NULL,
+  biological_association_id = NULL,
+  biological_associations = NULL,
+  biological_relationship_id = NULL,
+  collecting_event_id = NULL,
+  collection_objects = NULL,
+  common_names = NULL,
+  contents = NULL,
+  dwc_occurrences = NULL,
+  asserted_distributions = NULL,
+  observations = NULL,
+  geo_json = NULL,
+  geo_mode = NULL,
+  geo_shape_id = NULL,
+  geo_shape_type = NULL,
+  radius = NULL,
+  wkt = NULL,
   citations = NULL,
-  citations_documents = NULL,
-  data_attribute_exact_value = NULL,
-  data_attribute_predicate_id = NULL,
-  data_attribute_value = NULL,
-  data_attributes = NULL,
-  data_attributes_attributes = NULL,
+  citation_documents = NULL,
+  origin_citation = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  exclude_confidences = NULL,
+  depictions = NULL,
+  data_depictions = NULL,
   image_id = NULL,
   images = NULL,
+  sound_id = NULL,
+  sounds = NULL,
+  conveyances = NULL,
+  data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
   keyword_id_and = NULL,
   keyword_id_or = NULL,
-  name = NULL,
+  tags = NULL,
+  exclude_tags = NULL,
   note_exact = NULL,
   note_text = NULL,
   notes = NULL,
-  origin_citations = NULL,
-  otu_id = NULL,
-  tags = NULL,
-  taxon_name_classification_id = NULL,
-  taxon_name_id = NULL,
-  taxon_name_relationship_id = NULL,
+  identifier = NULL,
+  identifier_end = NULL,
+  identifier_exact = NULL,
+  identifier_start = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  global_identifiers = NULL,
+  local_identifiers = NULL,
+  match_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  namespace_id = NULL,
   csv = TRUE,
   token = NULL,
   project_token = NULL,
@@ -42,29 +83,70 @@ tw_otus(
 tw_otu(
   id = NULL,
   subresource = NULL,
-  asserted_distribution_ids = NULL,
-  biological_association_ids = NULL,
+  otu_id = NULL,
+  name = NULL,
+  name_exact = NULL,
+  with_name = NULL,
+  taxon_name = NULL,
+  taxon_name_id = NULL,
+  genus_name = NULL,
+  descendants = NULL,
+  ancestrify = NULL,
+  coordinatify = NULL,
+  exclude_taxon_name_relationship = NULL,
+  descriptor_id = NULL,
+  biological_association_id = NULL,
+  biological_associations = NULL,
+  biological_relationship_id = NULL,
+  collecting_event_id = NULL,
+  collection_objects = NULL,
+  common_names = NULL,
+  contents = NULL,
+  dwc_occurrences = NULL,
+  asserted_distributions = NULL,
+  observations = NULL,
+  geo_json = NULL,
+  geo_mode = NULL,
+  geo_shape_id = NULL,
+  geo_shape_type = NULL,
+  radius = NULL,
+  wkt = NULL,
   citations = NULL,
-  citations_documents = NULL,
-  data_attribute_exact_value = NULL,
-  data_attribute_predicate_id = NULL,
-  data_attribute_value = NULL,
-  data_attributes = NULL,
-  data_attributes_attributes = NULL,
+  citation_documents = NULL,
+  origin_citation = NULL,
+  confidences = NULL,
+  confidence_level_id = NULL,
+  exclude_confidences = NULL,
+  depictions = NULL,
+  data_depictions = NULL,
   image_id = NULL,
   images = NULL,
+  sound_id = NULL,
+  sounds = NULL,
+  conveyances = NULL,
+  data_attributes = NULL,
+  data_attribute_predicate_id = NULL,
+  data_attribute_exact_value = NULL,
+  data_attribute_value = NULL,
   keyword_id_and = NULL,
   keyword_id_or = NULL,
-  name = NULL,
+  tags = NULL,
+  exclude_tags = NULL,
   note_exact = NULL,
   note_text = NULL,
   notes = NULL,
-  origin_citations = NULL,
-  otu_id = NULL,
-  tags = NULL,
-  taxon_name_classification_id = NULL,
-  taxon_name_id = NULL,
-  taxon_name_relationship_id = NULL,
+  identifier = NULL,
+  identifier_end = NULL,
+  identifier_exact = NULL,
+  identifier_start = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  global_identifiers = NULL,
+  local_identifiers = NULL,
+  match_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  namespace_id = NULL,
   csv = TRUE,
   token = NULL,
   project_token = NULL,
@@ -76,35 +158,105 @@ tw_otu(
 \arguments{
 \item{id}{(integer) access an OTU by ID}
 
-\item{subresource}{(string) access an API subresource (e.g., inventory/dwc)}
+\item{subresource}{(string) access an API subresource (e.g., \code{inventory/dwc})}
 
-\item{asserted_distribution_ids}{(string) filter by asserted distribution ids}
+\item{otu_id}{(integer, vector) filter by otu id}
 
-\item{biological_association_ids}{(string) filter by biological association ids}
+\item{name}{(string, vector) literal match against \code{Otu#name}}
+
+\item{name_exact}{(boolean) require exact match on name}
+
+\item{with_name}{(boolean) \code{TRUE}: has a name, \code{FALSE}: no name}
+
+\item{taxon_name}{(string) filter by associated taxon name}
+
+\item{taxon_name_id}{(integer, vector) filter by taxon name id}
+
+\item{genus_name}{(string) filter by genus name}
+
+\item{descendants}{(boolean) include OTU descendants}
+
+\item{ancestrify}{(boolean) also include coordinate OTUs for inferred ancestors}
+
+\item{coordinatify}{(boolean) also include coordinate OTUs for the result}
+
+\item{exclude_taxon_name_relationship}{(boolean) exclude via taxon name relationship}
+
+\item{descriptor_id}{(integer, vector) filter by descriptor id}
+
+\item{biological_association_id}{(integer, vector) filter by biological association id}
+
+\item{biological_associations}{(boolean) filter by otus with biological associations}
+
+\item{biological_relationship_id}{(integer, vector) filter by biological relationship id}
+
+\item{collecting_event_id}{(integer, vector) filter by collecting event id}
+
+\item{collection_objects}{(boolean) filter by otus with collection objects}
+
+\item{common_names}{(boolean) filter by otus with common names}
+
+\item{contents}{(boolean) filter by otus with contents}
+
+\item{dwc_occurrences}{(boolean) filter by otus with Darwin Core occurrences}
+
+\item{asserted_distributions}{(boolean) filter by otus with asserted distributions}
+
+\item{observations}{(boolean) filter by otus with observations}
+
+\item{geo_json}{(string) GeoJSON geometry for spatial filtering}
+
+\item{geo_mode}{(string) geographic matching mode}
+
+\item{geo_shape_id}{(integer, vector) shape ids for geographic filtering}
+
+\item{geo_shape_type}{(string, vector) shape types (\code{GeographicArea} or \code{Gazetteer})}
+
+\item{radius}{(integer) buffer radius in meters for \code{geo_json}}
+
+\item{wkt}{(string) filter by well-known text shape}
 
 \item{citations}{(boolean) filter by otus with citations}
 
-\item{citations_documents}{(boolean) filter by otus with citation documents}
+\item{citation_documents}{(boolean) filter by otus with citation documents}
 
-\item{data_attribute_exact_value}{(boolean) require exact match on data attribute value}
+\item{origin_citation}{(boolean) filter by otus with an origin citation}
 
-\item{data_attribute_predicate_id}{(integer) filter by data attribute predicate id}
+\item{confidences}{(boolean) filter by otus with confidences}
 
-\item{data_attribute_value}{(string) filter by data attribute value}
+\item{confidence_level_id}{(integer, vector) filter by confidence level id}
 
-\item{data_attributes}{(boolean) filter by otus with data attributes}
+\item{exclude_confidences}{(boolean) exclude otus with matching confidences}
 
-\item{data_attributes_attributes}{(string) filter by data attributes attributes}
+\item{depictions}{(boolean) filter by otus with depictions}
 
-\item{image_id}{(integer) filter by image id}
+\item{data_depictions}{(boolean) filter by otus with data depictions}
+
+\item{image_id}{(integer, vector) filter by image id}
 
 \item{images}{(boolean) filter by otus with images}
 
-\item{keyword_id_and}{(integer) filter by keyword id with and operator}
+\item{sound_id}{(integer, vector) filter by sound id (via conveyances)}
 
-\item{keyword_id_or}{(integer) filter by keyword id with or operator}
+\item{sounds}{(boolean) filter by otus with sounds}
 
-\item{name}{(string) filter by name}
+\item{conveyances}{(boolean) filter by otus with conveyances}
+
+\item{data_attributes}{(boolean) filter by otus with data attributes}
+
+\item{data_attribute_predicate_id}{(integer, vector) filter by data attribute predicate id}
+
+\item{data_attribute_exact_value}{(string) filter by exact data attribute value}
+
+\item{data_attribute_value}{(string, vector) filter by data attribute value}
+
+\item{keyword_id_and}{(integer, vector) filter by keyword id with and operator}
+
+\item{keyword_id_or}{(integer, vector) filter by keyword id with or operator}
+
+\item{tags}{(boolean) filter by otus with tags}
+
+\item{exclude_tags}{(boolean) invert keyword_id_and / keyword_id_or match}
 
 \item{note_exact}{(boolean) require exact match on note text}
 
@@ -112,17 +264,29 @@ tw_otu(
 
 \item{notes}{(boolean) filter by otus with notes}
 
-\item{origin_citations}{(boolean) filter by otus with origin citations}
+\item{identifier}{(string) filter by identifier}
 
-\item{otu_id}{(integer) filter by otu id}
+\item{identifier_end}{(string) filter by identifier end}
 
-\item{tags}{(boolean) filter by otus with tags}
+\item{identifier_exact}{(boolean) filter by exact match on identifier}
 
-\item{taxon_name_classification_id}{(string) filter by taxon name classification ids}
+\item{identifier_start}{(string) filter by identifier start}
 
-\item{taxon_name_id}{(integer, vector) filter by taxon name id}
+\item{identifier_type}{(string, vector) filter by identifier class type}
 
-\item{taxon_name_relationship_id}{(string, vector) filter by taxon name relationship ids}
+\item{identifiers}{(boolean) filter by otus with identifiers}
+
+\item{global_identifiers}{(boolean) filter by otus with global identifiers}
+
+\item{local_identifiers}{(boolean) filter by otus with local identifiers}
+
+\item{match_identifiers}{(string) match identifiers with a delimited string}
+
+\item{match_identifiers_delimiter}{(string) delimiter for \code{match_identifiers}}
+
+\item{match_identifiers_type}{(string) internal or identifier}
+
+\item{namespace_id}{(integer) filter by namespace id}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 
@@ -145,5 +309,7 @@ Otus
 \examples{
 \dontrun{
 tw_otus()
+tw_otus(id = 1)
+tw_otus(id = 1, subresource = "inventory/dwc")
 }
 }
