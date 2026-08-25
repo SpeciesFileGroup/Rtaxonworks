@@ -8,16 +8,60 @@ tw_images(
   biocuration_class_id = NULL,
   collection_object_id = NULL,
   collection_object_scope = NULL,
-  depictions = NULL,
-  depiction_object_type = NULL,
+  field_occurrence_id = NULL,
+  field_occurrence_scope = NULL,
   image_id = NULL,
   otu_id = NULL,
+  otu_scope = NULL,
+  taxon_name_id = NULL,
+  taxon_name_id_target = NULL,
+  source_id = NULL,
+  depictions = NULL,
+  depiction_object_type = NULL,
+  depiction_caption = NULL,
+  depiction_caption_exact = NULL,
+  metadata_depiction = NULL,
+  type_material_depictions = NULL,
+  freeform_svg = NULL,
+  sled_image = NULL,
+  sled_image_id = NULL,
+  sqed_image = NULL,
+  creator_id = NULL,
+  creator_id_all = NULL,
+  editor_id = NULL,
+  editor_id_all = NULL,
+  owner_id = NULL,
+  owner_id_all = NULL,
+  owner_organization_id = NULL,
+  copyright_holder_id = NULL,
+  copyright_holder_id_all = NULL,
+  copyright_holder_organization_id = NULL,
+  copyright_year = NULL,
+  copyright_after_year = NULL,
+  copyright_prior_to_year = NULL,
+  license = NULL,
   citations = NULL,
   citation_documents = NULL,
   origin_citation = NULL,
+  note_text = NULL,
+  note_exact = NULL,
+  notes = NULL,
   keyword_id_and = NULL,
   keyword_id_or = NULL,
   tags = NULL,
+  exclude_tags = NULL,
+  identifier = NULL,
+  identifier_end = NULL,
+  identifier_exact = NULL,
+  identifier_start = NULL,
+  identifier_type = NULL,
+  identifiers = NULL,
+  global_identifiers = NULL,
+  local_identifiers = NULL,
+  match_identifiers = NULL,
+  match_identifiers_delimiter = NULL,
+  match_identifiers_type = NULL,
+  namespace_id = NULL,
   csv = FALSE,
   token = NULL,
   project_token = NULL,
@@ -27,31 +71,119 @@ tw_images(
 )
 }
 \arguments{
-\item{biocuration_class_id}{(integer, vector) filter by one or more biocuration class IDs}
+\item{biocuration_class_id}{(integer, vector) filter by biocuration class id}
 
-\item{collection_object_id}{(integer, vector) filter by one or more collection object IDs}
+\item{collection_object_id}{(integer, vector) filter by collection object id}
 
-\item{collection_object_scope}{(string) filter by collection object scope (e.g., CollectionObject, Observations, CollectingEvent)}
+\item{collection_object_scope}{(string, vector) collection object scope (\code{all}, \code{collection_objects}, \code{observations}, \code{collecting_events})}
 
-\item{depictions}{(boolean) filter by images that are depictions}
+\item{field_occurrence_id}{(integer, vector) filter by field occurrence id}
 
-\item{depiction_object_type}{(string) filter by depiction object type}
+\item{field_occurrence_scope}{(string, vector) field occurrence scope}
 
-\item{image_id}{(integer, vector) filter by one or more image IDs}
+\item{image_id}{(integer, vector) filter by image id}
 
-\item{otu_id}{(integer, vector) filter by one or more OTU IDs}
+\item{otu_id}{(integer, vector) filter by otu id}
 
-\item{citations}{(boolean) filter by images that have citations}
+\item{otu_scope}{(string, vector) otu scope}
 
-\item{citation_documents}{(boolean) filter by images that have citation documents}
+\item{taxon_name_id}{(integer, vector) filter by taxon name id}
 
-\item{origin_citation}{(boolean) filter by images that have origin citations}
+\item{taxon_name_id_target}{(string) taxon name id match target}
 
-\item{keyword_id_and}{(integer, vector) filter by one or more keyword IDs (AND)}
+\item{source_id}{(integer, vector) filter by source id}
 
-\item{keyword_id_or}{(integer, vector) filter by one or more keyword IDs (OR)}
+\item{depictions}{(boolean) filter by images that are used in a depiction}
 
-\item{tags}{(boolean) filter by images that have tags}
+\item{depiction_object_type}{(string, vector) filter by depiction object type}
+
+\item{depiction_caption}{(string) filter by depiction caption}
+
+\item{depiction_caption_exact}{(boolean) require exact match on depiction caption}
+
+\item{metadata_depiction}{(boolean) filter by images that are metadata depictions}
+
+\item{type_material_depictions}{(boolean) filter by images used in type material depictions}
+
+\item{freeform_svg}{(boolean) filter by images with freeform SVG annotations}
+
+\item{sled_image}{(boolean) filter by sled images}
+
+\item{sled_image_id}{(integer, vector) filter by sled image id}
+
+\item{sqed_image}{(boolean) filter by sqed images}
+
+\item{creator_id}{(integer, vector) filter by image creator (person) id}
+
+\item{creator_id_all}{(boolean) require all listed creator ids to match}
+
+\item{editor_id}{(integer, vector) filter by image editor (person) id}
+
+\item{editor_id_all}{(boolean) require all listed editor ids to match}
+
+\item{owner_id}{(integer, vector) filter by image owner (person) id}
+
+\item{owner_id_all}{(boolean) require all listed owner ids to match}
+
+\item{owner_organization_id}{(integer, vector) filter by owner organization id}
+
+\item{copyright_holder_id}{(integer, vector) filter by copyright holder (person) id}
+
+\item{copyright_holder_id_all}{(boolean) require all listed copyright holder ids to match}
+
+\item{copyright_holder_organization_id}{(integer, vector) filter by copyright holder organization id}
+
+\item{copyright_year}{(integer) filter by exact copyright year}
+
+\item{copyright_after_year}{(integer) filter by copyright year after}
+
+\item{copyright_prior_to_year}{(integer) filter by copyright year before}
+
+\item{license}{(string, vector) filter by license}
+
+\item{citations}{(boolean) filter by images with citations}
+
+\item{citation_documents}{(boolean) filter by images with citation documents}
+
+\item{origin_citation}{(boolean) filter by images with origin citations}
+
+\item{note_text}{(string) filter by note text}
+
+\item{note_exact}{(boolean) require exact match on note text}
+
+\item{notes}{(boolean) filter by images with notes}
+
+\item{keyword_id_and}{(integer, vector) filter by keyword id (AND)}
+
+\item{keyword_id_or}{(integer, vector) filter by keyword id (OR)}
+
+\item{tags}{(boolean) filter by images with tags}
+
+\item{exclude_tags}{(boolean) invert keyword_id_and / keyword_id_or match}
+
+\item{identifier}{(string) filter by identifier}
+
+\item{identifier_end}{(string) filter by identifier end}
+
+\item{identifier_exact}{(boolean) filter by exact match on identifier}
+
+\item{identifier_start}{(string) filter by identifier start}
+
+\item{identifier_type}{(string, vector) filter by identifier class type}
+
+\item{identifiers}{(boolean) filter by images with identifiers}
+
+\item{global_identifiers}{(boolean) filter by images with global identifiers}
+
+\item{local_identifiers}{(boolean) filter by images with local identifiers}
+
+\item{match_identifiers}{(string) match identifiers with a delimited string}
+
+\item{match_identifiers_delimiter}{(string) delimiter for match_identifiers}
+
+\item{match_identifiers_type}{(string) internal or identifier}
+
+\item{namespace_id}{(integer) filter by namespace id}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
 
@@ -71,6 +203,6 @@ Images
 }
 \examples{
 \dontrun{
-tw_images(identifier_id=c(1375290,1375299,1375300))
+tw_images(image_id = c(3739, 4178, 4179))
 }
 }
