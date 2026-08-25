@@ -1,8 +1,8 @@
 #' Data attributes
 #'
 #' @export
-#' @param attribute_subject_id (integer) filter by attribute subject ID
-#' @param attribute_subject_type (string) filter by attribute subject type (e.g., TaxonName)
+#' @param attribute_subject_id (integer, vector) filter by attribute subject ID
+#' @param attribute_subject_type (string, vector) filter by attribute subject type (e.g., TaxonName)
 #' @param controlled_vocabulary_term_id (integer, vector) filter by controlled vocabulary term ID
 #' @param data_attribute_id (integer, vector) filter by data attribute ID
 #' @param type (string) filter by data attribute type
@@ -29,7 +29,8 @@ tw_data_attributes <- function(
         page = page, per = per
     ))
 
-    vector_params <- c("controlled_vocabulary_term_id", "data_attribute_id")
+    vector_params <- c("attribute_subject_id", "attribute_subject_type",
+        "controlled_vocabulary_term_id", "data_attribute_id")
 
     df <- tw_GET(api_base_url(), "/data_attributes", query = args, csv = csv, vector_params = vector_params, ...)
     return(df)

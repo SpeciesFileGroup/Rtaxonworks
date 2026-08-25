@@ -38,9 +38,9 @@ tw_da(
 )
 }
 \arguments{
-\item{attribute_subject_id}{(integer) filter by attribute subject ID}
+\item{attribute_subject_id}{(integer, vector) filter by attribute subject ID}
 
-\item{attribute_subject_type}{(string) filter by attribute subject type (e.g., TaxonName)}
+\item{attribute_subject_type}{(string, vector) filter by attribute subject type (e.g., TaxonName)}
 
 \item{controlled_vocabulary_term_id}{(integer, vector) filter by controlled vocabulary term ID}
 

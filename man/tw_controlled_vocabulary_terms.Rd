@@ -7,6 +7,7 @@
 \title{Controlled vocabulary terms}
 \usage{
 tw_controlled_vocabulary_terms(
+  controlled_vocabulary_term_id = NULL,
   type = NULL,
   csv = FALSE,
   token = NULL,
@@ -17,6 +18,7 @@ tw_controlled_vocabulary_terms(
 )
 
 tw_vocab(
+  controlled_vocabulary_term_id = NULL,
   type = NULL,
   csv = FALSE,
   token = NULL,
@@ -27,6 +29,7 @@ tw_vocab(
 )
 
 tw_cvt(
+  controlled_vocabulary_term_id = NULL,
   type = NULL,
   csv = FALSE,
   token = NULL,
@@ -37,6 +40,8 @@ tw_cvt(
 )
 }
 \arguments{
+\item{controlled_vocabulary_term_id}{(integer, vector) filter by controlled vocabulary term id}
+
 \item{type}{(string) filter by type (BiocurationClass, BiologicalProperty, Keyword, Predicate, Topic)}
 
 \item{token}{(string) a user token (set with the TW_USER_TOKEN environment variable)}
